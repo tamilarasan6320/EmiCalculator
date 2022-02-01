@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.Roi_calFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20,0000 Rs"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loan Amount"
+                            android:textStyle="bold"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16dp"
+                            />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            >
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹0"
+                                android:id="@+id/slider0_et"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold"
+                                android:backgroundTint="@color/primaryColor"
+                                android:inputType="number"
+                                />
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <com.google.android.material.slider.RangeSlider
+                        android:id="@+id/range_slider0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:trackColorActive="@color/primaryColor"
+                        android:valueFrom="0"
+                        android:valueTo="500000"
+                        app:trackColorInactive="#e0e0e0"
+                        app:thumbColor="@color/white"
+                        app:thumbStrokeWidth="2dp"
+                        app:labelBehavior="gone"
+
+                        app:thumbRadius="8dp"
+                        app:haloRadius="15dp"
+                        app:haloColor="@color/primaryColor"
+                        app:thumbStrokeColor="@color/primaryColor"
+                        />
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EMI"
+                            android:textStyle="bold"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16dp"
+                            />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                >
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:id="@+id/slider1_et"
+                                    android:textColor="@color/primaryColor"
+                                    android:textStyle="bold"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:inputType="numberDecimal"
+                                    android:maxLength="5"
+                                    />
+
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <com.google.android.material.slider.RangeSlider
+                        android:id="@+id/range_slider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:trackColorActive="@color/primaryColor"
+                        android:valueFrom="0"
+                        android:valueTo="500000"
+                        app:trackColorInactive="#e0e0e0"
+                        app:thumbColor="@color/white"
+                        app:thumbStrokeWidth="2dp"
+                        app:labelBehavior="gone"
+
+                        app:thumbRadius="8dp"
+                        app:haloRadius="15dp"
+                        app:haloColor="@color/primaryColor"
+                        app:thumbStrokeColor="@color/primaryColor"
+                        />
+
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loan Tenure"
+                            android:textStyle="bold"
+                            android:textColor="@color/primaryColor"
+                            android:textSize="16dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:layout_marginLeft="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            android:id="@+id/ym_et"
+                            />
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/slider2_et"
+                            android:textColor="@color/primaryColor"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/primaryColor"
+                            android:inputType="number"
+                            android:layout_marginLeft="10dp"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:layout_marginTop="12dp"
+                            >
+
+
+
+
+                            <com.google.android.material.tabs.TabLayout
+                                android:layout_width="wrap_content"
+                                android:id="@+id/tab_layoutym"
+                                android:layout_height="20dp"
+                                android:background="@drawable/tab_ym_bg"
+                                app:tabBackground="@drawable/tab_ym_selector"
+                                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                                app:tabTextColor="@color/primaryColor"
+                                app:tabSelectedTextColor="@color/white"
+                                app:tabIndicatorColor="@color/black"
+                                app:tabIndicatorFullWidth="false"
+                                app:tabIndicatorHeight="1dp"
+
+                                />
+
+
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <com.google.android.material.slider.RangeSlider
+                        android:id="@+id/range_slider2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:trackColorActive="@color/primaryColor"
+                        android:valueFrom="0"
+                        app:labelBehavior="gone"
+                        android:valueTo="100"
+                        app:trackColorInactive="#e0e0e0"
+                        app:thumbColor="@color/white"
+                        app:thumbStrokeWidth="2dp"
+                        app:thumbRadius="8dp"
+                        app:haloRadius="15dp"
+                        app:haloColor="@color/primaryColor"
+                        app:thumbStrokeColor="@color/primaryColor"
+                        />
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/calculate_btn"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primaryColor"
+                android:text="Calculate"
+                android:layout_gravity="bottom"
+
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/buttom_sheet"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

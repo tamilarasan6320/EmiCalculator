@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompareLoanActivity"
+    android:background="@drawable/bg"
+    >
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="end"
+        android:id="@+id/drawer_layout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linear_toolbar"
+            android:layout_marginBottom="20dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/toolbar"
+                    android:background="@drawable/ic_menu"
+                    android:backgroundTint="@color/white"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EMI"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:id="@+id/tv1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculator"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/secondaryColor"
+                        android:layout_toRightOf="@+id/tv1"
+                        />
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="2"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Loan 1"
+                android:background="@drawable/loan1bg"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Loan 2"
+                android:background="@drawable/loan2bg"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                />
+
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:textStyle="bold"
+
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Interest"
+                        android:textStyle="bold"
+
+                        android:layout_weight="1"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Interst"
+                        android:textStyle="bold"
+
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tenure"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tenure"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:textStyle="bold"
+
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Type of EMI"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:textStyle="bold"
+
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Type of EMI"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        />
+
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/calculate_btn"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primaryColor"
+                android:text="Calculate"
+                android:layout_gravity="bottom"
+
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/secondaryLightColor"
+            android:layout_gravity="start"
+            app:itemTextColor="@color/primaryColor"
+            app:menu="@menu/activity_main_drawer"
+            app:itemIconTint="@color/primaryDarkColor"
+            app:itemVerticalPadding="20dp"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+    <include
+        layout="@layout/button_sheet_hl"/>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
