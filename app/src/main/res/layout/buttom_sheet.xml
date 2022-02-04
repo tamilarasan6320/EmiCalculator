@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/design_bottom_sheet"
+    android:id="@+id/bottom_sheet_linear"
     android:background="@android:color/transparent"
     app:layout_behavior="@string/bottom_sheet_behavior"
     app:behavior_hideable="false"
@@ -39,19 +39,44 @@
 
                 />
 
-
-
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Total EMI"
-                android:textColor="@color/primaryColor"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Total EMI"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:textColor="@color/primaryColor"
+                        android:id="@+id/totalemi_tv"
+                        android:textSize="18dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,9 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-
                     >
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -82,20 +105,10 @@
                         />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rs"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="2dp"
-                        android:visibility="gone"
-                        android:textColor="@color/primaryColor"
-                        />
-
-                    <TextView
+                        android:id="@+id/principle_percentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="(00.00%)"
-                        android:visibility="gone"
                         android:layout_marginLeft="5dp"
                         android:textColor="@color/primaryColor"
                         />
@@ -127,30 +140,22 @@
 
                     >
 
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:id="@+id/i_tv"
+                        android:textStyle="bold"
+                        android:textColor="@color/primaryColor"
+                        />
 
-                        android:textStyle="bold"
-                        android:textColor="@color/primaryColor"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rs"
-                        android:visibility="gone"
-                        android:layout_marginLeft="2dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/primaryColor"
-                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="(0.00%)"
-                        android:visibility="gone"
+                        android:id="@+id/interest_percentage"
                         android:layout_marginLeft="5dp"
                         android:textColor="@color/primaryColor"
                         />
@@ -195,15 +200,7 @@
                         android:textColor="@color/primaryColor"
                         />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="Rs"
-                        android:layout_marginLeft="5dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/primaryColor"
-                        />
+
 
                 </LinearLayout>
 

@@ -41,7 +41,7 @@ public class Tenure_calFragment extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_tenure_cal, container, false);
 
 
-        LinearLayout linearLayout = rootview.findViewById(R.id.design_bottom_sheet);
+        LinearLayout linearLayout = rootview.findViewById(R.id.bottom_sheet_linear);
         y_m = rootview.findViewById(R.id.ym_et);
 
         bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);

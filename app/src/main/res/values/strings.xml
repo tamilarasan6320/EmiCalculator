@@ -6,6 +6,12 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="loanamount">Loan Amount</string>
+    <string name="_0">0</string>
+    <string name="interest_rate">Interest Rate</string>
+    <string name="loan_tenure">Loan Tenure</string>
+    <string name="calculate">Calculate</string>
+    <string name="currency_symbol">\u20B9</string>
 
 
 </resources>
