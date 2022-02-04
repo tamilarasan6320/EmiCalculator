@@ -197,7 +197,7 @@ public class Emi_calFragment extends Fragment {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoanamtEt.setText("0");
+                LoanamtEt.setText("10,000");
                 LoantenureEt.setText("0");
                 InterestrateEt.setText("0");
                 principle_percentage.setText("(00.00%)");
@@ -218,8 +218,8 @@ public class Emi_calFragment extends Fragment {
 
             }
         });
-        tabLayout.addTab(tabLayout.newTab().setText("M"));
-        tabLayout.addTab(tabLayout.newTab().setText("Y"));
+        tabLayout.addTab(tabLayout.newTab().setText("Month"));
+        tabLayout.addTab(tabLayout.newTab().setText("Year"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_START);
         y_m.setText("(Month)");
 

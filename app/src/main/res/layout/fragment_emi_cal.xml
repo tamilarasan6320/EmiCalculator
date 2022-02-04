@@ -16,9 +16,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp">
+            android:layout_marginRight="10dp">
 
             <TextView
                 android:id="@+id/title"
@@ -60,10 +60,10 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:layout_marginLeft="35dp"
+            android:layout_height="420dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="10dp">
 
@@ -92,6 +92,7 @@
                             android:text="@string/loanamount"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
+                            android:layout_gravity="center"
                             android:textStyle="bold" />
 
                         <RelativeLayout
@@ -109,15 +110,16 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/currency_symbol"
                                     android:textColor="@color/primaryColor"
+                                    android:textSize="20dp"
                                     android:textStyle="bold" />
 
                                 <EditText
                                     android:id="@+id/loanamt_et"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="150dp"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/primaryColor"
                                     android:inputType="number"
-                                    android:text="@string/_0"
+                                    android:text="10,000"
                                     android:textColor="@color/primaryColor"
                                     android:textStyle="bold" />
 
@@ -134,12 +136,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:valueFrom="0"
-                        android:valueTo="500000"
+                        android:valueTo="5000000"
                         app:haloColor="@color/primaryColor"
                         app:haloRadius="15dp"
                         app:labelBehavior="gone"
                         app:thumbColor="@color/white"
                         app:thumbRadius="8dp"
+                        android:stepSize="50000"
                         app:thumbStrokeColor="@color/primaryColor"
                         app:thumbStrokeWidth="2dp"
                         app:trackColorActive="@color/primaryColor"
@@ -166,6 +169,7 @@
                             android:text="@string/interest_rate"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
+                            android:layout_gravity="center"
                             android:textStyle="bold" />
 
                         <RelativeLayout
@@ -185,11 +189,11 @@
 
                                 <EditText
                                     android:id="@+id/interest_et"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/primaryColor"
                                     android:inputType="numberDecimal"
-                                    android:maxLength="3"
+                                    android:maxLength="5"
                                     android:text="@string/_0"
                                     android:textColor="@color/primaryColor"
                                     android:textStyle="bold" />
@@ -200,6 +204,7 @@
                                     android:text="%"
                                     android:textColor="@color/primaryColor"
                                     android:textStyle="bold"
+                                    android:textSize="20dp"
 
 
                                     />
@@ -250,6 +255,7 @@
                             android:text="@string/loan_tenure"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
+                            android:layout_gravity="center"
                             android:textStyle="bold" />
 
                         <TextView
@@ -258,17 +264,19 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
                             android:text=""
+                            android:visibility="gone"
                             android:textColor="@color/black"
                             android:textSize="10dp" />
 
                         <EditText
                             android:id="@+id/tenure_et"
-                            android:layout_width="wrap_content"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:backgroundTint="@color/primaryColor"
                             android:inputType="number"
                             android:text="@string/_0"
+
                             android:textColor="@color/primaryColor"
                             android:textStyle="bold" />
 
@@ -326,7 +334,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="40dp"
                     android:backgroundTint="@color/primaryColor"
                     android:text="@string/calculate"
                     android:textStyle="bold"
