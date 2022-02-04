@@ -60,7 +60,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="420dp"
+            android:layout_height="360dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/loanamount"
                             android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
+                            android:textSize="18dp"
                             android:layout_gravity="center"
                             android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/interest_rate"
                             android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
+                            android:textSize="18dp"
                             android:layout_gravity="center"
                             android:textStyle="bold" />
 
@@ -254,7 +254,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/loan_tenure"
                             android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
+                            android:textSize="18dp"
                             android:layout_gravity="center"
                             android:textStyle="bold" />
 
@@ -268,29 +268,30 @@
                             android:textColor="@color/black"
                             android:textSize="10dp" />
 
-                        <EditText
-                            android:id="@+id/tenure_et"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:backgroundTint="@color/primaryColor"
-                            android:inputType="number"
-                            android:text="@string/_0"
 
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold" />
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal"
                             android:gravity="right">
+                            <EditText
+                                android:id="@+id/tenure_et"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:backgroundTint="@color/primaryColor"
+                                android:inputType="number"
+                                android:text="@string/_0"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold" />
 
 
                             <com.google.android.material.tabs.TabLayout
                                 android:id="@+id/tab_layoutym"
                                 android:layout_width="wrap_content"
                                 android:layout_height="20dp"
+                                android:layout_gravity="center"
                                 android:background="@drawable/tab_ym_bg"
                                 app:tabBackground="@drawable/tab_ym_selector"
                                 app:tabIndicatorColor="@color/black"
@@ -303,7 +304,7 @@
                                 />
 
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
                     </LinearLayout>
@@ -330,11 +331,11 @@
                 <Button
                     android:id="@+id/calculate_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_gravity="bottom"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
                     android:backgroundTint="@color/primaryColor"
                     android:text="@string/calculate"
                     android:textStyle="bold"

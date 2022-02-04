@@ -283,7 +283,7 @@ public class Emi_calFragment extends Fragment {
 
             interest_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), Double.parseDouble(str5)) + ")");
             principleamt_tv.setText("₹ " + LoanamtEt.getText().toString());
-            interestpay_tv.setText("₹ " +str5);
+            interestpay_tv.setText("₹ " +Constant_CurrencyFormat.rupeeFormat(str5).trim());
             totalemi_tv.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
             totalpayment_tv.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(String.valueOf(Math.round(Double.parseDouble(str4)))).trim());
 
