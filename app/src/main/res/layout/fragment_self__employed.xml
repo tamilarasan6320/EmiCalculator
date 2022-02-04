@@ -1,14 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.Self_EmployedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fitsSystemWindows="true"
+        tools:openDrawer="end"
+        android:layout_margin="10dp"
+        android:id="@+id/drawer_layout">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginRight="23dp"
+                app:cardCornerRadius="3dp"
+                >
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp"
+                    android:id="@+id/l1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="KYC (Appication  &amp; Co-Applicat's )"
+                        android:padding="13dp"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/text1"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="1. Pan Card"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="2. Two Photographys"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="3.Address Proof: "
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Residence: Aadhar Card / Driving License / Passport or Any Government Photo ID"
+                        android:gravity="center"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Company: Udyog Aadhar / Trade License / GST / VAT or any government licence which contains address."
+                        android:gravity="center"
+                        android:textColor="@color/primaryColor"
+                        />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="4. Firm / Company Constitution Proof. (Partnership Deed / Certificate of Incorporation / Shops and Establishment Certificate etc.)"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="5. Professional (Doctor / Engineer / CA / Architect etc.) Degree Certificate."
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Income Documents"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="1. Last Three Years' IT Returns, Computation of Income and Audit Report / Balance Sheets (All Firms, Applicant, Co- Applicant) (Balance Sheet Certified by CA)."
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="2. Provisional Balance Sheet of Current Financial Year (with GST Return)."
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="3. Last 12 Months' Bank Statements of All Current and CC accounts (with recent entry)."
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="4.Last 6 Months' Bank Statement of All Saving Accounts (with recent entry)."
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Others  Documents"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="1. Staement of Account (SOA)of all current loans"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="2. Processing fees cheques"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="3. Photocopy of property"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="4. Draft Deed"
+                        android:textColor="@color/primaryColor"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="5. Any others documents may required for verification"
+                        android:textColor="@color/primaryColor"
+                        />
+
+
+
+
+
+
+                </LinearLayout>
+
+                </ScrollView>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/secondaryLightColor"
+            android:layout_gravity="start"
+            app:itemTextColor="@color/primaryColor"
+            app:menu="@menu/activity_main_drawer"
+            app:itemIconTint="@color/primaryDarkColor"
+            app:itemVerticalPadding="23dp"
+            android:layout_marginTop="23dp"
+
+            />
+
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
