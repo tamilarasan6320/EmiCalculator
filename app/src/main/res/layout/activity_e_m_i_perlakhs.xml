@@ -173,6 +173,8 @@
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
+    <include
+        layout="@layout/buttom_sheet_epl"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

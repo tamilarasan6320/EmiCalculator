@@ -48,30 +48,143 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EMI"
+                            android:text="Feedback"
                             android:textSize="18dp"
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:id="@+id/tv1"
                             />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Calculator"
-                            android:layout_marginLeft="5dp"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/secondaryColor"
-                            android:layout_toRightOf="@+id/tv1"
-                            />
+
 
                     </LinearLayout>
 
 
 
+
+
                 </RelativeLayout>
 
+
+
+
             </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="35dp"
+                app:cardCornerRadius="10dp"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    >
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+
+                        android:hint="Name"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile Number"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Feedback"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColorHint="@color/primaryColor"
+                        android:paddingBottom="15dp"
+                        android:backgroundTint="@color/black"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        >
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/clear_text"
+                            android:textStyle="bold"
+                            android:layout_weight="1.2"
+                            android:backgroundTint="@color/white"
+                            android:text="Clear"
+                            android:textColor="@color/primaryColor"
+                            android:layout_marginRight="20dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/calculate_btn"
+                            android:layout_weight="1.2"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/primaryColor"
+                            android:text="Done"
+                            />
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
 
 
 

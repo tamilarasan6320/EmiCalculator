@@ -9,7 +9,6 @@
     android:background="@android:color/transparent"
     app:layout_behavior="@string/bottom_sheet_behavior"
     app:behavior_hideable="false"
-
     app:behavior_peekHeight="100dp"
     >
 

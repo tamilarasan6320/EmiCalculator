@@ -10,18 +10,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
 
 public class EMI_perlakhsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     
     DrawerLayout drawer;
+    private BottomSheetBehavior bottomSheetBehavior;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e_m_i_perlakhs);
+
+        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheetepl);
+
+        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+
 
 
         ImageButton mButton = findViewById(R.id.toolbar);
@@ -33,6 +43,18 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
 
             }
         });
+
+
+        Button button = findViewById(R.id.calculate_btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+
+
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
