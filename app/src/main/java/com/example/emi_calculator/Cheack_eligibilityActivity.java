@@ -111,17 +111,17 @@ public class Cheack_eligibilityActivity extends AppCompatActivity  implements Na
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(Cheack_eligibilityActivity.this, FaqsActivity.class);
+                Intent i = new Intent(Cheack_eligibilityActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(Cheack_eligibilityActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(Cheack_eligibilityActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(Cheack_eligibilityActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(Cheack_eligibilityActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

@@ -123,17 +123,17 @@ public class Current_roi_interestActivity extends AppCompatActivity implements N
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(Current_roi_interestActivity.this, FaqsActivity.class);
+                Intent i = new Intent(Current_roi_interestActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Current_roi_interestActivity.class);
+                Intent i = new Intent(Current_roi_interestActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(Current_roi_interestActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

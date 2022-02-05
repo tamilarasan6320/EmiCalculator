@@ -203,17 +203,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(MainActivity.this, FaqsActivity.class);
+                Intent i = new Intent(MainActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(MainActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(MainActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(MainActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(MainActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

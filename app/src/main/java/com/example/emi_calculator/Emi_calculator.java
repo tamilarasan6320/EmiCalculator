@@ -126,17 +126,17 @@ public class Emi_calculator extends AppCompatActivity implements  NavigationView
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(Emi_calculator.this, FaqsActivity.class);
+                Intent i = new Intent(Emi_calculator.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(Emi_calculator.this, Compond_interestActivity.class);
+                Intent i = new Intent(Emi_calculator.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(Emi_calculator.this, Emi_detailsActivity.class);
+                Intent i = new Intent(Emi_calculator.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

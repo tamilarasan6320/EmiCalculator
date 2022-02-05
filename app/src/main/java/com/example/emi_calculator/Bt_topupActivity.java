@@ -89,17 +89,17 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(Bt_topupActivity.this, FaqsActivity.class);
+                Intent i = new Intent(Bt_topupActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(Bt_topupActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(Bt_topupActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(Bt_topupActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(Bt_topupActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

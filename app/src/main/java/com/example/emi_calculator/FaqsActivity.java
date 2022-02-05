@@ -125,17 +125,17 @@ public class FaqsActivity extends AppCompatActivity implements  NavigationView.O
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(FaqsActivity.this, FaqsActivity.class);
+                Intent i = new Intent(FaqsActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(FaqsActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(FaqsActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(FaqsActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(FaqsActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

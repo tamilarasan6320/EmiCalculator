@@ -124,17 +124,17 @@ public class DocumentActivity extends AppCompatActivity implements NavigationVie
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(DocumentActivity.this, FaqsActivity.class);
+                Intent i = new Intent(DocumentActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(DocumentActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(DocumentActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(DocumentActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(DocumentActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

@@ -105,17 +105,17 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
                 break;
             }
             case R.id.menu_nav8: {
-                Intent i = new Intent(CompareLoanActivity.this, FaqsActivity.class);
+                Intent i = new Intent(CompareLoanActivity.this, InviteActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav9: {
-                Intent i = new Intent(CompareLoanActivity.this, Compond_interestActivity.class);
+                Intent i = new Intent(CompareLoanActivity.this, FeedbackActivity.class);
                 startActivity(i);
                 break;
             }
             case R.id.menu_nav10: {
-                Intent i = new Intent(CompareLoanActivity.this, Emi_detailsActivity.class);
+                Intent i = new Intent(CompareLoanActivity.this, AboutusActivity.class);
                 startActivity(i);
                 break;
             }

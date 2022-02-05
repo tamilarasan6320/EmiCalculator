@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/menu_nav1"
-        android:title="EMi Calculator"
+        android:title="EMI Calculator"
         android:icon="@drawable/menu_icon"
         />
     <item
@@ -31,18 +31,19 @@
     android:icon="@drawable/menu_icon"
     /><item
     android:id="@+id/menu_nav7"
-    android:title="Emi Per Lakhs"
+    android:title="EMI per Lakhs"
     android:icon="@drawable/menu_icon"
     />
     <item
         android:id="@+id/menu_nav8"
-        android:title="FAQs"
+        android:title="Invite Friends"
         android:icon="@drawable/menu_icon"
         />
     <item
         android:id="@+id/menu_nav9"
-        android:title="Compound Interest Calculator"
+        android:title="Feedback"
         android:icon="@drawable/menu_icon"
+
 
         />
 
@@ -50,7 +51,7 @@
 
     <item
         android:id="@+id/menu_nav10"
-        android:title="EMI Details"
+        android:title="About Us"
         android:icon="@drawable/menu_icon"
         />
 
