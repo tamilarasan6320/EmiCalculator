@@ -2,27 +2,20 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="130dp">
+    android:layout_height="80dp"
+    android:background="@color/secondaryLightColor"
+    >
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@color/primaryDarkColor"
-        >
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" HELLO! ADMIN"
-            android:id="@+id/nametxt"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white"
+        <ImageView
+            android:padding="10dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/logo"
+            android:layout_margin="10dp"
             />
-    </LinearLayout>
+
 
 </RelativeLayout>

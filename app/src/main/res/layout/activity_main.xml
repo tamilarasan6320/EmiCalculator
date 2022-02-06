@@ -390,6 +390,7 @@
             app:itemIconTint="@color/primaryDarkColor"
             app:itemVerticalPadding="20dp"
             android:layout_marginTop="20dp"
+            app:headerLayout="@layout/nav_header_main"
 
             />
 
