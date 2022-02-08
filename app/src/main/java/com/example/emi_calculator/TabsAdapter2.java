@@ -5,14 +5,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.emi_calculator.fragment.Amount_calFragment;
 import com.example.emi_calculator.fragment.BikeFragment;
 import com.example.emi_calculator.fragment.CarFragment;
-import com.example.emi_calculator.fragment.Emi_calFragment;
 import com.example.emi_calculator.fragment.HomeFragment;
 import com.example.emi_calculator.fragment.PersonalFragment;
-import com.example.emi_calculator.fragment.Roi_calFragment;
-import com.example.emi_calculator.fragment.Tenure_calFragment;
 
 public class TabsAdapter2 extends FragmentStatePagerAdapter {
     int mNumOfTabs;

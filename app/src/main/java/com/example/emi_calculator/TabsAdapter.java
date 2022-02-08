@@ -1,15 +1,13 @@
 package com.example.emi_calculator;
 
-import android.view.View;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.emi_calculator.fragment.Amount_calFragment;
-import com.example.emi_calculator.fragment.Emi_calFragment;
+import com.example.emi_calculator.calculate_emi.Amount_calFragment;
+import com.example.emi_calculator.calculate_emi.Emi_calFragment;
 import com.example.emi_calculator.fragment.Roi_calFragment;
-import com.example.emi_calculator.fragment.Tenure_calFragment;
+import com.example.emi_calculator.calculate_emi.Tenure_calFragment;
 
 public class TabsAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;

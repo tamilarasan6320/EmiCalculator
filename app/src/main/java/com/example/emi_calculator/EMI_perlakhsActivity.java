@@ -21,6 +21,7 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
     
     DrawerLayout drawer;
     private BottomSheetBehavior bottomSheetBehavior;
+    LinearLayout linearLayout;
 
 
     @Override
@@ -28,7 +29,7 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e_m_i_perlakhs);
 
-        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheetepl);
+        //linearLayout = findViewById(R.id.design_bottom_sheetepl);
 
         bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
 

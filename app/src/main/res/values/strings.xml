@@ -12,6 +12,7 @@
     <string name="loan_tenure">Loan Tenure</string>
     <string name="calculate">Calculate</string>
     <string name="currency_symbol">\u20B9</string>
+    <string name="emi">EMI</string>
 
 
 </resources>

@@ -312,7 +312,7 @@
     </LinearLayout>
 
     <include
-        layout="@layout/buttom_sheet"/>
+        layout="@layout/emi_cal_bottom_sheet"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
