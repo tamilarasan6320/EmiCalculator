@@ -1,10 +1,13 @@
 package com.example.emi_calculator.calculate_emi;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
+import com.example.emi_calculator.Constant.Constant_Functions;
 import com.example.emi_calculator.Constant.Constant_Variable;
 import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateAmount;
@@ -44,8 +48,8 @@ public class Tenure_calFragment extends Fragment {
     LinearLayout linearLayout;
     boolean loantenuremonth = false, loantenureyear = false;
 
-    Utility_CalculateEMI utility_calculateEMI;
     Utility_CalculateTenure utility_calculateTenure;
+    Utility_CalculateEMI utility_calculateEMI;
 
     TextView principle_percentage, interest_percentage, title;
 
@@ -63,8 +67,8 @@ public class Tenure_calFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         rootview = inflater.inflate(R.layout.fragment_tenure_cal, container, false);
-        utility_calculateEMI = new Utility_CalculateEMI();
         utility_calculateTenure = new Utility_CalculateTenure();
+        utility_calculateEMI = new Utility_CalculateEMI();
 
         Bottomheadtext = rootview.findViewById(R.id.bottomheadtext);
 
@@ -96,7 +100,7 @@ public class Tenure_calFragment extends Fragment {
 
 
         loantenuremonth = true;
-        title.setText("Calculate Loan Amount");
+        title.setText("Calculate Loan Tenure");
 
 
         Bottomheadtext.setText("Tenure(in Months) = ");
@@ -228,7 +232,7 @@ public class Tenure_calFragment extends Fragment {
                 principle_percentage.setText("(00.00%)");
                 interest_percentage.setText("(00.00%)");
                 principleamt_tv.setText("0");
-                interestpay_tv.setText(InterestrateEt.getText().toString() + "%");
+                interestpay_tv.setText("0");
                 totalpayment_tv.setText("₹ " + "0");
                 totalamt_tv.setText("₹ " + "0");
 
@@ -259,21 +263,37 @@ public class Tenure_calFragment extends Fragment {
             Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
         }else{
             String emiamount = utility_calculateEMI.getEmiamount(LoanamtEt.getText().toString(), "" + 999, InterestrateEt.getText().toString(), "0");
-            String str2 = (Math.round(Double.parseDouble(utility_calculateTenure.getTotalPayable(EmiEt.getText().toString().replaceAll(",", "")))) - Math.round(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")))) + "";
-            double doubleValue = valueOf.doubleValue() + Double.parseDouble(str2);
 
-            try {
-                totalamt_tv.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(doubleValue)));
+            Double valueOf4 = Double.valueOf(Double.parseDouble(emiamount));
+            if (valueOf2.doubleValue() > valueOf4.doubleValue()){
+                String str = utility_calculateTenure.gettenure(LoanamtEt.getText().toString(), EmiEt.getText().toString(), InterestrateEt.getText().toString());
+
+                String str2 = (Math.round(Double.parseDouble(utility_calculateTenure.getTotalPayable(EmiEt.getText().toString().replaceAll(",", "")))) - Math.round(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")))) + "";
+                double doubleValue = valueOf.doubleValue() + Double.parseDouble(str2);
+
+                principle_percentage.setText("(" + Constant_Functions.getPercentage(doubleValue, valueOf.doubleValue()) + ")");
+                interest_percentage.setText("(" + Constant_Functions.getPercentage(doubleValue, Double.parseDouble(str2.replaceAll(",", ""))) + ")");
+                totalamt_tv.setText(str);
                 principleamt_tv.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")))));
                 interestpay_tv.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(Double.parseDouble(str2))));
-
+                totalpayment_tv.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(doubleValue)));
+                SharedPreferences.Editor edit = getActivity().getSharedPreferences("ShareMessage", 0).edit();
+                edit.putString("loanamount", principleamt_tv.getText().toString());
+                edit.putString("intrestrate", InterestrateEt.getText().toString()+ " %");
+                edit.putString("tenure", (Float.parseFloat(str) / 12.0f) + " Years (" + str + " Months)");
+                edit.putString("eminAmount", EmiEt.getText().toString());
+                edit.putString("totalintrestpayable", rupees+this.interestpay_tv.getText().toString());
+                edit.putString("totalpayable", rupees+totalpayment_tv.getText().toString());
+                edit.apply();
 
 
             }
-            catch (Exception e){
-                Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            else{
+                new AlertDialog.Builder(getActivity()).setTitle("Alert").setMessage("Enter your EMI more than " + valueOf4).setPositiveButton("OK", (DialogInterface.OnClickListener) null).show();
 
             }
+
+
 
 
 

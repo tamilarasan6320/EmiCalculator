@@ -13,6 +13,17 @@
     <string name="calculate">Calculate</string>
     <string name="currency_symbol">\u20B9</string>
     <string name="emi">EMI</string>
+    <string name="interest">Interest</string>
+    <string name="amount">Amount</string>
+    <string name="percentage">%</string>
+    <string name="tenure">Tenure</string>
+    <string name="months">Months</string>
+
+    <string-array name="emitype">
+        <item>EMI Type</item>
+        <item>Reducing</item>
+        <item>Flat</item>
+    </string-array>
 
 
 </resources>

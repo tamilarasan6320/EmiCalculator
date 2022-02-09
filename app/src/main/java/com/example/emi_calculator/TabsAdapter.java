@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.emi_calculator.calculate_emi.Amount_calFragment;
 import com.example.emi_calculator.calculate_emi.Emi_calFragment;
-import com.example.emi_calculator.fragment.Roi_calFragment;
+import com.example.emi_calculator.calculate_emi.Roi_calFragment;
 import com.example.emi_calculator.calculate_emi.Tenure_calFragment;
 
 public class TabsAdapter extends FragmentStatePagerAdapter {

@@ -127,39 +127,202 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amount"
+                    android:textSize="16dp"
+                    android:textColor="@color/primaryColor"
+                    android:layout_gravity="center"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="2"
                     >
-
-                    <EditText
+                    <LinearLayout
+                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Amount"
-                        android:textStyle="bold"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"/>
+                        <EditText
+                            android:id="@+id/amtEt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:maxLength="13"
+                            android:inputType="number"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:layout_marginRight="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_weight="1"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:padding="10dp"
-                        android:layout_marginRight="10dp"
-                        />
-                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Amount"
-                        android:textStyle="bold"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"/>
+                        <EditText
+                            android:id="@+id/amtEt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:inputType="number"
+                            android:maxLength="13"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:layout_marginRight="10dp"
+                            />
 
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/interest"
+                    android:textSize="16dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/primaryColor"
+                    android:layout_gravity="center"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
                         android:layout_weight="1"
-                        android:padding="10dp"
-                        />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textColor="@color/primaryColor"/>
+                        <EditText
+                            android:id="@+id/interestEt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:maxLength="5"
+                            android:inputType="numberDecimal"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:layout_marginRight="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textColor="@color/primaryColor"/>
+                        <EditText
+                            android:id="@+id/interestEt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5"
+                            android:layout_marginRight="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tenure(In Months)"
+                    android:textSize="16dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/primaryColor"
+                    android:layout_gravity="center"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/tenureEt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:layout_marginRight="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/tenureEt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
+                            android:paddingBottom="15dp"
+                            android:backgroundTint="@color/primaryColor"
+                            android:padding="10dp"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:layout_marginRight="10dp"
+                            />
+
+                    </LinearLayout>
 
 
 
@@ -170,117 +333,21 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     >
-
-                    <EditText
+                    <Spinner
+                        android:id="@+id/typespin1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Interest"
-                        android:textStyle="bold"
-
+                        android:layout_height="40dp"
                         android:layout_weight="1"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:padding="10dp"
-                        android:layout_marginRight="10dp"
-                        />
-                    <EditText
+                        android:entries="@array/emitype"/>
+                    <Spinner
+                        android:id="@+id/typespin2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Interst"
-                        android:textStyle="bold"
-
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-
+                        android:entries="@array/emitype"/>
 
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    >
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Tenure"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:padding="10dp"
-                        android:layout_marginRight="10dp"
-                        />
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Tenure"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:textStyle="bold"
-
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    >
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Type of EMI"
-                        android:layout_weight="1"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:textStyle="bold"
-
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:padding="10dp"
-                        android:layout_marginRight="10dp"
-                        />
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Type of EMI"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1"
-                        android:textStyle="bold"
-                        android:padding="10dp"
-                        />
-
-
-
-                </LinearLayout>
-
-
-
-
             </LinearLayout>
 
             <Button
@@ -292,7 +359,7 @@
                 android:id="@+id/calculate_btn"
                 android:textStyle="bold"
                 android:backgroundTint="@color/primaryColor"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:layout_gravity="bottom"
 
                 />
@@ -324,7 +391,7 @@
 
     </androidx.drawerlayout.widget.DrawerLayout>
     <include
-        layout="@layout/button_sheet_hl"/>
+        layout="@layout/bottom_sheet_compare_loan"/>
 
 
 

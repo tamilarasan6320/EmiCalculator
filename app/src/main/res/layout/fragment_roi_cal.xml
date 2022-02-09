@@ -1,117 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.Roi_calFragment">
+    tools:background="@drawable/bg"
+    tools:context=".calculate_emi.Emi_calFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
+            android:layout_marginRight="10dp">
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20,0000 Rs"
                 android:padding="5dp"
+                android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:textStyle="bold"
-                />
+                android:text="Calculate EMI"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/reset"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_baseline_refresh_24"/>
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/share"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_baseline_share_24"/>
 
-        </LinearLayout>
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="360dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="35dp"
-            app:cardCornerRadius="10dp"
-            >
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
 
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Loan Amount"
-                            android:textStyle="bold"
+                            android:text="@string/loanamount"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
-                            />
-                        <RelativeLayout
-                            android:layout_width="match_parent"
+                            android:layout_gravity="center"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="right"
-                            >
-                            <EditText
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="₹0"
-                                android:id="@+id/slider0_et"
+                                android:text="@string/currency_symbol"
                                 android:textColor="@color/primaryColor"
-                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/loanamt_et"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
                                 android:backgroundTint="@color/primaryColor"
                                 android:inputType="number"
-                                />
-                        </RelativeLayout>
+                                android:text=""
+                                android:textSize="20dp"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold" />
 
+                        </LinearLayout>
 
 
                     </LinearLayout>
+
                     <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/range_slider0"
+                        android:id="@+id/loanamt_rs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        app:trackColorActive="@color/primaryColor"
                         android:valueFrom="0"
-                        android:valueTo="500000"
-                        app:trackColorInactive="#e0e0e0"
-                        app:thumbColor="@color/white"
-                        app:thumbStrokeWidth="2dp"
-                        app:labelBehavior="gone"
-
-                        app:thumbRadius="8dp"
-                        app:haloRadius="15dp"
+                        android:valueTo="5000000"
                         app:haloColor="@color/primaryColor"
+                        app:haloRadius="15dp"
+                        app:labelBehavior="gone"
+                        app:thumbColor="@color/white"
+                        app:thumbRadius="8dp"
+                        android:stepSize="50000"
                         app:thumbStrokeColor="@color/primaryColor"
-                        />
-
-
-
+                        app:thumbStrokeWidth="2dp"
+                        app:trackColorActive="@color/primaryColor"
+                        app:trackColorInactive="#e0e0e0" />
 
 
                 </RelativeLayout>
@@ -119,191 +149,186 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EMI"
-                            android:textStyle="bold"
+                            android:text="@string/emi"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
-                            />
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="right"
+                            android:layout_gravity="center"
+                            android:textStyle="bold" />
 
-                            >
-                            <LinearLayout
+                        <LinearLayout
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="10dp"
-                                >
-                                <EditText
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:id="@+id/slider1_et"
-                                    android:textColor="@color/primaryColor"
-                                    android:textStyle="bold"
-                                    android:backgroundTint="@color/primaryColor"
-                                    android:inputType="numberDecimal"
-                                    android:maxLength="5"
-                                    />
+                                android:text="@string/currency_symbol"
+                                android:textColor="@color/primaryColor"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
 
+                            <EditText
+                                android:id="@+id/emi_et"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/primaryColor"
+                                android:inputType="number"
+                                android:text=""
+                                android:textSize="20dp"
+                                android:textColor="@color/primaryColor"
+                                android:textStyle="bold" />
 
-                            </LinearLayout>
-                        </RelativeLayout>
-
+                        </LinearLayout>
 
 
                     </LinearLayout>
+
                     <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/range_slider1"
+                        android:id="@+id/emi_rs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        app:trackColorActive="@color/primaryColor"
                         android:valueFrom="0"
-                        android:valueTo="500000"
-                        app:trackColorInactive="#e0e0e0"
-                        app:thumbColor="@color/white"
-                        app:thumbStrokeWidth="2dp"
-                        app:labelBehavior="gone"
-
-                        app:thumbRadius="8dp"
-                        app:haloRadius="15dp"
+                        android:valueTo="5000000"
                         app:haloColor="@color/primaryColor"
+                        app:haloRadius="15dp"
+                        app:labelBehavior="gone"
+                        app:thumbColor="@color/white"
+                        app:thumbRadius="8dp"
+                        android:stepSize="50000"
                         app:thumbStrokeColor="@color/primaryColor"
-                        />
-
-
-
+                        app:thumbStrokeWidth="2dp"
+                        app:trackColorActive="@color/primaryColor"
+                        app:trackColorInactive="#e0e0e0" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
-                    >
+                    android:layout_marginRight="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Loan Tenure"
-                            android:textStyle="bold"
+                            android:text="@string/loan_tenure"
                             android:textColor="@color/primaryColor"
                             android:textSize="16dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            android:layout_marginLeft="4dp"
-                            android:textColor="@color/black"
-                            android:textSize="10dp"
-                            android:id="@+id/ym_et"
-                            />
+                            android:layout_gravity="center"
+                            android:textStyle="bold" />
 
-                        <EditText
+                        <TextView
+                            android:id="@+id/ym_et"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
-                            android:id="@+id/slider2_et"
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold"
+                            android:layout_marginLeft="4dp"
+                            android:text=""
+                            android:visibility="gone"
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                        <EditText
+                            android:id="@+id/tenure_et"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
                             android:backgroundTint="@color/primaryColor"
                             android:inputType="number"
-                            android:layout_marginLeft="10dp"
-                            />
+                            android:text=""
+                            android:textSize="20dp"
+                            android:textColor="@color/primaryColor"
+                            android:textStyle="bold" />
 
-                        <RelativeLayout
+
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="right"
-                            android:layout_marginTop="12dp"
-                            >
-
+                            android:orientation="horizontal"
+                            android:gravity="right">
 
 
 
                             <com.google.android.material.tabs.TabLayout
-                                android:layout_width="wrap_content"
                                 android:id="@+id/tab_layoutym"
+                                android:layout_width="wrap_content"
                                 android:layout_height="20dp"
+                                android:layout_gravity="center"
                                 android:background="@drawable/tab_ym_bg"
                                 app:tabBackground="@drawable/tab_ym_selector"
-                                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
-                                app:tabTextColor="@color/primaryColor"
-                                app:tabSelectedTextColor="@color/white"
                                 app:tabIndicatorColor="@color/black"
                                 app:tabIndicatorFullWidth="false"
                                 app:tabIndicatorHeight="1dp"
+                                app:tabSelectedTextColor="@color/white"
+                                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                                app:tabTextColor="@color/primaryColor"
 
                                 />
 
 
-                        </RelativeLayout>
-
+                        </LinearLayout>
 
 
                     </LinearLayout>
+
                     <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/range_slider2"
+                        android:id="@+id/tenure_rs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        app:trackColorActive="@color/primaryColor"
                         android:valueFrom="0"
-                        app:labelBehavior="gone"
                         android:valueTo="100"
-                        app:trackColorInactive="#e0e0e0"
-                        app:thumbColor="@color/white"
-                        app:thumbStrokeWidth="2dp"
-                        app:thumbRadius="8dp"
-                        app:haloRadius="15dp"
                         app:haloColor="@color/primaryColor"
+                        app:haloRadius="15dp"
+                        app:labelBehavior="gone"
+                        app:thumbColor="@color/white"
+                        app:thumbRadius="8dp"
                         app:thumbStrokeColor="@color/primaryColor"
-                        />
-
-
-
+                        app:thumbStrokeWidth="2dp"
+                        app:trackColorActive="@color/primaryColor"
+                        app:trackColorInactive="#e0e0e0" />
 
 
                 </RelativeLayout>
 
+
+                <Button
+                    android:id="@+id/calculate_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="@string/calculate"
+                    android:textStyle="bold"
+
+                    />
+
+
             </LinearLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="20dp"
-                android:id="@+id/calculate_btn"
-                android:textStyle="bold"
-                android:backgroundTint="@color/primaryColor"
-                android:text="Calculate"
-                android:layout_gravity="bottom"
-
-                />
 
 
         </androidx.cardview.widget.CardView>
@@ -311,8 +336,7 @@
 
     </LinearLayout>
 
-    <include
-        layout="@layout/emi_cal_bottom_sheet"/>
+    <include layout="@layout/emi_cal_bottom_sheet" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

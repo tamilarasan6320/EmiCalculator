@@ -9,7 +9,6 @@
     android:background="@android:color/transparent"
     app:layout_behavior="@string/bottom_sheet_behavior"
     app:behavior_hideable="false"
-
     app:behavior_peekHeight="100dp"
     >
 
@@ -38,11 +37,6 @@
                 android:layout_marginBottom="10dp"
 
                 />
-
-
-
-
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -78,6 +72,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/emi1_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -97,6 +92,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/interest1_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -124,6 +120,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/emi2_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -143,6 +140,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/interest2_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -170,6 +168,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/emidiff_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -189,6 +188,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/interestdiff_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RS 0"
@@ -228,6 +228,7 @@
                     android:layout_weight="1"
                     />
                 <TextView
+                    android:id="@+id/total_repay1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RS 0"
@@ -256,6 +257,7 @@
                     android:layout_weight="1"
                     />
                 <TextView
+                    android:id="@+id/total_repay2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RS 0"
@@ -284,6 +286,7 @@
                     android:layout_weight="1"
                     />
                 <TextView
+                    android:id="@+id/total_repaydiff_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RS 0"
@@ -297,11 +300,21 @@
 
 
             </LinearLayout>
+            <Button
+                android:id="@+id/share"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/primaryColor"
+                android:text="Share"
+                android:layout_gravity="end"
+                />
 
 
 
 
         </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 
