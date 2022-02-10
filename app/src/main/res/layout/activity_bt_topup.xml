@@ -77,9 +77,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginRight="25dp"
             app:cardCornerRadius="10dp"
             >
 
@@ -93,87 +93,460 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="5dp"
                     >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/primaryColor"
+                        android:text="@string/select_company"/>
 
 
-                    <EditText
+                    <Spinner
+                        android:id="@+id/company_spin"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="BT Top up for Home Loan"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
+                        android:layout_height="40dp"
+                        android:entries="@array/company"
                         />
-                    <EditText
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Salary"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        />
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Sanction Loan Amount"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        />
+                        android:textSize="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/primaryColor"
+                        android:text="@string/select_segment"/>
 
-                    <EditText
+
+                    <Spinner
+                        android:id="@+id/segment_spin"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:entries="@array/segments"
+                        />
+                    <LinearLayout
+                        tools:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Current Balance"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        />
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:id="@+id/tilSanctionedAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/hint_sanctioned_amount">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etSanctionedAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                    <EditText
+
+                    </LinearLayout>
+                    <LinearLayout
+                        tools:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="No of EMI's Paid"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        />
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:id="@+id/tilOutstandingAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/outstanding_amount">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etOutstandingAmount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
+
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/number_of_emi_paid">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etEMIPaid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="3"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        <EditText
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+                            <TextView
+                                android:textSize="18sp"
+                                android:textColor="@color/primaryColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/multipliers"/>
+                            <TextView
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/primaryColor"
+                                android:id="@+id/tvMultipliers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        tools:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="BT Amount"
                             android:layout_weight="1"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:layout_marginRight="10dp"
-                            />
-                        <EditText
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currency_symbol"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/bt_amount">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etBTAmount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="14"
+                                    android:inputType="number"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Top up Amount"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
                             android:layout_weight="1"
-                            android:padding="10dp"
-                            />
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currency_symbol"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/topup_amount">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etTopupAmount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="14"
+                                    android:inputType="number"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        tools:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/percentage"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/btroi">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etBTROI"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="5"
+                                    android:inputType="numberDecimal"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/percentage"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/top_roi">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etToupROI"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="14"
+                                    android:inputType="number"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        tools:visibility="gone"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="5"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_weight="3"
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/tenure">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etTenure"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="3" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <RadioGroup
+                            android:layout_gravity="bottom"
+                            android:orientation="horizontal"
+                            android:layout_width="0dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2">
+                                <RadioButton
+                                    android:id="@+id/rbTenureYears"
+                                    android:text="Years"
+                                    android:gravity="center"
+                                    style="@style/rbSwitch"
+                                    android:checked="true"
+                                    android:textSize="12dp"/>
+                                <RadioButton
+                                    android:id="@+id/rbTenureMonth"
+                                    android:text="Months"
+                                    android:gravity="center"
+                                    style="@style/rbSwitch"
+                                    android:textSize="12dp"/>
+                        </RadioGroup>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        tools:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currency_symbol"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/bt_emi">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etBTEmi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="14"
+                                    android:inputType="number"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currency_symbol"
+                                android:textColor="@color/primaryColor"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:textSize="20dp"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_marginStart="3dp"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.Design.TextInputLayout"
+                                android:hint="@string/topup_emi">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etToupEmi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="14"
+                                    android:inputType="number"
+                                    />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="5"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_weight="3"
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/processing_fees">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etProcessingFees"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:maxLength="14" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <RadioGroup
+                            android:layout_gravity="bottom"
+                            android:orientation="horizontal"
+                            android:layout_width="0dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_height="40dp" android:layout_weight="2">
+                            <RadioButton
+                                android:id="@+id/rbProfeesPR"
+                                android:text="@string/percentage"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:checked="true"
+                                android:textSize="12dp"/>
+                            <RadioButton
+                                android:id="@+id/rbProfeesRS"
+                                android:text="@string/currency_symbol"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:textSize="12dp"/>
+                        </RadioGroup>
 
 
 
@@ -181,122 +554,224 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
-
-                        <EditText
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="BT ROI"
-                            android:layout_weight="1"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:layout_marginRight="10dp"
-                            />
-                        <EditText
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/processing_fees_with_gst">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etProcessingGST"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="5"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_weight="3"
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/insurance">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etInsurance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:maxLength="14" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <RadioGroup
+                            android:layout_gravity="bottom"
+                            android:orientation="horizontal"
+                            android:layout_width="0dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_height="40dp" android:layout_weight="2">
+                            <RadioButton
+                                android:id="@+id/rbInsurancePR"
+                                android:text="@string/percentage"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:checked="true"
+                                android:textSize="12dp"/>
+                            <RadioButton
+                                android:id="@+id/rbInsuranceRS"
+                                android:text="@string/currency_symbol"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:textSize="12dp"/>
+                        </RadioGroup>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        tools:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Top up ROI"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            />
-
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/insurance_with_gst">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etInsuranceGST"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
-
-                        <EditText
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="BT Tenure"
-                            android:layout_weight="1"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:layout_marginRight="10dp"
-                            />
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Top up Tenure"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            />
-
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/topup_emi_with_insurance">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etToupEMIInsurance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
-
-                        <EditText
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="BT ROI"
-                            android:layout_weight="1"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:padding="10dp"
-                            android:layout_marginRight="10dp"
-                            />
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Top up ROI"
-                            android:textColorHint="@color/primaryColor"
-                            android:paddingBottom="15dp"
-                            android:backgroundTint="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            />
-
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/total_emi">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etTotalEMI"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
                     </LinearLayout>
-
-                    <EditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Foir"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
-                        />
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:hint="@string/customer_name">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:hint="@string/customer_mobile">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLength="12"
+                            android:inputType="number"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:hint="@string/customer_reference">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerRemarks"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="40dp"
                         android:layout_marginRight="40dp"
                         android:layout_marginBottom="40dp"
-                        android:id="@+id/calculate_btn"
+                        android:id="@+id/save_btn"
                         android:textStyle="bold"
                         android:backgroundTint="@color/primaryColor"
                         android:text="Done"

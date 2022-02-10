@@ -43,5 +43,29 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="bj_et_amount">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:longClickable">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxLength">15</item>
+        <item name="android:digits">1234567890</item>
+        <item name="android:drawableRight">@drawable/ic_rupee</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:inputType">number</item>
+    </style>
+    <style name="rbSwitch">
+        <item name="android:textColor">@color/primaryDarkColor</item>
+        <item name="android:gravity">left|center_horizontal|clip_horizontal</item>
+        <item name="android:background">@drawable/custom_btn_radio</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
 </resources>
 

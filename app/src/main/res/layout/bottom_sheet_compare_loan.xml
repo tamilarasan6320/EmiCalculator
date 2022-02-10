@@ -301,8 +301,9 @@
 
             </LinearLayout>
             <Button
+                android:visibility="gone"
                 android:id="@+id/share"
-                android:layout_margin="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@color/primaryColor"

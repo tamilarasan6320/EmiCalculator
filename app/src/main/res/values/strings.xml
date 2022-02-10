@@ -18,12 +18,46 @@
     <string name="percentage">%</string>
     <string name="tenure">Tenure</string>
     <string name="months">Months</string>
+    <string name="select_company">Select Company</string>
+    <string name="select_segment">Select Segment</string>
 
     <string-array name="emitype">
         <item>EMI Type</item>
         <item>Reducing</item>
         <item>Flat</item>
     </string-array>
+
+    <string-array name="company">
+        <item>BF</item>
+
+    </string-array>
+    <string-array name="segments">
+        <item>Super WOW</item>
+        <item>WOW</item>
+        <item>WOW Lite</item>
+        <item>Normal</item>
+
+    </string-array>
+
+    <string name="hint_sanctioned_amount">Sanctioned Amount</string>
+    <string name="outstanding_amount">Outstanding Amount</string>
+    <string name="number_of_emi_paid">Number of EMI Paid</string>
+    <string name="multipliers">MULTIPLIERS :</string>
+    <string name="bt_amount">BT Amount</string>
+    <string name="topup_amount">Topup Amount</string>
+    <string name="btroi">BT ROI</string>
+    <string name="top_roi">Topup ROI</string>
+    <string name="topup_emi">Topup EMI</string>
+    <string name="bt_emi">BT EMI</string>
+    <string name="processing_fees">Processing Fees</string>
+    <string name="processing_fees_with_gst">Processing Fees With GST</string>
+    <string name="insurance">Insurance</string>
+    <string name="insurance_with_gst">Insurance with GST</string>
+    <string name="topup_emi_with_insurance">Topup EMI With Insurance</string>
+    <string name="total_emi">Total EMI</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_mobile">Customer Mobile</string>
+    <string name="customer_reference">Customer Reference</string>
 
 
 </resources>

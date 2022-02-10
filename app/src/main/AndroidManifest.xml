@@ -29,6 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="io.fabric.ApiKey" android:value="ae5de019a851cee96696a4c7c019c214d1629e6c"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3491660567793370~2218547045"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.example.emi_calculator.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

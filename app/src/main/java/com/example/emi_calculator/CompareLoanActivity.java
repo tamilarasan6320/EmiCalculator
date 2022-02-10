@@ -3,13 +3,20 @@ package com.example.emi_calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +35,11 @@ import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
 public class CompareLoanActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
@@ -41,6 +53,7 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
     Utility_CalculateLoanCompare utility_calculateLoanCompare;
     String rupees = "₹ ";
     String rs = "₹";
+    Button Share;
 
 
     @Override
@@ -49,6 +62,7 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
         setContentView(R.layout.activity_compare_loan);
 
         utility_calculateLoanCompare = new Utility_CalculateLoanCompare();
+        Share = findViewById(R.id.share);
 
 
 
@@ -75,6 +89,17 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
         TotalRepay1 = findViewById(R.id.total_repay1_tv);
         TotalRepay2 = findViewById(R.id.total_repay2_tv);
         TotalRepayDiff = findViewById(R.id.total_repaydiff_tv);
+
+        Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View rootView = CompareLoanActivity.this.getWindow().getDecorView().getRootView();
+                rootView.setDrawingCacheEnabled(true);
+                Bitmap createBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
+                rootView.setDrawingCacheEnabled(false);
+                shareImage(createBitmap, CompareLoanActivity.this);
+            }
+        });
 
         AmountEt1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -180,6 +205,36 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
 
 
 
+    }
+    private void shareImage(Bitmap bitmap, Activity activity) {
+        Uri uri;
+        Date date = new Date();
+        DateFormat.format("yyyy-MM-dd_hh:mm:ss", date);
+        File createExternalStoragePrivateFile = createExternalStoragePrivateFile(bitmap, date.toString(), activity);
+        Intent intent = new Intent("android.intent.action.SEND");
+        if (Build.VERSION.SDK_INT < 23) {
+            uri = Uri.parse(createExternalStoragePrivateFile.getAbsolutePath());
+        } else {
+            uri = FileProvider.getUriForFile(activity, activity.getBaseContext().getPackageName() + ".provider", createExternalStoragePrivateFile);
+        }
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("android.intent.extra.STREAM", uri);
+        activity.startActivity(Intent.createChooser(intent, "Share Image"));
+    }
+
+
+    private File createExternalStoragePrivateFile(Bitmap bitmap, String str, Context context) {
+        File externalFilesDir = context.getExternalFilesDir("EMICalculator");
+        File file = new File(externalFilesDir, str + ".jpg");
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file;
     }
 
     private void calculate()
