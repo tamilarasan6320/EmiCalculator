@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import butterknife.OnTextChanged;
 
@@ -42,12 +44,6 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
     private DrawerLayout drawer;
     Spinner SegmentSpin;
     TextView Multipliers_tv;
-    RadioButton TenureYears_rb,TenureMonth_rb,ProfeesPR_rb,ProfeesRS_rb,InsurancePR_rb,InsuranceRS_rb;
-    EditText
-            BTAmount_et, BTROI_et,
-            ToupROI_et,Tenure_et,BTEmi_et,ToupEmi_et,
-            ProcessingFees_et,ProcessingGST_et,Insurance_et,
-            InsuranceGST_et,ToupEMIInsurance_et,TotalEMI_et,CustomerName_et,CustomerMobile_et,CustomerRemarks_et;
     TextInputLayout TillSanctionedAmount;
     Button Save_btn;
     ImageButton ToolIcon;
@@ -68,6 +64,48 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
     EditText EMIPaid_et;
     @BindView(R.id.etTopupAmount)
     EditText TopupAmount_et;
+    @BindView(R.id.etBTAmount)
+    EditText BTAmount_et;
+    @BindView(R.id.etBTROI)
+    EditText BTROI_et;
+    @BindView(R.id.etToupROI)
+    EditText ToupROI_et;
+    @BindView(R.id.etTenure)
+    EditText Tenure_et;
+    @BindView(R.id.rbTenureYears)
+    RadioButton TenureYears_rb;
+    @BindView(R.id.rbTenureMonth)
+    RadioButton TenureMonth_rb;
+    @BindView(R.id.etBTEmi)
+    EditText BTEmi_et;
+    @BindView(R.id.etToupEmi)
+    EditText ToupEmi_et;
+    @BindView(R.id.etProcessingFees)
+    EditText ProcessingFees_et;
+    @BindView(R.id.etProcessingGST)
+    EditText ProcessingGST_et;
+    @BindView(R.id.rbProfeesPR)
+    RadioButton ProfeesPR_rb;
+    @BindView(R.id.rbProfeesRS)
+    RadioButton ProfeesRS_rb;
+    @BindView(R.id.etInsurance)
+    EditText Insurance_et;
+    @BindView(R.id.etInsuranceGST)
+    EditText InsuranceGST_et;
+    @BindView(R.id.rbInsurancePR)
+    RadioButton InsurancePR_rb;
+    @BindView(R.id.rbInsuranceRS)
+    RadioButton InsuranceRS_rb;
+    @BindView(R.id.etToupEMIInsurance)
+    EditText ToupEMIInsurance_et;
+    @BindView(R.id.etTotalEMI)
+    EditText TotalEMI_et;
+    @BindView(R.id.etCustomerName)
+    EditText CustomerName_et;
+    @BindView(R.id.etCustomerMobile)
+    EditText CustomerMobile_et;
+    @BindView(R.id.etCustomerRemarks)
+    EditText CustomerRemarks_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,30 +119,16 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
 
         SegmentSpin = findViewById(R.id.segment_spin);
         Multipliers_tv = findViewById(R.id.tvMultipliers);
-        TenureYears_rb = findViewById(R.id.rbTenureYears);
-        TenureMonth_rb = findViewById(R.id.rbTenureMonth);
-        ProfeesPR_rb = findViewById(R.id.rbProfeesPR);
-        ProfeesRS_rb = findViewById(R.id.rbProfeesRS);
-        InsurancePR_rb = findViewById(R.id.rbInsurancePR);
-        InsuranceRS_rb = findViewById(R.id.rbInsuranceRS);
 
         TillSanctionedAmount = findViewById(R.id.tilSanctionedAmount);
-        BTAmount_et = findViewById(R.id.etBTAmount);
-        BTROI_et = findViewById(R.id.etBTROI);
-        ToupROI_et = findViewById(R.id.etToupROI);
-        Tenure_et = findViewById(R.id.etTenure);
-        BTEmi_et = findViewById(R.id.etBTEmi);
-        ToupEmi_et = findViewById(R.id.etToupEmi);
-        ProcessingFees_et = findViewById(R.id.etProcessingFees);
-        ProcessingGST_et = findViewById(R.id.etProcessingGST);
-        Insurance_et = findViewById(R.id.etInsurance);
-        InsuranceGST_et = findViewById(R.id.etInsuranceGST);
-        ToupEMIInsurance_et = findViewById(R.id.etToupEMIInsurance);
-        TotalEMI_et = findViewById(R.id.etTotalEMI);
-        CustomerName_et = findViewById(R.id.etCustomerName);
-        CustomerMobile_et = findViewById(R.id.etCustomerMobile);
-        CustomerRemarks_et = findViewById(R.id.etCustomerRemarks);
+
+
+
         Save_btn = findViewById(R.id.save_btn);
+
+        TenureYears_rb.setTextColor(getResources().getColor(R.color.white));
+        ProfeesPR_rb.setTextColor(getResources().getColor(R.color.white));
+        InsurancePR_rb.setTextColor(getResources().getColor(R.color.white));
 
         ToolIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,7 +213,8 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
         return this.TenureMonth_rb.isChecked() ? Integer.parseInt(Tenure_et.getText().toString()) : Integer.parseInt(Tenure_et.getText().toString()) * 12;
     }
     public double mo12003B() {
-        return (TextUtils.isEmpty(EMIPaid_et.getText()) || this.f3806n.size() <= 0) ? Utils.DOUBLE_EPSILON : DB_BTBankSegmentMultiplier.getInstance(this).getBankSegmentMultiplier(this.f3806n.get(this.SegmentSpin.getSelectedItemPosition()).getBTBankSegmentID(), Integer.parseInt(this.EMIPaid_et.getText().toString()));
+        return 1;
+        //return (TextUtils.isEmpty(EMIPaid_et.getText())) ? Utils.DOUBLE_EPSILON : DB_BTBankSegmentMultiplier.getInstance(this).getBankSegmentMultiplier(this.f3806n.get(this.SegmentSpin.getSelectedItemPosition()).getBTBankSegmentID(), Integer.parseInt(this.EMIPaid_et.getText().toString()));
     }
     public double mo12021T() {
         if (TextUtils.isEmpty(SanctionedAmount_et.getText()) || TextUtils.isEmpty(EMIPaid_et.getText()) || TextUtils.isEmpty(OutstandingAmount_et.getText())) {
@@ -270,6 +295,30 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
 
         return false;
     }
+    @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etInsurance})
+    public void onInsuranceChange(CharSequence charSequence) {
+        mo12045u();
+    }
+    @OnClick({R.id.rbProfeesPR})
+    public void onClickRbProfeesPR(View view) {
+        mo12019R(ProfeesPR_rb);
+    }
+    @OnClick({R.id.rbProfeesRS})
+    public void onClickRbProfeesRS(View view) {
+        mo12019R(ProfeesRS_rb);
+    }
+    @OnClick({R.id.rbInsuranceRS})
+    public void onClickrbRbInsuranceRS(View view) {
+        mo12018Q(InsuranceRS_rb);
+    }
+
+    public void mo12019R(RadioButton radioButton) {
+        ProfeesPR_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        ProfeesRS_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        radioButton.setTextColor(getResources().getColor(R.color.white));
+        mo12045u();
+    }
+
     public void mo12011J() {
         if (!TextUtils.isEmpty(this.SanctionedAmount_et.getText()) && !TextUtils.isEmpty(this.OutstandingAmount_et.getText())) {
             if (Double.parseDouble(clearFormet(this.SanctionedAmount_et.getText().toString())) < Double.parseDouble(clearFormet(this.OutstandingAmount_et.getText().toString()))) {
@@ -281,6 +330,49 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
     }
     public String clearFormet(String str) {
         return str.toString().replaceAll("[^\\d.]+", "");
+    }
+    @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etProcessingFees})
+    public void onProcessingFeesChange(CharSequence charSequence) {
+        mo12045u();
+    }
+    @OnClick({R.id.rbTenureYears})
+    public void onClickRbTenureYears(View view) {
+        mo12020S(TenureYears_rb);
+    }
+    @OnClick({R.id.rbInsurancePR})
+    public void onClickRbInsurancePR(View view) {
+        mo12018Q(InsurancePR_rb);
+    }
+
+    public void mo12018Q(RadioButton radioButton) {
+        InsurancePR_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        InsuranceRS_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        radioButton.setTextColor(getResources().getColor(R.color.white));
+        mo12045u();
+    }
+
+    public void mo12020S(RadioButton radioButton) {
+        TenureMonth_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        TenureYears_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        radioButton.setTextColor(getResources().getColor(R.color.White));
+        mo12045u();
+    }
+    @OnClick({R.id.rbTenureMonth})
+    public void onClickRbTenureMonth(View view) {
+        mo12020S(TenureMonth_rb);
+    }
+
+    @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etTenure})
+    public void onTenureChange(CharSequence charSequence) {
+        mo12045u();
+    }
+    @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etBTROI})
+    public void onBTROIChange(CharSequence charSequence) {
+        mo12045u();
+    }
+    @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etBTAmount})
+    public void onBTAmountChange(CharSequence charSequence) {
+        mo12045u();
     }
     @OnItemSelected(R.id.company_spin)
     public void onItemSelectedSpCompany(Spinner spinner, int i) {
