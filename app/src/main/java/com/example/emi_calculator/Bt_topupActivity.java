@@ -9,7 +9,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +18,6 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.emi_calculator.Databasehelper.DB_BTBankSegmentMultiplier;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
 import com.example.emi_calculator.adapter.AdapterBTBankSegment;
 import com.example.emi_calculator.adapter.AdapterBTCompany;
@@ -256,7 +254,7 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(Bt_topupActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(Bt_topupActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -287,6 +285,11 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(Bt_topupActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(Bt_topupActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

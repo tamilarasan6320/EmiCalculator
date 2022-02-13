@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.emi_calculator.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class AboutusActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -73,7 +72,7 @@ public class AboutusActivity extends AppCompatActivity implements NavigationView
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(AboutusActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(AboutusActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -104,6 +103,11 @@ public class AboutusActivity extends AppCompatActivity implements NavigationView
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(AboutusActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(AboutusActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

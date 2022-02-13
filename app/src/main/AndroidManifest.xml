@@ -19,7 +19,7 @@
         <activity android:name=".FaqsActivity" />
         <activity android:name=".Current_roi_interestActivity" />
         <activity android:name=".CompareLoanActivity" />
-        <activity android:name=".Cheack_eligibilityActivity" />
+        <activity android:name=".Check_eligibilityActivity" />
         <activity android:name=".Bt_topupActivity" />
         <activity android:name=".Emi_calculator" />
         <activity android:name=".MainActivity">

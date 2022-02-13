@@ -7,9 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
-import android.view.ActionProvider;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -105,7 +103,7 @@ public class FaqsActivity extends AppCompatActivity implements  NavigationView.O
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(FaqsActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(FaqsActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -136,6 +134,11 @@ public class FaqsActivity extends AppCompatActivity implements  NavigationView.O
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(FaqsActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(FaqsActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

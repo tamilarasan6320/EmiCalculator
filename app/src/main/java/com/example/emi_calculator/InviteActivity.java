@@ -72,7 +72,7 @@ public class InviteActivity extends AppCompatActivity implements NavigationView.
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(InviteActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(InviteActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -103,6 +103,11 @@ public class InviteActivity extends AppCompatActivity implements NavigationView.
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(InviteActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(InviteActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

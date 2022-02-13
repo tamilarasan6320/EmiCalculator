@@ -103,7 +103,7 @@ public class Current_roi_interestActivity extends AppCompatActivity implements N
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(Current_roi_interestActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -134,6 +134,11 @@ public class Current_roi_interestActivity extends AppCompatActivity implements N
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(Current_roi_interestActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(Current_roi_interestActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

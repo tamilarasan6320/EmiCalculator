@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -363,7 +362,7 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(CompareLoanActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(CompareLoanActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -394,6 +393,11 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(CompareLoanActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(CompareLoanActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

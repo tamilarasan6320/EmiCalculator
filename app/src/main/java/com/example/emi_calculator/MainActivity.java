@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 
 import com.google.android.material.navigation.NavigationView;
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Cheack_eligibilityActivity.class);
+                Intent intent = new Intent(MainActivity.this, Check_eligibilityActivity.class);
                 startActivity(intent);
             }
         });
@@ -183,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(MainActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(MainActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -214,6 +213,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(MainActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(MainActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }

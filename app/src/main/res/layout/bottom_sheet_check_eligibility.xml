@@ -71,15 +71,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Loan Based on Salary"
-                        android:textStyle="bold"
-                        android:textSize="14dp"
+                        android:text="@string/loan_based_on_salary"
+                        android:textSize="12dp"
                         />
 
                     <TextView
+                        android:id="@+id/activity__eligible_tv_loan_based_on_salary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RS 0"
+                        android:text="0"
                         android:textSize="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/primaryColor"
@@ -89,16 +89,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Loan Based on Agreement"
-                        android:textStyle="bold"
-                        android:textSize="14dp"
+                        android:text="@string/loan_based_on_agreement"
+                        android:textSize="12dp"
                         android:layout_marginTop="10dp"
                         />
 
                     <TextView
+                        android:id="@+id/activity__eligible_tv_agreement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RS 0"
+                        android:text="0"
                         android:textSize="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/primaryColor"
@@ -117,15 +117,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Laoan Based on  Property"
-                        android:textStyle="bold"
-                        android:textSize="14dp"
+                        android:text="@string/laan_based_on_property"
+                        android:textSize="12dp"
                         />
 
                     <TextView
+                        android:id="@+id/activity__eligible_tv_property"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RS 0"
+                        android:text="0"
                         android:textSize="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/primaryColor"
@@ -135,16 +135,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="EMI per Lakhs"
-                        android:textStyle="bold"
-                        android:textSize="14dp"
+                        android:text="@string/emi_per_lakhs"
+                        android:textSize="12dp"
                         android:layout_marginTop="10dp"
                         />
 
                     <TextView
+                        android:id="@+id/activity__eligible_tv_emi_per_lac"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RS 0"
+                        android:text="0"
                         android:textSize="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/primaryColor"
@@ -182,9 +182,10 @@
                     android:layout_weight="1"
                     />
                 <TextView
+                    android:id="@+id/activity__eligible_tv_minimum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RS 0"
+                    android:text="0"
                     android:textColor="@color/primaryColor"
                     android:textSize="18dp"
                     android:layout_weight="1"
@@ -193,6 +194,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/activity__eligible_tv_emi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="(EMI : 0)"

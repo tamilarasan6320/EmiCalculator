@@ -38,6 +38,63 @@
         <item>Normal</item>
 
     </string-array>
+    <string-array name="maxsalarypercent">
+        <item>"35"</item>
+        <item>"40"</item>
+        <item>"45"</item>
+        <item>"50"</item>
+        <item>"55"</item>
+        <item>"60"</item>
+        <item>"65"</item>
+        <item>"70"</item>
+        <item>"75"</item>
+        <item>"80"</item>
+        <item>"85"</item>
+        <item>"90"</item>
+        <item>"95"</item>
+
+
+    </string-array>
+    <string-array name="ltvmaxpropervalue">
+        <item>"60"</item>
+        <item>"65"</item>
+        <item>"70"</item>
+        <item>"75"</item>
+        <item>"80"</item>
+        <item>"85"</item>
+        <item>"90"</item>
+        <item>"95"</item>
+        <item>"100"</item>
+
+
+    </string-array>
+    <string-array name="percentagreementvalue">
+        <item>"80"</item>
+        <item>"90"</item>
+        <item>"100"</item>
+        <item>"110"</item>
+        <item>"120"</item>
+        <item>"130"</item>
+        <item>"140"</item>
+        <item>"150"</item>
+        <item>"160"</item>
+        <item>"170"</item>
+        <item>"180"</item>
+        <item>"190"</item>
+        <item>"200"</item>
+
+
+    </string-array>
+    <string-array name="compoundingfrequency">
+        <item>Yearly</item>
+        <item>Half-Yearly</item>
+        <item>Quarterly</item>
+        <item>Monthly</item>
+        <item>Half-Monthly</item>
+        <item>Weekly</item>
+        <item>Daily</item>
+
+    </string-array>
 
     <string name="hint_sanctioned_amount">Sanctioned Amount</string>
     <string name="outstanding_amount">Outstanding Amount</string>
@@ -58,6 +115,31 @@
     <string name="customer_name">Customer Name</string>
     <string name="customer_mobile">Customer Mobile</string>
     <string name="customer_reference">Customer Reference</string>
+    <string name="monthly_salary">Monthly Salary</string>
+    <string name="salary_details">Salary Details</string>
+    <string name="foir_max_of_salary">FOIR(Max % of Salary)</string>
+    <string name="existing_emi">Existing EMI</string>
+    <string name="eligible_emi">Eligible EMI</string>
+    <string name="interest_rate_per_year">Interest Rate Per Year</string>
+    <string name="tenure_in_years">Tenure in Years</string>
+    <string name="property_details">Property Details</string>
+    <string name="property_value">Property Value</string>
+    <string name="document_details">Document Details</string>
+    <string name="agreement_value">Agreement Value</string>
+    <string name="ltv_max_of_property_value">LTV (Max. % of Property Value)</string>
+    <string name="of_agreement_value">% of Agreement Value</string>
+    <string name="loan_based_on_salary">Loan Based on Salary</string>
+    <string name="laan_based_on_property">Laan Based on Property</string>
+    <string name="loan_based_on_agreement">Loan Based on Agreement</string>
+    <string name="emi_per_lakhs">EMI per Lakhs</string>
+    <string name="compound_interest_calculator">Compound Interest Calculator</string>
+    <string name="principal_amount">Principal Amount</string>
+    <string name="rate_of_return">Rate of Return</string>
+    <string name="compounding_frequency">Compounding Frequency</string>
+    <string name="compound_interest_amount">Compound Interest Amount</string>
+    <string name="principle_amount">Principle Amount</string>
+    <string name="interest_on_total_amount">Interest % on Total Amount</string>
+    <string name="total_amount">Total Amount</string>
 
 
 </resources>

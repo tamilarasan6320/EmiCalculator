@@ -90,7 +90,7 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
                 break;
             }
             case R.id.menu_nav4: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Cheack_eligibilityActivity.class);
+                Intent i = new Intent(EMI_perlakhsActivity.this, Check_eligibilityActivity.class);
                 startActivity(i);
                 break;
             }
@@ -121,6 +121,11 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
             }
             case R.id.menu_nav10: {
                 Intent i = new Intent(EMI_perlakhsActivity.this, AboutusActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_compound: {
+                Intent i = new Intent(EMI_perlakhsActivity.this, Compond_interestActivity.class);
                 startActivity(i);
                 break;
             }
