@@ -24,4 +24,7 @@
     <color name="primaryTextColor">#ffffff</color>
 
     <color name="secondaryTextColor">#000000</color>
+    <color name="alternate">#f9f9f9</color>
+    <color name="btn_option">#6ab1d6</color>
+
 </resources>

@@ -19,12 +19,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Constant.Constant_Functions;
 import com.example.emi_calculator.Constant.Constant_Variable;
 import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
+import com.example.emi_calculator.statistics.Design_StatisticsActivity;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.slider.RangeSlider;
@@ -38,6 +40,7 @@ public class Emi_calFragment extends Fragment {
     EditText LoanamtEt, InterestrateEt, LoantenureEt;
     TabLayout tabLayout;
     TextView y_m;
+    Button Schedule;
 
 
     BottomSheetBehavior bottomSheetBehavior;
@@ -57,6 +60,8 @@ public class Emi_calFragment extends Fragment {
     View rootview;
     ImageView reset,share;
     TextView Bottomheadtext;
+    String emivalue,interestamt;
+    String currency = "₹";
 
 
     public Emi_calFragment() {
@@ -73,6 +78,7 @@ public class Emi_calFragment extends Fragment {
         utility_calculateEMI = new Utility_CalculateEMI();
 
         Bottomheadtext = rootview.findViewById(R.id.bottomheadtext);
+        Schedule = rootview.findViewById(R.id.schedule);
 
         loanamtSlider = rootview.findViewById(R.id.loanamt_rs);
         interestrateSlider = rootview.findViewById(R.id.interest_rs);
@@ -110,6 +116,37 @@ public class Emi_calFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Year"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_START);
         y_m.setText("(Month)");
+
+        Schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean z;
+                if (LoanamtEt.getText().length() <= 0 || InterestrateEt.getText().length() <= 0 || LoantenureEt.getText().length() <= 0) {
+                    Toast.makeText(getActivity(), "View statistics after Calculate EMI", Toast.LENGTH_SHORT).show();
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (Integer.parseInt(emivalue) < 1) {
+                    Toast.makeText(getActivity(), "Can't Generate Schedule for This Value", Toast.LENGTH_SHORT).show();
+                    z = false;
+                }
+                if (z) {
+                    String str = emivalue;
+                    if (str.contains(".")) {
+                        String str2 = str.split("\\.")[0];
+                    }
+                    Intent intent = new Intent(getActivity(), Design_StatisticsActivity.class);
+                    intent.putExtra("tenure", ""+loanTenureValue);
+                    intent.putExtra("amount", LoanamtEt.getText().toString());
+                    intent.putExtra("interest", InterestrateEt.getText().toString());
+                    intent.putExtra("emi", emivalue);
+                    intent.putExtra("interestAmount", interestamt);
+                    intent.putExtra("Currency", currency);
+                    startActivity(intent);
+                }
+            }
+        });
 
 
         share.setOnClickListener(new View.OnClickListener() {
@@ -283,8 +320,10 @@ public class Emi_calFragment extends Fragment {
                 return;
             }
             String emiamount = utility_calculateEMI.getEmiamount(LoanamtEt.getText().toString().trim(), String.valueOf(loanTenureValue), InterestrateEt.getText().toString(), "0");
+            emivalue = emiamount;
             String str4 = "" + utility_calculateEMI.getTotalPayable();
             String str5 = (Math.round(Double.parseDouble(str4)) - Long.parseLong(LoanamtEt.getText().toString().replaceAll(",", ""))) + "";
+            interestamt = str5;
             principle_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), valueOf.doubleValue()) + ")");
 
             interest_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), Double.parseDouble(str5)) + ")");

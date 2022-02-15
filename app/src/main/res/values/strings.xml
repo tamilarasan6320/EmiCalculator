@@ -95,6 +95,8 @@
         <item>Daily</item>
 
     </string-array>
+    <string name="lbl_emi_starting_time">EMI Start From :</string>
+    <string name="list_title_balance">Outstanding</string>
 
     <string name="hint_sanctioned_amount">Sanctioned Amount</string>
     <string name="outstanding_amount">Outstanding Amount</string>
@@ -140,6 +142,12 @@
     <string name="principle_amount">Principle Amount</string>
     <string name="interest_on_total_amount">Interest % on Total Amount</string>
     <string name="total_amount">Total Amount</string>
+    <string name="schedule">Schedule</string>
+    <string name="list_title_sr_no">Sr.</string>
+    <string name="list_title_month">Month</string>
+    <string name="list_title_principal">Principal</string>
+    <string name="list_title_interest">Interest</string>
+    <string name="list_title_emi">EMI</string>
 
 
 </resources>

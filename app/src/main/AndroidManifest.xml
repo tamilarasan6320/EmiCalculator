@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Emi_Calculator">
-        <activity android:name=".Emi_detailsActivity"></activity>
+        <activity android:name=".statistics.Design_StatisticsActivity"></activity>
+        <activity android:name=".Emi_detailsActivity" />
         <activity android:name=".Compond_interestActivity" />
         <activity android:name=".FeedbackActivity" />
         <activity android:name=".InviteActivity" />
@@ -29,10 +30,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="io.fabric.ApiKey" android:value="ae5de019a851cee96696a4c7c019c214d1629e6c"/>
-        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3491660567793370~2218547045"/>
-        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.example.emi_calculator.provider" android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ae5de019a851cee96696a4c7c019c214d1629e6c" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3491660567793370~2218547045" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.emi_calculator.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 
