@@ -8,20 +8,33 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
+import com.example.emi_calculator.Utility.Utility_CalculateEMI;
+import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
-public class EMI_perlakhsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class EMI_perlakhsActivity extends AppCompatActivity{
+    WebView activity_wb_common;
+    Button Calculatebtn;
+    EditText etInterestRate,etTenure;
+    TextView emitxt;
+    Utility_CalculateEMI utility_calculateEMI;
     
-    DrawerLayout drawer;
-    private BottomSheetBehavior bottomSheetBehavior;
-    LinearLayout linearLayout;
+
+
 
 
     @Override
@@ -29,109 +42,68 @@ public class EMI_perlakhsActivity extends AppCompatActivity implements Navigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e_m_i_perlakhs);
 
-        //linearLayout = findViewById(R.id.design_bottom_sheetepl);
-
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
-
-
-
+        utility_calculateEMI = new Utility_CalculateEMI();
         ImageButton mButton = findViewById(R.id.toolbar);
+        Calculatebtn  = findViewById(R.id.calculate_btn);
+        etInterestRate  = findViewById(R.id.etInterestRate);
+        emitxt  = findViewById(R.id.emitxt);
+        etTenure  = findViewById(R.id.etTenure);
+        WebView webView = (WebView) findViewById(R.id.activity_wb_common);
+        this.activity_wb_common = webView;
+        webView.getSettings().setLoadWithOverviewMode(true);
+        this.activity_wb_common.getSettings().setBuiltInZoomControls(true);
+        this.activity_wb_common.loadUrl("file:///android_asset/html/emiperlakh.html");
+        this.activity_wb_common.requestFocus();
+        this.activity_wb_common.setLongClickable(false);
+
+
+
+
+
+        Calculatebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(etInterestRate.getText().toString())){
+                    Toast.makeText(EMI_perlakhsActivity.this, "Enter Interest Rate", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(etTenure.getText().toString())){
+                    Toast.makeText(EMI_perlakhsActivity.this, "Enter Tenure", Toast.LENGTH_SHORT).show();
+                }
+                Double valueOf2 = Double.valueOf(Double.parseDouble(etInterestRate.getText().toString().replaceAll(",", "")));
+
+                if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
+                    Toast.makeText(EMI_perlakhsActivity.this, "Enter the value between 0.1 to 99.99", Toast.LENGTH_SHORT).show();
+                }else {
+                    calculate();
+                }
+
+
+            }
+        });
+
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                drawer.openDrawer(GravityCompat.START);
+                onBackPressed();
 
             }
         });
 
 
-        Button button = findViewById(R.id.calculate_btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
 
-
-
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    private void calculate()
+    {
+        String emiamount = utility_calculateEMI.getEmiamount("100000", etTenure.getText().toString(), etInterestRate.getText().toString(), "0");
 
-        switch (item.getItemId()) {
+        emitxt.setText("EMI = ₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
 
-            case R.id.menu_nav1: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(EMI_perlakhsActivity.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
 
-        }
-
-        return false;
     }
+
+
 }

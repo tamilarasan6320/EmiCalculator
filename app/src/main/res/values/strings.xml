@@ -131,7 +131,7 @@
     <string name="ltv_max_of_property_value">LTV (Max. % of Property Value)</string>
     <string name="of_agreement_value">% of Agreement Value</string>
     <string name="loan_based_on_salary">Loan Based on Salary</string>
-    <string name="laan_based_on_property">Laan Based on Property</string>
+    <string name="loan_based_on_property">Loan Based on Property</string>
     <string name="loan_based_on_agreement">Loan Based on Agreement</string>
     <string name="emi_per_lakhs">EMI per Lakhs</string>
     <string name="compound_interest_calculator">Compound Interest Calculator</string>
@@ -148,6 +148,9 @@
     <string name="list_title_principal">Principal</string>
     <string name="list_title_interest">Interest</string>
     <string name="list_title_emi">EMI</string>
+    <string name="tag_datepicker">datePicker</string>
+    <string name="interest_rate_percent">Interest Rate(%)</string>
+    <string name="loan_tenure_months">Loan Tenure(Months)</string>
 
 
 </resources>

@@ -7,14 +7,6 @@
     tools:context=".FaqsActivity"
     android:background="@drawable/bg"
     >
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="end"
-        android:id="@+id/drawer_layout">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,10 +28,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
                     android:layout_margin="10dp"
                     android:id="@+id/toolbar"
-                    android:background="@drawable/ic_menu"
+                    android:background="@drawable/ic_baseline_arrow_back_24"
                     android:backgroundTint="@color/white"
                     />
                 <LinearLayout
@@ -80,15 +71,15 @@
                 android:orientation="vertical"
                 android:id="@+id/l1">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="What is EMI ?"
-                android:padding="20dp"
-                android:textColor="@color/primaryColor"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="What is EMI ?"
+                    android:padding="20dp"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,26 +108,26 @@
                 android:orientation="vertical"
                 android:id="@+id/l2">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="How to Calcilate EMI ?"
-                android:padding="20dp"
-                android:textColor="@color/primaryColor"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="How to Calcilate EMI ?"
+                    android:padding="20dp"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:id="@+id/text2"
-                android:visibility="gone"
-                android:textColor="@color/primaryColor"
-                android:text="The mathematical formula to calculate EMI is: EMI = P × r × (1 + r)n/((1 + r)n - 1) where P= Loan amount, r= interest rate, n=tenure in number of months."
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/text2"
+                    android:visibility="gone"
+                    android:textColor="@color/primaryColor"
+                    android:text="The mathematical formula to calculate EMI is: EMI = P × r × (1 + r)n/((1 + r)n - 1) where P= Loan amount, r= interest rate, n=tenure in number of months."
 
-                />
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -155,25 +146,25 @@
                 android:id="@+id/l3"
                 android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="What is EMI ?"
-                android:padding="20dp"
-                android:textColor="@color/primaryColor"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="What is EMI ?"
+                    android:padding="20dp"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/text3"
-                android:text="An EMI calculator is a handy tool that calculates the monthly amount payable to the lender, according to the following mathematical formula. EMI = [P x R x (1+R)^N]/[(1+R)^N-1];"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:textColor="@color/primaryColor"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text3"
+                    android:text="An EMI calculator is a handy tool that calculates the monthly amount payable to the lender, according to the following mathematical formula. EMI = [P x R x (1+R)^N]/[(1+R)^N-1];"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:textColor="@color/primaryColor"
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -182,25 +173,6 @@
 
     </LinearLayout>
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/secondaryLightColor"
-            android:layout_gravity="start"
-            app:itemTextColor="@color/primaryColor"
-            app:menu="@menu/activity_main_drawer"
-            app:itemIconTint="@color/primaryDarkColor"
-            app:itemVerticalPadding="20dp"
-            android:layout_marginTop="20dp"
-            app:headerLayout="@layout/nav_header_main"
 
-
-            />
-
-
-
-
-    </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>

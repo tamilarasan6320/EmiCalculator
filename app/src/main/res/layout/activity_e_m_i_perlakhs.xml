@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,137 +7,53 @@
     tools:context=".EMI_perlakhsActivity"
     android:background="@drawable/bg"
     >
-    <androidx.drawerlayout.widget.DrawerLayout
+    <LinearLayout
+        android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="end"
-        android:id="@+id/drawer_layout">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:id="@+id/linear_toolbar"
             >
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/linear_toolbar"
-                android:layout_marginBottom="20dp"
-                >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:layout_margin="10dp"
-                        android:id="@+id/toolbar"
-                        android:background="@drawable/ic_menu"
-                        android:backgroundTint="@color/white"
-                        />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="EMI"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:id="@+id/tv1"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Per Lakhs"
-                            android:layout_marginLeft="5dp"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/secondaryColor"
-                            android:layout_toRightOf="@+id/tv1"
-                            />
-
-                    </LinearLayout>
-
-
-
-
-
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="35dp"
-                app:cardCornerRadius="10dp"
-                >
-
-
-
+                android:layout_height="50dp">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:id="@+id/toolbar"
+                    android:background="@drawable/ic_baseline_arrow_back_24"
+                    android:backgroundTint="@color/white"
+                    />
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
-                    >
-
-
-                    <EditText
-                        android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14dp"
+                        android:text="EMI"
+                        android:textSize="18dp"
                         android:textStyle="bold"
-
-                        android:hint="Interest rate (%)"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
+                        android:textColor="@color/white"
+                        android:id="@+id/tv1"
                         />
-                    <EditText
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Loan Tenure(Month)"
-                        android:textSize="14dp"
+                        android:text="Per Lakhs"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"
                         android:textStyle="bold"
-                        android:textColorHint="@color/primaryColor"
-                        android:paddingBottom="15dp"
-                        android:backgroundTint="@color/black"
-                        android:layout_marginTop="20dp"
+                        android:textColor="@color/secondaryColor"
+                        android:layout_toRightOf="@+id/tv1"
                         />
-
-
-
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_marginBottom="20dp"
-                        android:id="@+id/calculate_btn"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/primaryColor"
-                        android:text="Done"
-                        android:layout_gravity="bottom"
-
-                        />
-
 
                 </LinearLayout>
 
@@ -146,37 +62,124 @@
 
 
 
-            </androidx.cardview.widget.CardView>
-
-
-
-
-
+            </RelativeLayout>
 
         </LinearLayout>
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/secondaryLightColor"
-            android:layout_gravity="start"
-            app:itemTextColor="@color/primaryColor"
-            app:menu="@menu/activity_main_drawer"
-            app:itemIconTint="@color/primaryDarkColor"
-            app:itemVerticalPadding="20dp"
-            android:layout_marginTop="20dp"
-            app:headerLayout="@layout/nav_header_main"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            app:cardCornerRadius="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                >
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:hint="@string/interest_rate_percent">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInterestRate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:hint="@string/loan_tenure_months">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTenure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/calculate_btn"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="Calculate"
+                    android:layout_gravity="bottom"
+
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/emitxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textStyle="bold"
+                            android:text="EMI = 0"/>
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
 
 
 
 
-    </androidx.drawerlayout.widget.DrawerLayout>
-<!--    <include-->
-<!--        layout="@layout/buttom_sheet_epl"/>-->
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    </LinearLayout>
+    <WebView
+        android:layout_below="@+id/l1"
+        android:id="@+id/activity_wb_common"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>

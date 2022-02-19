@@ -26,8 +26,8 @@ import com.example.emi_calculator.Constant.Constant_Functions;
 import com.example.emi_calculator.Constant.Constant_Variable;
 import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateAmount;
-import com.example.emi_calculator.Utility.Utility_CalculateEMI;
-import com.example.emi_calculator.Utility.Utility_CalculateTenure;
+import com.example.emi_calculator.Utility.Utility_CalculateInterestRate;
+import com.example.emi_calculator.statistics.Design_StatisticsActivity;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.slider.RangeSlider;
@@ -60,6 +60,10 @@ public class Roi_calFragment extends Fragment {
     View rootview;
     ImageView reset,share;
     TextView Bottomheadtext;
+    boolean calculatestatus = false;
+    String emivalue,interestamt;
+    String currency = "₹";
+    Button Schedule;
 
 
     public Roi_calFragment() {
@@ -104,6 +108,9 @@ public class Roi_calFragment extends Fragment {
         tabLayout = (TabLayout) rootview.findViewById(R.id.tab_layoutym);
 
         bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+        Schedule = rootview.findViewById(R.id.schedule);
+
+
 
 
         loantenuremonth = true;
@@ -113,6 +120,43 @@ public class Roi_calFragment extends Fragment {
         tabLayout.setTabGravity(TabLayout.GRAVITY_START);
         y_m.setText("(Month)");
         Bottomheadtext.setText("Interest Rate(%) = ");
+
+        Schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calculatestatus){
+                    boolean z;
+                    if (LoanamtEt.getText().length() <= 0 || totalamt_tv.getText().length() <= 0 || LoantenureEt.getText().length() <= 0) {
+                        Toast.makeText(getActivity(), "View statistics after Calculate EMI", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (Integer.parseInt(emivalue) < 1) {
+                        Toast.makeText(getActivity(), "Can't Generate Schedule for This Value", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    }
+                    if (z) {
+                        String str = emivalue;
+                        if (str.contains(".")) {
+                            String str2 = str.split("\\.")[0];
+                        }
+                        Intent intent = new Intent(getActivity(), Design_StatisticsActivity.class);
+                        intent.putExtra("tenure", ""+loanTenureValue);
+                        intent.putExtra("amount", LoanamtEt.getText().toString());
+                        intent.putExtra("interest", totalamt_tv.getText().toString());
+                        intent.putExtra("emi", emivalue);
+                        intent.putExtra("interestAmount", interestamt);
+                        intent.putExtra("Currency", currency);
+                        startActivity(intent);
+                    }
+
+                }else{
+                    Toast.makeText(getActivity(), "Calculate Value First", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -298,6 +342,8 @@ public class Roi_calFragment extends Fragment {
             Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
         } else if (valueOf2.doubleValue() > Utils.DOUBLE_EPSILON) {
             try {
+                emivalue = EmiEt.getText().toString().replaceAll(",","");
+                calculatestatus = true;
                 loanTenureValue = Integer.parseInt(LoantenureEt.getText().toString());
                 if (loantenureyear) {
                     loanTenureValue = loanTenureValue * 12;
@@ -311,7 +357,9 @@ public class Roi_calFragment extends Fragment {
                     Snackbar.make(rootview, "Entered values is invalid you should increase EMI or decrease Loan Amount", Snackbar.LENGTH_SHORT).show();
                 } else {
                     String rupees = "₹ ";
-                    totalamt_tv.setText(""+parseDouble);
+                    String str5 = Math.round(Double.parseDouble(utility_calculateAmount.getTotalInterestPayable().replaceAll(",", "").replaceAll(rupees, ""))) + "";
+                    interestamt = str5;
+                    totalamt_tv.setText(""+Math.round(parseDouble));
                     principle_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateInterestRate.getTotalPayment().replaceAll(",", "")), valueOf.doubleValue()) + ")");
                     interest_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateInterestRate.getTotalPayment().replaceAll(",", "")), Double.parseDouble(utility_calculateInterestRate.getTotalInterestPayable().replaceAll(",", ""))) + ")");
 

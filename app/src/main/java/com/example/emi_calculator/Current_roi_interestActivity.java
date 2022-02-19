@@ -16,9 +16,7 @@ import android.widget.ImageButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class Current_roi_interestActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
-
-    private DrawerLayout drawer;
+public class Current_roi_interestActivity extends AppCompatActivity {
 
 
     TabLayout tabLayout;
@@ -36,21 +34,12 @@ public class Current_roi_interestActivity extends AppCompatActivity implements N
             @Override
             public void onClick(View view) {
 
-                drawer.openDrawer(GravityCompat.START);
+                onBackPressed();
 
             }
         });
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
         tabLayout = (TabLayout)findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Personal"));
@@ -82,69 +71,4 @@ public class Current_roi_interestActivity extends AppCompatActivity implements N
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.menu_nav1: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(Current_roi_interestActivity.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(Current_roi_interestActivity.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(Current_roi_interestActivity.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(Current_roi_interestActivity.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(Current_roi_interestActivity.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(Current_roi_interestActivity.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(Current_roi_interestActivity.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-
-        }
-
-        return false;
-    }
 }

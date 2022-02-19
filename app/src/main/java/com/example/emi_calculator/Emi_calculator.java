@@ -16,12 +16,10 @@ import android.widget.ImageButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class Emi_calculator extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
+public class Emi_calculator extends AppCompatActivity {
 
     TabLayout tabLayout;
-    private DrawerLayout drawer;
     ViewPager viewPager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,90 +62,14 @@ public class Emi_calculator extends AppCompatActivity implements  NavigationView
             @Override
             public void onClick(View view) {
 
-                drawer.openDrawer(GravityCompat.START);
+                onBackPressed();
 
             }
         });
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
 
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-
-        switch (item.getItemId()) {
-
-            case R.id.menu_nav1: {
-                Intent i = new Intent(Emi_calculator.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(Emi_calculator.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(Emi_calculator.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(Emi_calculator.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(Emi_calculator.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(Emi_calculator.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(Emi_calculator.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(Emi_calculator.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(Emi_calculator.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(Emi_calculator.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(Emi_calculator.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-
-        }
-
-        return false;
-    }
 }

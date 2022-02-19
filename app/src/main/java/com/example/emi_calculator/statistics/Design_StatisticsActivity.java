@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -16,6 +19,7 @@ import com.example.emi_calculator.C0852R2;
 import com.example.emi_calculator.Constant.Constant_CurrencyFormatDoller;
 import com.example.emi_calculator.Databasehelper.DB_Helper;
 import com.example.emi_calculator.R;
+import com.example.emi_calculator.Utility.DatePickerFragment;
 import com.example.emi_calculator.adapter.Adapter_Monthlycalculation;
 import com.example.emi_calculator.adapter.Adapter_YearlyCalculation;
 import com.example.emi_calculator.model.Model_Monthwisecalculation;
@@ -33,7 +37,7 @@ import java.util.HashMap;
 import static com.example.emi_calculator.Constant.Constant_CurrencyFormat.format;
 
 public class Design_StatisticsActivity extends AppCompatActivity {
-    TextView tv_principal_amount,tv_interest_rate,tv_tenure,tv_emi;
+    TextView tv_principal_amount,tv_interest_rate,tv_tenure,tv_emi,et_date;
     String currency = "₹";
     String f4146p;
     String f4140j;
@@ -61,6 +65,7 @@ public class Design_StatisticsActivity extends AppCompatActivity {
     TextView tv_name;
     RadioButton rbtnyearly;
     Adapter_YearlyCalculation f4128F;
+    DatePickerFragment f4139Q;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,7 @@ public class Design_StatisticsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_design__statistics);
         this.f4135M = new HashMap<>();
         this.f4137O = new SimpleDateFormat("dd/MM/yyyy");
+        this.f4139Q = new DatePickerFragment();
         this.list_view_monthly = (ListView) findViewById(R.id.list_view_monthly);
         tv_principal_amount = findViewById(R.id.activity_statistics_tv_principal_amount);
         tv_interest_rate = findViewById(R.id.activity_statistics_tv_interest_rate);
@@ -76,6 +82,53 @@ public class Design_StatisticsActivity extends AppCompatActivity {
         rbtnmonthly = findViewById(R.id.statistics_rbtn_monthly);
         rbtnyearly = findViewById(R.id.statistics_rbtn_yearly);
         tv_name = findViewById(R.id.activity_statistics_tv_name);
+        et_date = findViewById(R.id.activity_statistics_et_date);
+
+        this.et_date.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Design_StatisticsActivity.this.f4139Q = new DatePickerFragment();
+                Design_StatisticsActivity design_StatisticsActivity = Design_StatisticsActivity.this;
+                design_StatisticsActivity.f4139Q.setDateViewObject(design_StatisticsActivity.et_date, false);
+                Design_StatisticsActivity design_StatisticsActivity2 = Design_StatisticsActivity.this;
+                design_StatisticsActivity2.f4139Q.show(design_StatisticsActivity2.getSupportFragmentManager(), Design_StatisticsActivity.this.getString(R.string.tag_datepicker));
+            }
+        });
+        this.et_date.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable editable) {
+                Design_StatisticsActivity design_StatisticsActivity = Design_StatisticsActivity.this;
+                design_StatisticsActivity.f4138P = design_StatisticsActivity.f4139Q.getCalander();
+                Design_StatisticsActivity design_StatisticsActivity2 = Design_StatisticsActivity.this;
+                double d = design_StatisticsActivity2.f4150t;
+                double d2 = design_StatisticsActivity2.f4151u;
+                double d3 = design_StatisticsActivity2.f4152v;
+                SimpleDateFormat simpleDateFormat = design_StatisticsActivity2.f4137O;
+                Calendar calendar = design_StatisticsActivity2.f4138P;
+                Design_StatisticsActivity.f4120R = design_StatisticsActivity2.scheduleMonthly(d, d2, d3, simpleDateFormat.format(Calendar.getInstance().getTime()), Design_StatisticsActivity.this.f4153w, Design_StatisticsActivity.f4122T);
+                Design_StatisticsActivity design_StatisticsActivity3 = Design_StatisticsActivity.this;
+                double d4 = design_StatisticsActivity3.f4150t;
+                double d5 = design_StatisticsActivity3.f4151u;
+                double d6 = design_StatisticsActivity3.f4152v;
+                SimpleDateFormat simpleDateFormat2 = design_StatisticsActivity3.f4137O;
+                Calendar calendar2 = design_StatisticsActivity3.f4138P;
+                Design_StatisticsActivity.f4121S = design_StatisticsActivity3.scheduleYearly(d4, d5, d6, simpleDateFormat2.format(Calendar.getInstance().getTime()), Design_StatisticsActivity.this.f4153w, Design_StatisticsActivity.f4122T);
+                Design_StatisticsActivity.this.f4127E = new Adapter_Monthlycalculation(Design_StatisticsActivity.this, Design_StatisticsActivity.f4120R);
+                Design_StatisticsActivity.this.f4128F = new Adapter_YearlyCalculation(Design_StatisticsActivity.this, Design_StatisticsActivity.f4121S);
+                if (Design_StatisticsActivity.this.rbtnmonthly.isChecked()) {
+                    Design_StatisticsActivity.this.tv_name.setText("Month");
+                    Design_StatisticsActivity.this.mo12320w();
+                }
+                if (Design_StatisticsActivity.this.rbtnyearly.isChecked()) {
+                    Design_StatisticsActivity.this.tv_name.setText("Years");
+                    Design_StatisticsActivity.this.mo12321x();
+                }
+            }
+
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+        });
 
         this.rbtnmonthly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {

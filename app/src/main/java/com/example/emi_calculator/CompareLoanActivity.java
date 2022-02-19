@@ -39,9 +39,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
-public class CompareLoanActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class CompareLoanActivity extends AppCompatActivity {
 
-    private DrawerLayout drawer;
     private BottomSheetBehavior bottomSheetBehavior;
     EditText AmountEt1,AmountEt2,InterestEt1,InterestEt2,TenureEt1,TenureEt2;
     Spinner TypeSpin1,TypeSpin2;
@@ -179,20 +178,11 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
             @Override
             public void onClick(View view) {
 
-                drawer.openDrawer(GravityCompat.START);
+                onBackPressed();
 
             }
         });
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
         Calculatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -341,70 +331,5 @@ public class CompareLoanActivity extends AppCompatActivity  implements Navigatio
         }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case R.id.menu_nav1: {
-                Intent i = new Intent(CompareLoanActivity.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(CompareLoanActivity.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(CompareLoanActivity.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(CompareLoanActivity.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(CompareLoanActivity.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(CompareLoanActivity.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(CompareLoanActivity.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(CompareLoanActivity.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(CompareLoanActivity.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(CompareLoanActivity.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(CompareLoanActivity.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-
-        }
-
-
-        return false;
-    }
 }

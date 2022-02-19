@@ -30,6 +30,7 @@ import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateAmount;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
 import com.example.emi_calculator.Utility.Utility_CalculateTenure;
+import com.example.emi_calculator.statistics.Design_StatisticsActivity;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.slider.RangeSlider;
@@ -58,6 +59,10 @@ public class Tenure_calFragment extends Fragment {
     ImageView reset,share;
 
     TextView Bottomheadtext;
+    boolean calculatestatus = false;
+    String emivalue,interestamt;
+    String currency = "₹";
+    Button Schedule;
     public Tenure_calFragment() {
 
     }
@@ -69,6 +74,7 @@ public class Tenure_calFragment extends Fragment {
         rootview = inflater.inflate(R.layout.fragment_tenure_cal, container, false);
         utility_calculateTenure = new Utility_CalculateTenure();
         utility_calculateEMI = new Utility_CalculateEMI();
+        Schedule = rootview.findViewById(R.id.schedule);
 
         Bottomheadtext = rootview.findViewById(R.id.bottomheadtext);
 
@@ -104,6 +110,43 @@ public class Tenure_calFragment extends Fragment {
 
 
         Bottomheadtext.setText("Tenure(in Months) = ");
+        Schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calculatestatus){
+                    boolean z;
+                    if (LoanamtEt.getText().length() <= 0 || InterestrateEt.getText().length() <= 0 || totalamt_tv.getText().length() <= 0) {
+                        Toast.makeText(getActivity(), "View statistics after Calculate EMI", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (Integer.parseInt(emivalue) < 1) {
+                        Toast.makeText(getActivity(), "Can't Generate Schedule for This Value", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    }
+                    if (z) {
+                        String str = emivalue;
+                        if (str.contains(".")) {
+                            String str2 = str.split("\\.")[0];
+                        }
+                        Intent intent = new Intent(getActivity(), Design_StatisticsActivity.class);
+                        intent.putExtra("tenure", ""+totalamt_tv.getText().toString());
+                        intent.putExtra("amount", LoanamtEt.getText().toString());
+                        intent.putExtra("interest", InterestrateEt.getText().toString());
+                        intent.putExtra("emi", emivalue);
+                        intent.putExtra("interestAmount", interestamt);
+                        intent.putExtra("Currency", currency);
+                        startActivity(intent);
+                    }
+
+                }else{
+                    Toast.makeText(getActivity(), "Calculate Value First", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,6 +298,7 @@ public class Tenure_calFragment extends Fragment {
         Double valueOf = Double.valueOf(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")));
         Double valueOf2 = Double.valueOf(Double.parseDouble(EmiEt.getText().toString().replaceAll(",", "")));
         Double valueOf3 = Double.valueOf(Double.parseDouble(InterestrateEt.getText().toString()));
+        emivalue = EmiEt.getText().toString().replaceAll(",","");
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
             Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON) {
@@ -262,6 +306,7 @@ public class Tenure_calFragment extends Fragment {
         } else if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf3.doubleValue() >= 100.0d) {
             Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
         }else{
+            calculatestatus = true;
             String emiamount = utility_calculateEMI.getEmiamount(LoanamtEt.getText().toString(), "" + 999, InterestrateEt.getText().toString(), "0");
 
             Double valueOf4 = Double.valueOf(Double.parseDouble(emiamount));
@@ -270,6 +315,7 @@ public class Tenure_calFragment extends Fragment {
 
                 String str2 = (Math.round(Double.parseDouble(utility_calculateTenure.getTotalPayable(EmiEt.getText().toString().replaceAll(",", "")))) - Math.round(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")))) + "";
                 double doubleValue = valueOf.doubleValue() + Double.parseDouble(str2);
+                interestamt = ""+Math.round(Double.parseDouble(str2));
 
                 principle_percentage.setText("(" + Constant_Functions.getPercentage(doubleValue, valueOf.doubleValue()) + ")");
                 interest_percentage.setText("(" + Constant_Functions.getPercentage(doubleValue, Double.parseDouble(str2.replaceAll(",", ""))) + ")");

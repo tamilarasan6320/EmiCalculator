@@ -26,6 +26,7 @@ import com.example.emi_calculator.Constant.Constant_Functions;
 import com.example.emi_calculator.Constant.Constant_Variable;
 import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateAmount;
+import com.example.emi_calculator.statistics.Design_StatisticsActivity;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.slider.RangeSlider;
@@ -58,6 +59,10 @@ public class Amount_calFragment extends Fragment {
     View rootview;
     ImageView reset,share;
     TextView Bottomheadtext;
+    boolean calculatestatus = false;
+    Button Schedule;
+    String emivalue,interestamt;
+    String currency = "₹";
 
 
 
@@ -74,6 +79,7 @@ public class Amount_calFragment extends Fragment {
         utility_calculateAmount = new Utility_CalculateAmount();
 
         Bottomheadtext = rootview.findViewById(R.id.bottomheadtext);
+        Schedule = rootview.findViewById(R.id.schedule);
 
 
         emiSlider = rootview.findViewById(R.id.emi_rs);
@@ -244,6 +250,43 @@ public class Amount_calFragment extends Fragment {
 
             }
         });
+        Schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calculatestatus){
+                    boolean z;
+                    if (principleamt_tv.getText().length() <= 0 || InterestrateEt.getText().length() <= 0 || LoantenureEt.getText().length() <= 0) {
+                        Toast.makeText(getActivity(), "View statistics after Calculate EMI", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (Integer.parseInt(emivalue) < 1) {
+                        Toast.makeText(getActivity(), "Can't Generate Schedule for This Value", Toast.LENGTH_SHORT).show();
+                        z = false;
+                    }
+                    if (z) {
+                        String str = emivalue;
+                        if (str.contains(".")) {
+                            String str2 = str.split("\\.")[0];
+                        }
+                        Intent intent = new Intent(getActivity(), Design_StatisticsActivity.class);
+                        intent.putExtra("tenure", ""+loanTenureValue);
+                        intent.putExtra("amount", principleamt_tv.getText().toString().replaceAll(currency,""));
+                        intent.putExtra("interest", InterestrateEt.getText().toString());
+                        intent.putExtra("emi", emivalue);
+                        intent.putExtra("interestAmount", interestamt);
+                        intent.putExtra("Currency", currency);
+                        startActivity(intent);
+                    }
+
+                }else{
+                    Toast.makeText(getActivity(), "Calculate Value First", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
 
 
 
@@ -260,11 +303,13 @@ public class Amount_calFragment extends Fragment {
         String rupees = "₹ ";
         Double valueOf = Double.valueOf(Double.parseDouble(EmiEt.getText().toString().replaceAll(",", "")));
         Double valueOf2 = Double.valueOf(Double.parseDouble(InterestrateEt.getText().toString()));
+        emivalue = EmiEt.getText().toString().replaceAll(",","");
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
             Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
             Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
         }else {
+            calculatestatus = true;
             loanTenureValue = Integer.parseInt(LoantenureEt.getText().toString());
             if (loantenureyear) {
                 loanTenureValue = loanTenureValue * 12;
@@ -278,7 +323,8 @@ public class Amount_calFragment extends Fragment {
 
             String principlevalue = Constant_CurrencyFormat.rupeeFormat(""+Math.round(Double.parseDouble(str3)));
             String interestpercent = Constant_Functions.getPercentage(Double.parseDouble(utility_calculateAmount.getTotalPayment().replaceAll(",", "")),Double.parseDouble(utility_calculateAmount.getTotalInterestPayable().replaceAll(",", "").replaceAll(rupees, "")));
-
+            String str5 = Math.round(Double.parseDouble(utility_calculateAmount.getTotalInterestPayable().replaceAll(",", "").replaceAll(rupees, ""))) + "";
+            interestamt = str5;
             totalamt_tv.setText(rupees + principlevalue);
             principleamt_tv.setText(rupees + principlevalue);
             interestpay_tv.setText(rupees+utility_calculateAmount.getTotalInterestPayable());

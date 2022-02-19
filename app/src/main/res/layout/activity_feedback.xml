@@ -35,10 +35,9 @@
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
                         android:layout_margin="10dp"
                         android:id="@+id/toolbar"
-                        android:background="@drawable/ic_menu"
+                        android:background="@drawable/ic_baseline_arrow_back_24"
                         android:backgroundTint="@color/white"
                         />
                     <LinearLayout

@@ -1,4 +1,4 @@
-package com.example.emi_calculator.calculate_emi;
+package com.example.emi_calculator.Utility;
 
 import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.github.mikephil.charting.utils.Utils;

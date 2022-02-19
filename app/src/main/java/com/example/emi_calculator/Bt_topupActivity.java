@@ -37,9 +37,9 @@ import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import butterknife.OnTextChanged;
 
-public class Bt_topupActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Bt_topupActivity extends AppCompatActivity{
 
-    private DrawerLayout drawer;
+
     Spinner SegmentSpin;
     TextView Multipliers_tv;
     TextInputLayout TillSanctionedAmount;
@@ -112,7 +112,6 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
         // bind the view using butterknife
         ButterKnife.bind(this);
         ToolIcon = findViewById(R.id.toolbar);
-        drawer = findViewById(R.id.drawer_layout);
 
 
         SegmentSpin = findViewById(R.id.segment_spin);
@@ -132,19 +131,12 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View view) {
 
-                drawer.openDrawer(GravityCompat.START);
+                onBackPressed();
 
             }
         });
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
     }
 
     private void mo12045u() {
@@ -233,71 +225,7 @@ public class Bt_topupActivity extends AppCompatActivity implements NavigationVie
         return Double.parseDouble(this.Insurance_et.getText().toString().replaceAll(",", ""));
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case R.id.menu_nav1: {
-                Intent i = new Intent(Bt_topupActivity.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(Bt_topupActivity.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(Bt_topupActivity.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(Bt_topupActivity.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(Bt_topupActivity.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(Bt_topupActivity.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(Bt_topupActivity.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(Bt_topupActivity.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(Bt_topupActivity.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(Bt_topupActivity.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(Bt_topupActivity.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-
-        }
-
-        return false;
-    }
     @OnTextChanged(callback = OnTextChanged.Callback.TEXT_CHANGED, value = {R.id.etInsurance})
     public void onInsuranceChange(CharSequence charSequence) {
         mo12045u();

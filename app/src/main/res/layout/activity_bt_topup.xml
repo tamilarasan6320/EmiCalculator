@@ -7,13 +7,6 @@
     android:background="@drawable/bg"
     tools:context=".Bt_topupActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="end"
-        android:id="@+id/drawer_layout">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,10 +27,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
                     android:layout_margin="10dp"
                     android:id="@+id/toolbar"
-                    android:background="@drawable/ic_menu"
+                    android:background="@drawable/ic_baseline_arrow_back_24"
                     android:backgroundTint="@color/white"
                     />
                 <LinearLayout
@@ -227,19 +219,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp">
-                            <TextView
-                                android:textSize="18sp"
-                                android:textColor="@color/primaryColor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/multipliers"/>
-                            <TextView
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/primaryColor"
-                                android:id="@+id/tvMultipliers"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"/>
+                        <TextView
+                            android:textSize="18sp"
+                            android:textColor="@color/primaryColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/multipliers"/>
+                        <TextView
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primaryColor"
+                            android:id="@+id/tvMultipliers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -415,19 +407,19 @@
                             android:layout_marginBottom="8dp"
                             android:layout_height="40dp"
                             android:layout_weight="2">
-                                <RadioButton
-                                    android:id="@+id/rbTenureYears"
-                                    android:text="Years"
-                                    android:gravity="center"
-                                    style="@style/rbSwitch"
-                                    android:checked="true"
-                                    android:textSize="12dp"/>
-                                <RadioButton
-                                    android:id="@+id/rbTenureMonth"
-                                    android:text="Months"
-                                    android:gravity="center"
-                                    style="@style/rbSwitch"
-                                    android:textSize="12dp"/>
+                            <RadioButton
+                                android:id="@+id/rbTenureYears"
+                                android:text="Years"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:checked="true"
+                                android:textSize="12dp"/>
+                            <RadioButton
+                                android:id="@+id/rbTenureMonth"
+                                android:text="Months"
+                                android:gravity="center"
+                                style="@style/rbSwitch"
+                                android:textSize="12dp"/>
                         </RadioGroup>
 
 
@@ -793,26 +785,4 @@
 
 
     </LinearLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/secondaryLightColor"
-            android:layout_gravity="start"
-            app:itemTextColor="@color/primaryColor"
-            app:menu="@menu/activity_main_drawer"
-            app:itemIconTint="@color/primaryDarkColor"
-            app:itemVerticalPadding="20dp"
-            android:layout_marginTop="20dp"
-            app:headerLayout="@layout/nav_header_main"
-
-
-            />
-
-
-
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-
 </RelativeLayout>
