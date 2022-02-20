@@ -151,6 +151,8 @@
     <string name="tag_datepicker">datePicker</string>
     <string name="interest_rate_percent">Interest Rate(%)</string>
     <string name="loan_tenure_months">Loan Tenure(Months)</string>
+    <string name="rb_pr">pr</string>
+    <string name="rb_rs">rs</string>
 
 
 </resources>

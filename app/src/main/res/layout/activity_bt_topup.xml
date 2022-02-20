@@ -755,21 +755,40 @@
                             android:layout_height="wrap_content"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
-
-
-                    <Button
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:layout_marginBottom="40dp"
-                        android:id="@+id/save_btn"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/primaryColor"
-                        android:text="Done"
-                        android:layout_gravity="bottom"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnSave"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/primaryColor"
+                            android:text="Save"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="bottom"
 
-                        />
+                            />
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btnHistory"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:layout_margin="10dp"
+                            android:backgroundTint="@color/primaryColor"
+                            android:text="History"
+                            android:layout_gravity="bottom"
+
+                            />
+
+                    </LinearLayout>
+
+
+
 
 
                 </LinearLayout>

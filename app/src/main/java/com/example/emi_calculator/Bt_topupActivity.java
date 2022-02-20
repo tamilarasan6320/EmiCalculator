@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +20,16 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.emi_calculator.Constant.Constant_Variable;
+import com.example.emi_calculator.Databasehelper.DB_BTHistory;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
 import com.example.emi_calculator.adapter.AdapterBTBankSegment;
 import com.example.emi_calculator.adapter.AdapterBTCompany;
 import com.example.emi_calculator.model.ModelBTBankSegment;
 import com.example.emi_calculator.model.ModelBTCompany;
+import com.example.emi_calculator.model.ModelBTHistory;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -43,7 +50,7 @@ public class Bt_topupActivity extends AppCompatActivity{
     Spinner SegmentSpin;
     TextView Multipliers_tv;
     TextInputLayout TillSanctionedAmount;
-    Button Save_btn;
+    Button btnSave;
     ImageButton ToolIcon;
     ArrayList<ModelBTBankSegment> f3806n = new ArrayList<>();
     ArrayList<ModelBTCompany> f3804l = new ArrayList<>();
@@ -104,6 +111,21 @@ public class Bt_topupActivity extends AppCompatActivity{
     EditText CustomerMobile_et;
     @BindView(R.id.etCustomerRemarks)
     EditText CustomerRemarks_et;
+    @BindView(R.id.btnHistory)
+    Button btnHistory;
+    ModelBTHistory f3808p = new ModelBTHistory();
+    boolean f3809q = false;
+    BroadcastReceiver f3810r = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getBooleanExtra(Constant_Variable.IS_EDIT, false)) {
+                f3809q = intent.getBooleanExtra(Constant_Variable.IS_EDIT, false);
+                f3808p = (ModelBTHistory) intent.getSerializableExtra(Constant_Variable.BT_HISTORY);
+                mo12014M();
+                mo12045u();
+            }
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,10 +140,14 @@ public class Bt_topupActivity extends AppCompatActivity{
         Multipliers_tv = findViewById(R.id.tvMultipliers);
 
         TillSanctionedAmount = findViewById(R.id.tilSanctionedAmount);
+        btnSave = findViewById(R.id.btnSave);
 
 
 
-        Save_btn = findViewById(R.id.save_btn);
+
+
+
+
 
         TenureYears_rb.setTextColor(getResources().getColor(R.color.white));
         ProfeesPR_rb.setTextColor(getResources().getColor(R.color.white));
@@ -135,8 +161,249 @@ public class Bt_topupActivity extends AppCompatActivity{
 
             }
         });
+//        mo12012K();
+//        mo12013L();
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+
+                long j;
+                if (mo12010I()) {
+                    mo12015N();
+                    if (f3809q) {
+                        j = DB_BTHistory.getInstance(Bt_topupActivity.this).updateHistory(f3808p);
+                        f3809q = false;
+                    } else {
+                        j = DB_BTHistory.getInstance(Bt_topupActivity.this).insertHistory(f3808p);
+                    }
+                    if (j != -1) {
+                        Toast.makeText(Bt_topupActivity.this, f3809q ? "Update Successfully" : "Save Successfully", Toast.LENGTH_LONG).show();
+                        reset();
+                        if (f3809q) {
+                            f3809q = false;
+                        }
+                    }
+//                    try {
+//
+//                    } catch (Exception e) {
+//                        Log.e("BTTOPMYAPP", "exception", e);
+//                    }
+
+                }
+            }
+        });
+
+
+
+
+    }
+
+    public void mo12015N() {
+        this.f3808p.setCustomerName(this.CustomerName_et.getText().toString());
+        this.f3808p.setCustomerMobile(this.CustomerMobile_et.getText().toString());
+        this.f3808p.setCustomerReference(this.CustomerRemarks_et.getText().toString());
+        this.f3808p.setBTCompanyID(this.spCompany.getSelectedItemPosition());
+        this.f3808p.setBTBankSegmentID(this.SegmentSpin.getSelectedItemPosition());
+        this.f3808p.setSanctionedAmount(Long.parseLong(clearFormet(this.SanctionedAmount_et.getText().toString())));
+        this.f3808p.setOutstandingAmount(Long.parseLong(clearFormet(this.OutstandingAmount_et.getText().toString())));
+        this.f3808p.setEMIPaid(Long.parseLong(clearFormet(this.EMIPaid_et.getText().toString())));
+        this.f3808p.setMultiplier(mo12003B());
+        this.f3808p.setBTLoanAmount(Long.parseLong(clearFormet(this.BTAmount_et.getText().toString())));
+        this.f3808p.setBTLoanROI(Double.parseDouble(clearFormet(this.BTROI_et.getText().toString())));
+        this.f3808p.setBTLoanTenure((long) mo12007F());
+        this.f3808p.setTopupLoanAmount(Long.parseLong(clearFormet(this.TopupAmount_et.getText().toString())));
+        this.f3808p.setTopupLoanROI(Double.parseDouble(clearFormet(this.ToupROI_et.getText().toString())));
+        this.f3808p.setTopupLoanTenure((long) mo12007F());
+        TenureYears_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        this.f3808p.setProcessingFee(Double.parseDouble(clearFormet(this.ProcessingFees_et.getText().toString())));
+        this.f3808p.setProcessingFeeType(mo12004C());
+        this.f3808p.setProcessingFeeAmount((long) ((int) mo12005D()));
+        this.f3808p.setProcessingFeeAmountwithGST(Long.parseLong(clearFormet(this.ProcessingGST_et.getText().toString())));
+        this.f3808p.setInsurance(Double.parseDouble(clearFormet(this.Insurance_et.getText().toString())));
+        this.f3808p.setInsuranceType(mo12050z());
+        this.f3808p.setInsuranceAmount((long) ((int) mo12049y()));
+        this.f3808p.setInsuranceAmountwithGST(Long.parseLong(clearFormet(this.InsuranceGST_et.getText().toString())));
+        this.f3808p.setTopupLoanAmountwithInsurance((long) ((int) mo12009H()));
+        if (!TextUtils.isEmpty(this.BTEmi_et.getText().toString())) {
+            this.f3808p.setBTEMIAmount(Long.parseLong(clearFormet(this.BTEmi_et.getText().toString())));
+        } else {
+            this.f3808p.setBTEMIAmount(0);
+        }
+        if (!TextUtils.isEmpty(this.ToupEmi_et.getText().toString())) {
+            this.f3808p.setTopupEMIAmount(Long.parseLong(clearFormet(this.ToupEmi_et.getText().toString())));
+        } else {
+            this.f3808p.setTopupEMIAmount(0);
+        }
+        this.f3808p.setTopupEMIAmountwithInsurance(Long.parseLong(clearFormet(this.TotalEMI_et.getText().toString())));
+    }
+    public String mo12004C() {
+        return getString(this.ProfeesPR_rb.isChecked() ? R.string.rb_pr : R.string.rb_rs);
+    }
+
+    private boolean mo12010I()
+    {
+        if (TextUtils.isEmpty(Tenure_et.getText().toString())){
+            Toast.makeText(this, "Enter the Tenure", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(BTROI_et.getText().toString())){
+            Toast.makeText(this, "Enter the Valid BTROI", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(BTROI_et.getText().toString())){
+            Toast.makeText(this, "Enter the BT ROI", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (Float.parseFloat(BTROI_et.getText().toString()) == 0){
+            Toast.makeText(this, "Enter the Valid BT ROI", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(TopupAmount_et.getText().toString())){
+            Toast.makeText(this, "Enter the Topup ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(EMIPaid_et.getText().toString())){
+            Toast.makeText(this, "Enter Paid EMI", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if ( 0 > Integer.parseInt(EMIPaid_et.getText().toString()) && Integer.parseInt(EMIPaid_et.getText().toString()) < 500){
+            Toast.makeText(this, "Enter Paid EMI Between 0 to 500", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(OutstandingAmount_et.getText().toString())){
+            Toast.makeText(this, "Enter Outstanding Amount", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(SanctionedAmount_et.getText().toString())){
+            Toast.makeText(this, "Enter Sanctioned Amoun", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (Double.parseDouble(clearFormet(this.SanctionedAmount_et.getText().toString())) < Double.parseDouble(clearFormet(this.OutstandingAmount_et.getText().toString()))) {
+            Toast.makeText(this, "Outstanding Amount is less then Sanctioned amount", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
+
+        return true;
+    }
+    public void mo12014M() {
+        reset();
+        this.btnSave.setText(this.f3809q ? "Edit" : "Save");
+        this.spCompany.setSelection(mo12048x(this.f3808p.getBTCompanyID()));
+        this.SegmentSpin.setSelection(mo12047w(this.f3808p.getBTBankSegmentID()));
+        this.SanctionedAmount_et.setText(String.valueOf(this.f3808p.getSanctionedAmount()));
+        this.OutstandingAmount_et.setText(String.valueOf(this.f3808p.getOutstandingAmount()));
+        this.EMIPaid_et.setText(String.valueOf(this.f3808p.getEMIPaid()));
+        this.Multipliers_tv.setText(String.valueOf(this.f3808p.getMultiplier()));
+        this.BTAmount_et.setText(String.valueOf(this.f3808p.getBTLoanAmount()));
+        this.TopupAmount_et.setText(String.valueOf(this.f3808p.getTopupLoanAmount()));
+        this.BTROI_et.setText(String.valueOf(this.f3808p.getBTLoanROI()));
+        this.ToupROI_et.setText(String.valueOf(this.f3808p.getTopupLoanROI()));
+        this.Tenure_et.setText(String.valueOf(this.f3808p.getBTLoanTenure()));
+        this.TenureMonth_rb.setChecked(true);
+        mo12018Q(this.TenureMonth_rb);
+        this.TenureYears_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+        this.BTEmi_et.setText(String.valueOf(this.f3808p.getBTEMIAmount()));
+        this.ToupEmi_et.setText(String.valueOf(this.f3808p.getTopupEMIAmount()));
+        this.ProcessingFees_et.setText(String.valueOf(this.f3808p.getProcessingFee()));
+        mo12017P(String.valueOf(this.f3808p.getProcessingFeeType()));
+        this.ProcessingGST_et.setText(String.valueOf(this.f3808p.getProcessingFeeAmountwithGST()));
+        this.Insurance_et.setText(String.valueOf(this.f3808p.getInsurance()));
+        mo12016O(String.valueOf(this.f3808p.getInsuranceType()));
+        this.InsuranceGST_et.setText(String.valueOf(this.f3808p.getInsuranceAmountwithGST()));
+        this.ToupEMIInsurance_et.setText(String.valueOf(this.f3808p.getTopupEMIAmountwithInsurance()));
+        this.TotalEMI_et.setText(String.valueOf(this.f3808p.getTopupEMIAmountwithInsurance()));
+        this.CustomerName_et.setText(this.f3808p.getCustomerName());
+        this.CustomerMobile_et.setText(this.f3808p.getCustomerMobile());
+        this.CustomerRemarks_et.setText(this.f3808p.getCustomerReference());
+    }
+    public void reset() {
+        this.spCompany.setSelection(0);
+        this.SegmentSpin.setSelection(0);
+        this.SanctionedAmount_et.setText((CharSequence) null);
+        this.OutstandingAmount_et.setText((CharSequence) null);
+        this.EMIPaid_et.setText((CharSequence) null);
+        this.Multipliers_tv.setText((CharSequence) null);
+        this.BTAmount_et.setText((CharSequence) null);
+        this.TopupAmount_et.setText((CharSequence) null);
+        this.BTROI_et.setText((CharSequence) null);
+        this.ToupROI_et.setText((CharSequence) null);
+        this.Tenure_et.setText((CharSequence) null);
+        this.TenureYears_rb.callOnClick();
+        this.TenureYears_rb.setChecked(true);
+        mo12020S(this.TenureYears_rb);
+        this.BTEmi_et.setText((CharSequence) null);
+        this.ToupEmi_et.setText((CharSequence) null);
+        this.ProcessingFees_et.setText("0");
+        this.ProfeesRS_rb.callOnClick();
+        this.ProfeesRS_rb.setChecked(true);
+        mo12019R(this.ProfeesRS_rb);
+        this.ProcessingGST_et.setText("0");
+        this.Insurance_et.setText("0");
+        this.InsuranceRS_rb.callOnClick();
+        this.InsuranceRS_rb.setChecked(true);
+        mo12018Q(this.InsuranceRS_rb);
+        this.InsuranceGST_et.setText("0");
+        this.ToupEMIInsurance_et.setText((CharSequence) null);
+        this.TotalEMI_et.setText((CharSequence) null);
+        this.CustomerName_et.setText((CharSequence) null);
+        this.CustomerMobile_et.setText((CharSequence) null);
+        this.CustomerRemarks_et.setText((CharSequence) null);
+        this.btnSave.setText(this.f3809q ? "Edit" : "Save");
+        this.SanctionedAmount_et.setError((CharSequence) null);
+        this.OutstandingAmount_et.setError((CharSequence) null);
+        this.EMIPaid_et.setError((CharSequence) null);
+        this.Multipliers_tv.setError((CharSequence) null);
+        this.BTAmount_et.setError((CharSequence) null);
+        this.TopupAmount_et.setError((CharSequence) null);
+        this.BTROI_et.setError((CharSequence) null);
+        this.ToupROI_et.setError((CharSequence) null);
+        this.Tenure_et.setError((CharSequence) null);
+        this.BTEmi_et.setError((CharSequence) null);
+        this.ToupEmi_et.setError((CharSequence) null);
+        this.ToupEMIInsurance_et.setError((CharSequence) null);
+        this.TotalEMI_et.setError((CharSequence) null);
+        this.CustomerName_et.setError((CharSequence) null);
+        this.CustomerMobile_et.setError((CharSequence) null);
+        this.CustomerRemarks_et.setError((CharSequence) null);
+    }
+    public void mo12017P(String str) {
+        if (str.equalsIgnoreCase(getString(R.string.rb_pr))) {
+            this.ProfeesPR_rb.setChecked(true);
+            mo12019R(this.ProfeesPR_rb);
+            return;
+        }
+        this.ProfeesRS_rb.setChecked(true);
+        mo12019R(this.ProfeesRS_rb);
+    }
+    public void mo12016O(String str) {
+        if (str.equalsIgnoreCase(getString(R.string.rb_pr))) {
+            this.InsurancePR_rb.setChecked(true);
+            mo12018Q(this.InsurancePR_rb);
+            return;
+        }
+        this.InsuranceRS_rb.setChecked(true);
+        mo12018Q(this.InsuranceRS_rb);
+    }
+    public int mo12048x(int i) {
+        for (int i2 = 0; i2 < this.f3804l.size(); i2++) {
+            if (this.f3804l.get(i2).getBTCompanyID() == i) {
+                return i2;
+            }
+        }
+        return 0;
+    }
+    public int mo12047w(int i) {
+        for (int i2 = 0; i2 < this.f3806n.size(); i2++) {
+            if (this.f3806n.get(i2).getBTBankSegmentID() == i) {
+                return i2;
+            }
+        }
+        return 0;
     }
 
     private void mo12045u() {
@@ -223,6 +490,10 @@ public class Bt_topupActivity extends AppCompatActivity{
             return (parseDouble * Double.parseDouble(this.Insurance_et.getText().toString().replaceAll(",", ""))) / 100.0d;
         }
         return Double.parseDouble(this.Insurance_et.getText().toString().replaceAll(",", ""));
+    }
+    @OnClick({R.id.btnHistory})
+    public void onClickBtnHistory() {
+        startActivity(new Intent(this, BTHistoryActivity.class));
     }
 
 
@@ -349,6 +620,9 @@ public class Bt_topupActivity extends AppCompatActivity{
         AdapterBTBankSegment adapterBTBankSegment = new AdapterBTBankSegment(this, this.f3806n);
         this.f3805m = adapterBTBankSegment;
         this.SegmentSpin.setAdapter(adapterBTBankSegment);
+    }
+    public String mo12050z() {
+        return getString(this.InsurancePR_rb.isChecked() ? R.string.rb_pr : R.string.rb_rs);
     }
 
 }
