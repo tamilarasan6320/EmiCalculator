@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +41,7 @@ public class Emi_calFragment extends Fragment {
     RadioButton rbTenureYears,rbTenureMonth;
     Button btn_viewstatistics,btn_calculate,emi_btn_reset,btn_share;
     TextView principal_amount, interest_amount, total_payable, result_view_emi;
-    TextView principal_amount_percentage, interest_amount_percentage, title;
+    TextView principal_amount_percentage, interest_amount_percentage;
 
 
     int loanTenureValue;
@@ -51,6 +52,7 @@ public class Emi_calFragment extends Fragment {
     boolean calculatestatus = false;
     String emivalue, interestamt;
     String currency = "₹";
+    LinearLayout calculateemi_ll_visible;
 
 
     public Emi_calFragment() {
@@ -64,6 +66,7 @@ public class Emi_calFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_emi_cal, container, false);
 
+        calculateemi_ll_visible = rootview.findViewById(R.id.calculateemi_ll_visible);
         ed_amount = rootview.findViewById(R.id.activity_calculate_emi_ed_amount);
         ed_interest = rootview.findViewById(R.id.activity_calculate_emi_ed_interest);
         ed_tenure = rootview.findViewById(R.id.activity_calculate_emi_ed_tenure);
@@ -73,11 +76,6 @@ public class Emi_calFragment extends Fragment {
 
 
         utility_calculateEMI = new Utility_CalculateEMI();
-
-
-
-
-
         principal_amount = rootview.findViewById(R.id.result_view_principal_amount);
         interest_amount = rootview.findViewById(R.id.result_view_interest_amount);
         total_payable = rootview.findViewById(R.id.result_view_total_payable);
@@ -238,12 +236,15 @@ public class Emi_calFragment extends Fragment {
                 interest_amount.setText("0");
                 total_payable.setText("₹ " + "0");
                 result_view_emi.setText("₹ " + "0");
+                calculateemi_ll_visible.setVisibility(View.GONE);
 
 
 
 
 
-              
+
+
+
             }
         });
 
@@ -280,6 +281,7 @@ public class Emi_calFragment extends Fragment {
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
             Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
         } else {
+            calculateemi_ll_visible.setVisibility(View.VISIBLE);
             calculatestatus = true;
             loanTenureValue = Integer.parseInt(ed_tenure.getText().toString());
             if (rbTenureYears.isChecked()) {
@@ -299,10 +301,10 @@ public class Emi_calFragment extends Fragment {
             principal_amount_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), valueOf.doubleValue()) + ")");
 
             interest_amount_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), Double.parseDouble(str5)) + ")");
-            principal_amount.setText("₹ " + ed_amount.getText().toString());
-            interest_amount.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(str5).trim());
-            result_view_emi.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
-            total_payable.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(String.valueOf(Math.round(Double.parseDouble(str4)))).trim());
+            principal_amount.setText(currency + " " + ed_amount.getText().toString());
+            interest_amount.setText(currency + " " + Constant_CurrencyFormat.rupeeFormat(str5).trim());
+            result_view_emi.setText(currency + " " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
+            total_payable.setText(currency + " " + Constant_CurrencyFormat.rupeeFormat(String.valueOf(Math.round(Double.parseDouble(str4)))).trim());
 
 
             SharedPreferences.Editor edit = getActivity().getSharedPreferences("ShareMessage", 0).edit();
