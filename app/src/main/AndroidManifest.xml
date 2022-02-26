@@ -18,7 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Emi_Calculator">
-        <activity android:name=".BTHistoryActivity"></activity>
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BTHistoryActivity" />
         <activity android:name=".statistics.Design_StatisticsActivity" />
         <activity android:name=".Emi_detailsActivity" />
         <activity android:name=".Compond_interestActivity" />
@@ -34,11 +41,7 @@
         <activity android:name=".Bt_topupActivity" />
         <activity android:name=".Emi_calculator" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

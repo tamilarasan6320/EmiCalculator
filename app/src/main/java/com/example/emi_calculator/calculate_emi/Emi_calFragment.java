@@ -3,9 +3,9 @@ package com.example.emi_calculator.calculate_emi;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,41 +29,27 @@ import com.example.emi_calculator.R;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
 import com.example.emi_calculator.statistics.Design_StatisticsActivity;
 import com.github.mikephil.charting.utils.Utils;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 
 
 public class Emi_calFragment extends Fragment {
 
-    RangeSlider loanamtSlider, interestrateSlider, loantenureSlider;
-    EditText LoanamtEt, InterestrateEt, LoantenureEt;
-    TabLayout tabLayout;
-    TextView y_m;
-    Button Schedule;
+    View rootview;
 
-
-    BottomSheetBehavior bottomSheetBehavior;
-
+    EditText ed_amount, ed_interest, ed_tenure;
+    RadioButton rbTenureYears,rbTenureMonth;
+    Button btn_viewstatistics,btn_calculate,emi_btn_reset,btn_share;
+    TextView principal_amount, interest_amount, total_payable, result_view_emi;
+    TextView principal_amount_percentage, interest_amount_percentage, title;
 
 
     int loanTenureValue;
-    TextView principleamt_tv, interestpay_tv, totalpayment_tv, totalemi_tv;
-    Button calbtn;
-    LinearLayout linearLayout;
-    boolean loantenuremonth = false, loantenureyear = false;
-
     Utility_CalculateEMI utility_calculateEMI;
-
-    TextView principle_percentage, interest_percentage, title;
-
     InputMethodManager inputMethodManager;
-    View rootview;
-    ImageView reset,share;
-    TextView Bottomheadtext;
+
+
     boolean calculatestatus = false;
-    String emivalue,interestamt;
+    String emivalue, interestamt;
     String currency = "₹";
 
 
@@ -78,54 +64,65 @@ public class Emi_calFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_emi_cal, container, false);
 
+        ed_amount = rootview.findViewById(R.id.activity_calculate_emi_ed_amount);
+        ed_interest = rootview.findViewById(R.id.activity_calculate_emi_ed_interest);
+        ed_tenure = rootview.findViewById(R.id.activity_calculate_emi_ed_tenure);
+        rbTenureYears = rootview.findViewById(R.id.rbTenureYears);
+        rbTenureMonth = rootview.findViewById(R.id.rbTenureMonth);
+        btn_viewstatistics = rootview.findViewById(R.id.activity_calculate_emi_btn_viewstatistics);
+
+
         utility_calculateEMI = new Utility_CalculateEMI();
 
-        Bottomheadtext = rootview.findViewById(R.id.bottomheadtext);
-        Schedule = rootview.findViewById(R.id.schedule);
-
-        loanamtSlider = rootview.findViewById(R.id.loanamt_rs);
-        interestrateSlider = rootview.findViewById(R.id.interest_rs);
-        loantenureSlider = rootview.findViewById(R.id.tenure_rs);
-
-        LoanamtEt = rootview.findViewById(R.id.loanamt_et);
-        InterestrateEt = rootview.findViewById(R.id.interest_et);
-        LoantenureEt = rootview.findViewById(R.id.tenure_et);
-
-        principleamt_tv = rootview.findViewById(R.id.p_tv);
-        interestpay_tv = rootview.findViewById(R.id.i_tv);
-        totalpayment_tv = rootview.findViewById(R.id.ta_tv);
-        totalemi_tv = rootview.findViewById(R.id.totalhead_tv);
-
-        linearLayout = rootview.findViewById(R.id.bottom_sheet_linear);
-        y_m = rootview.findViewById(R.id.ym_et);
-
-        calbtn = rootview.findViewById(R.id.calculate_btn);
-
-        principle_percentage = rootview.findViewById(R.id.principle_percentage);
-        interest_percentage = rootview.findViewById(R.id.interest_percentage);
-
-        title = rootview.findViewById(R.id.title);
-        reset = rootview.findViewById(R.id.reset);
-        share = rootview.findViewById(R.id.share);
-        tabLayout = (TabLayout) rootview.findViewById(R.id.tab_layoutym);
-
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
 
 
-        loantenuremonth = true;
-        Bottomheadtext.setText("Your Total EMI = ");
-        title.setText("Calculate EMI");
-        tabLayout.addTab(tabLayout.newTab().setText("Month"));
-        tabLayout.addTab(tabLayout.newTab().setText("Year"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_START);
-        y_m.setText("(Month)");
 
-        Schedule.setOnClickListener(new View.OnClickListener() {
+
+        principal_amount = rootview.findViewById(R.id.result_view_principal_amount);
+        interest_amount = rootview.findViewById(R.id.result_view_interest_amount);
+        total_payable = rootview.findViewById(R.id.result_view_total_payable);
+        result_view_emi = rootview.findViewById(R.id.result_view_emi);
+
+
+
+        btn_calculate = rootview.findViewById(R.id.activity_calculate_emi_btn_calculate);
+
+        principal_amount_percentage = rootview.findViewById(R.id.result_view_principal_amount_percentage);
+        interest_amount_percentage = rootview.findViewById(R.id.result_view_interest_amount_percentage);
+
+        //title = rootview.findViewById(R.id.title);
+        emi_btn_reset = rootview.findViewById(R.id.activity_calculate_emi_btn_reset);
+        btn_share = rootview.findViewById(R.id.btn_share);
+
+        //title.setText("Calculate EMI");
+
+        rbTenureMonth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rbTenureYears.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+                    rbTenureMonth.setTextColor(Color.WHITE);
+                }
+            }
+        });
+        rbTenureYears.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rbTenureMonth.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+                    rbTenureYears.setTextColor(Color.WHITE);
+                }
+            }
+        });
+
+
+
+        btn_viewstatistics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (calculatestatus){
+                if (calculatestatus) {
                     boolean z;
-                    if (LoanamtEt.getText().length() <= 0 || InterestrateEt.getText().length() <= 0 || LoantenureEt.getText().length() <= 0) {
+                    if (ed_amount.getText().length() <= 0 || ed_interest.getText().length() <= 0 || ed_tenure.getText().length() <= 0) {
                         Toast.makeText(getActivity(), "View statistics after Calculate EMI", Toast.LENGTH_SHORT).show();
                         z = false;
                     } else {
@@ -141,16 +138,16 @@ public class Emi_calFragment extends Fragment {
                             String str2 = str.split("\\.")[0];
                         }
                         Intent intent = new Intent(getActivity(), Design_StatisticsActivity.class);
-                        intent.putExtra("tenure", ""+loanTenureValue);
-                        intent.putExtra("amount", LoanamtEt.getText().toString());
-                        intent.putExtra("interest", InterestrateEt.getText().toString());
+                        intent.putExtra("tenure", "" + loanTenureValue);
+                        intent.putExtra("amount", ed_amount.getText().toString());
+                        intent.putExtra("interest", ed_interest.getText().toString());
                         intent.putExtra("emi", emivalue);
                         intent.putExtra("interestAmount", interestamt);
                         intent.putExtra("Currency", currency);
                         startActivity(intent);
                     }
 
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Calculate Value First", Toast.LENGTH_SHORT).show();
                 }
 
@@ -158,7 +155,7 @@ public class Emi_calFragment extends Fragment {
         });
 
 
-        share.setOnClickListener(new View.OnClickListener() {
+        btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Log.d("SHARE",Constant_Variable.getShareMessage(getActivity()));
@@ -171,8 +168,7 @@ public class Emi_calFragment extends Fragment {
         });
 
 
-
-        LoanamtEt.addTextChangedListener(new TextWatcher() {
+        ed_amount.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -180,21 +176,21 @@ public class Emi_calFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String trim = LoanamtEt.getText().toString().replaceAll(",", "").trim();
+                String trim = ed_amount.getText().toString().replaceAll(",", "").trim();
                 if (trim.length() > 0) {
-                    LoanamtEt.removeTextChangedListener(this);
+                    ed_amount.removeTextChangedListener(this);
                     String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
-                    LoanamtEt.setText(trim2);
-                    LoanamtEt.addTextChangedListener(this);
-                    EditText editText = LoanamtEt;
+                    ed_amount.setText(trim2);
+                    ed_amount.addTextChangedListener(this);
+                    EditText editText = ed_amount;
                     editText.setSelection(editText.getText().toString().trim().length());
                     //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
 
                 } else {
-                    LoanamtEt.removeTextChangedListener(this);
-                    LoanamtEt.setText("");
-                    LoanamtEt.addTextChangedListener(this);
-                    EditText editText2 = LoanamtEt;
+                    ed_amount.removeTextChangedListener(this);
+                    ed_amount.setText("");
+                    ed_amount.addTextChangedListener(this);
+                    EditText editText2 = ed_amount;
                     editText2.setSelection(editText2.getText().toString().trim().length());
                 }
 
@@ -206,121 +202,65 @@ public class Emi_calFragment extends Fragment {
 
             }
         });
-        calbtn.setOnClickListener(new View.OnClickListener() {
+        btn_calculate.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
                 inputMethodManager = (InputMethodManager) getActivity().getSystemService("input_method");
                 inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-                if(validate()){
-                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                if (validate()) {
 
 
-                    if (LoanamtEt.getText().length() > 0 && InterestrateEt.getText().length() > 0 && !InterestrateEt.getText().toString().equalsIgnoreCase(".") && LoantenureEt.getText().length() > 0) {
+                    if (ed_amount.getText().length() > 0 && ed_interest.getText().length() > 0 && !ed_interest.getText().toString().equalsIgnoreCase(".") && ed_tenure.getText().length() > 0) {
                         calculate();
                     }
 
                 }
 
 
-
-
-
-
             }
         });
 
 
-        loanamtSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                LoanamtEt.setText(Math.round(value) + "");
-            }
-        });
-        interestrateSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-                InterestrateEt.setText(Math.round(value) + "");
-            }
-        });
-        loantenureSlider.addOnChangeListener(new RangeSlider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
-
-                LoantenureEt.setText(Math.round(value) + "");
-            }
-        });
+       
 
 
-
-
-
-        reset.setOnClickListener(new View.OnClickListener() {
+        emi_btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoanamtEt.setText("");
-                LoantenureEt.setText("");
-                InterestrateEt.setText("");
-                principle_percentage.setText("(00.00%)");
-                interest_percentage.setText("(00.00%)");
-                principleamt_tv.setText("0");
-                interestpay_tv.setText("0");
-                totalpayment_tv.setText("₹ " + "0");
-                totalemi_tv.setText("₹ " + "0");
+                ed_amount.setText("");
+                ed_tenure.setText("");
+                ed_interest.setText("");
+                principal_amount_percentage.setText("(00.00%)");
+                interest_amount_percentage.setText("(00.00%)");
+                principal_amount.setText("0");
+                interest_amount.setText("0");
+                total_payable.setText("₹ " + "0");
+                result_view_emi.setText("₹ " + "0");
 
-                y_m.setText("(Month)");
-                loantenuremonth = true;
-                loantenureyear = false;
-                tabLayout.getTabAt(0).select();
 
-                loanamtSlider.setValues((float) 0);
-                interestrateSlider.setValues((float) 0);
-                loantenureSlider.setValues((float) 0);
 
+
+
+              
             }
         });
 
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0) {
-                    y_m.setText("(Month)");
-                    loantenuremonth = true;
-                    loantenureyear = false;
-                } else {
-                    y_m.setText("(Year)");
-                    loantenuremonth = false;
-                    loantenureyear = true;
-                }
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
 
         return rootview;
     }
 
     private boolean validate() {
-        if (TextUtils.isEmpty(LoanamtEt.getText().toString())) {
+        if (TextUtils.isEmpty(ed_amount.getText().toString())) {
             Snackbar.make(rootview, "Enter the Loan Amount", Snackbar.LENGTH_SHORT).show();
             return false;
-        }else if (TextUtils.isEmpty(InterestrateEt.getText().toString())) {
+        } else if (TextUtils.isEmpty(ed_interest.getText().toString())) {
             Snackbar.make(rootview, "Enter the Interest Rate", Snackbar.LENGTH_SHORT).show();
             return false;
-        }
-        else if (TextUtils.isEmpty(LoantenureEt.getText().toString())) {
+        } else if (TextUtils.isEmpty(ed_tenure.getText().toString())) {
             Snackbar.make(rootview, "Enter the Tenure", Snackbar.LENGTH_SHORT).show();
             return false;
         }
@@ -331,8 +271,8 @@ public class Emi_calFragment extends Fragment {
         String str;
         String str2;
         String str3;
-        Double valueOf = Double.valueOf(Double.parseDouble(LoanamtEt.getText().toString().replaceAll(",", "")));
-        Double valueOf2 = Double.valueOf(Double.parseDouble(InterestrateEt.getText().toString()));
+        Double valueOf = Double.valueOf(Double.parseDouble(ed_amount.getText().toString().replaceAll(",", "")));
+        Double valueOf2 = Double.valueOf(Double.parseDouble(ed_interest.getText().toString()));
 
 
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
@@ -341,50 +281,50 @@ public class Emi_calFragment extends Fragment {
             Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
         } else {
             calculatestatus = true;
-            loanTenureValue = Integer.parseInt(LoantenureEt.getText().toString());
-            if (loantenureyear) {
+            loanTenureValue = Integer.parseInt(ed_tenure.getText().toString());
+            if (rbTenureYears.isChecked()) {
                 loanTenureValue = loanTenureValue * 12;
             }
 
-            Double valueOf3 = Double.valueOf(Double.parseDouble(LoantenureEt.getText().toString()));
+            Double valueOf3 = Double.valueOf(Double.parseDouble(ed_tenure.getText().toString()));
             if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf3.doubleValue() > 999.0d) {
                 Snackbar.make(rootview, "Enter the year less than 50 and month less than 600", Snackbar.LENGTH_SHORT).show();
                 return;
             }
-            String emiamount = utility_calculateEMI.getEmiamount(LoanamtEt.getText().toString().trim(), String.valueOf(loanTenureValue), InterestrateEt.getText().toString(), "0");
+            String emiamount = utility_calculateEMI.getEmiamount(ed_amount.getText().toString().trim(), String.valueOf(loanTenureValue), ed_interest.getText().toString(), "0");
             emivalue = emiamount;
             String str4 = "" + utility_calculateEMI.getTotalPayable();
-            String str5 = (Math.round(Double.parseDouble(str4)) - Long.parseLong(LoanamtEt.getText().toString().replaceAll(",", ""))) + "";
+            String str5 = (Math.round(Double.parseDouble(str4)) - Long.parseLong(ed_amount.getText().toString().replaceAll(",", ""))) + "";
             interestamt = str5;
-            principle_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), valueOf.doubleValue()) + ")");
+            principal_amount_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), valueOf.doubleValue()) + ")");
 
-            interest_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), Double.parseDouble(str5)) + ")");
-            principleamt_tv.setText("₹ " + LoanamtEt.getText().toString());
-            interestpay_tv.setText("₹ " +Constant_CurrencyFormat.rupeeFormat(str5).trim());
-            totalemi_tv.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
-            totalpayment_tv.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(String.valueOf(Math.round(Double.parseDouble(str4)))).trim());
-
+            interest_amount_percentage.setText("(" + Constant_Functions.getPercentage(Double.parseDouble(utility_calculateEMI.getTotalPayable()), Double.parseDouble(str5)) + ")");
+            principal_amount.setText("₹ " + ed_amount.getText().toString());
+            interest_amount.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(str5).trim());
+            result_view_emi.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
+            total_payable.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(String.valueOf(Math.round(Double.parseDouble(str4)))).trim());
 
 
             SharedPreferences.Editor edit = getActivity().getSharedPreferences("ShareMessage", 0).edit();
-            edit.putString("loanamount", LoanamtEt.getText().toString());
-            edit.putString("intrestrate", InterestrateEt.getText().toString() + " %");
+            edit.putString("loanamount", ed_amount.getText().toString());
+            edit.putString("intrestrate", ed_interest.getText().toString() + " %");
 
-            if (loantenuremonth) {
-                str3 = (Float.parseFloat(LoantenureEt.getText().toString()) / 12.0f) + " Years (" + LoantenureEt.getText().toString() + " Months)";
+            if (rbTenureMonth.isChecked()) {
+                str3 = (Float.parseFloat(ed_tenure.getText().toString()) / 12.0f) + " Years (" + ed_tenure.getText().toString() + " Months)";
             } else {
-                int parseInt = Integer.parseInt(LoantenureEt.getText().toString());
+                int parseInt = Integer.parseInt(ed_tenure.getText().toString());
                 str3 = parseInt + " Years (" + (parseInt * 12) + " Months)";
             }
             edit.putString("tenure", str3);
-            edit.putString("eminAmount", totalpayment_tv.getText().toString());
-            edit.putString("totalintrestpayable", interestpay_tv.getText().toString());
-            edit.putString("totalpayable", totalpayment_tv.getText().toString());
+            edit.putString("eminAmount", total_payable.getText().toString());
+            edit.putString("totalintrestpayable", interest_amount.getText().toString());
+            edit.putString("totalpayable", total_payable.getText().toString());
             edit.apply();
 
         }
 
     }
+
     public String clearFormet(String str) {
         return str.toString().replaceAll("[^\\d.]+", "");
     }

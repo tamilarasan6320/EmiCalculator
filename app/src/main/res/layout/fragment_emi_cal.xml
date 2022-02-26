@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,336 +13,243 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/title"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="Calculate EMI"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16dp"-->
+<!--                android:textStyle="bold" />-->
+
+
+
+
+<!--        </RelativeLayout>-->
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:textSize="16dp"
-                android:text="Calculate EMI"
-                android:textStyle="bold" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/reset"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_baseline_refresh_24"/>
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:id="@+id/share"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_baseline_share_24"/>
-
-            </LinearLayout>
-
-
-
-
-        </RelativeLayout>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            app:cardCornerRadius="10dp">
-
-            <LinearLayout
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
 
-                <RelativeLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
 
-                    >
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/primaryDarkColor"
+                        app:endIconDrawable="@drawable/ic_indrupee"
+                        android:hint="@string/loanamount">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/activity_calculate_emi_ed_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:fontFamily="@font/poppinsregular"
+                            android:maxLength="14" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/primaryDarkColor"
+                        app:endIconDrawable="@drawable/ic_percentage"
+                        android:hint="@string/interest_rate">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/activity_calculate_emi_ed_interest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:fontFamily="@font/poppinsregular"
+                            android:maxLength="5" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
 
-                        <TextView
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Design.TextInputLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/loanamount"
-                            android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
                             android:layout_gravity="center"
-                            android:textStyle="bold" />
+                            android:layout_marginStart="3dp"
+                            android:layout_weight="3"
+                            android:hint="@string/tenure">
 
-                        <LinearLayout
-                            android:layout_marginStart="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/activity_calculate_emi_ed_tenure"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:fontFamily="@font/poppinsregular"
+                                android:maxLength="3" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="8dp"
+                            android:layout_weight="2"
                             android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/currency_symbol"
-                                android:textColor="@color/primaryColor"
-                                android:textSize="20dp"
-                                android:textStyle="bold" />
+                            <RadioButton
+                                android:id="@+id/rbTenureYears"
+                                style="@style/rbSwitch"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="Years"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppinsregular"
+                                android:textSize="12dp" />
 
-                            <EditText
-                                android:id="@+id/loanamt_et"
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/primaryColor"
-                                android:inputType="number"
-                                android:text=""
-                                android:textSize="20dp"
-                                android:textColor="@color/primaryColor"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
+                            <RadioButton
+                                android:id="@+id/rbTenureMonth"
+                                style="@style/rbSwitch"
+                                android:gravity="center"
+                                android:text="Months"
+                                android:fontFamily="@font/poppinsregular"
+                                android:textSize="12dp" />
+                        </RadioGroup>
 
 
                     </LinearLayout>
 
-                    <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/loanamt_rs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:valueFrom="0"
-                        android:valueTo="5000000"
-                        app:haloColor="@color/primaryColor"
-                        app:haloRadius="15dp"
-                        app:labelBehavior="gone"
-                        app:thumbColor="@color/white"
-                        app:thumbRadius="8dp"
-                        android:stepSize="50000"
-                        app:thumbStrokeColor="@color/primaryColor"
-                        app:thumbStrokeWidth="2dp"
-                        app:trackColorActive="@color/primaryColor"
-                        app:trackColorInactive="#e0e0e0" />
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/activity_calculate_emi_btn_calculate"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/interest_rate"
-                            android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
-                            android:layout_gravity="center"
-                            android:textStyle="bold" />
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_baseline_calculate_24"
+                            android:backgroundTint="@color/secondary"
+                            app:icon="@drawable/ic_baseline_calculate_24"
+                            android:text="@string/calculate"
+                            />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/activity_calculate_emi_btn_reset"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginStart="5dp"
-                            android:padding="10dp">
-
-
-
-                            <EditText
-                                android:id="@+id/interest_et"
-                                android:layout_width="60dp"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/primaryColor"
-                                android:inputType="numberDecimal"
-                                android:maxLength="5"
-                                android:text=""
-                                android:textSize="20dp"
-                                android:textColor="@color/primaryColor"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="%"
-                                android:textColor="@color/primaryColor"
-                                android:textStyle="bold"
-                                android:textSize="20dp"
-
-
-                                />
-
-
-                        </LinearLayout>
-
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/grey"
+                            android:text="@string/reset"
+                            app:icon="@drawable/ic_baseline_delete_24"
+                            />
 
                     </LinearLayout>
-
-                    <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/interest_rs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
-                        android:valueFrom="0.0"
-
-                        android:valueTo="100.0"
-                        app:haloColor="@color/primaryColor"
-                        app:haloRadius="15dp"
-                        app:labelBehavior="gone"
-                        app:thumbColor="@color/white"
-                        app:thumbRadius="8dp"
-                        app:thumbStrokeColor="@color/primaryColor"
-                        app:thumbStrokeWidth="2dp"
-                        app:trackColorActive="@color/primaryColor"
-                        app:trackColorInactive="#e0e0e0" />
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp">
-
                     <LinearLayout
+                        android:id="@+id/calculateemi_ll_visible"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        tools:visibility="visible">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/loan_tenure"
-                            android:textColor="@color/primaryColor"
-                            android:textSize="16dp"
-                            android:layout_gravity="center"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ym_et"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:text=""
-                            android:visibility="gone"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-                        <EditText
-                            android:id="@+id/tenure_et"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:backgroundTint="@color/primaryColor"
-                            android:inputType="number"
-                            android:text=""
-                            android:textSize="20dp"
-                            android:textColor="@color/primaryColor"
-                            android:textStyle="bold" />
-
-
+                        <include
+                            android:layout_margin="5dp"
+                            android:id="@+id/news_title"
+                            layout="@layout/view_emi_result"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center"
                             android:orientation="horizontal"
-                            android:gravity="right">
+                            android:padding="3dp">
 
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/activity_calculate_emi_btn_viewstatistics"
+                                style="@style/BrandButtonStyle"
+                                android:layout_weight="1"
+                                app:backgroundTint="@color/primaryColor"
+                                app:icon="@drawable/ic_baseline_analytics_24"
+                                android:text="Schedule" />
 
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_share"
+                                style="@style/BrandButtonStyle"
+                                android:layout_weight="1"
+                                android:text="Share"
+                                app:icon="@drawable/ic_baseline_share_24"
+                                app:backgroundTint="@color/primaryColor"/>
 
-                            <com.google.android.material.tabs.TabLayout
-                                android:id="@+id/tab_layoutym"
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/tab_ym_bg"
-                                app:tabBackground="@drawable/tab_ym_selector"
-                                app:tabIndicatorColor="@color/black"
-                                app:tabIndicatorFullWidth="false"
-                                app:tabIndicatorHeight="1dp"
-                                app:tabSelectedTextColor="@color/white"
-                                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
-                                app:tabTextColor="@color/primaryColor"
-
-                                />
-
-
+                            <Button
+                                android:visibility="gone"
+                                android:id="@+id/activity_calculate_emi_btn_save"
+                                style="@style/BrandButtonStyle"
+                                android:layout_weight="1"
+                                android:text="Save"
+                                app:backgroundTint="@color/primaryColor"/>
                         </LinearLayout>
 
-
+                        <LinearLayout style="@style/HorizontalLine" />
                     </LinearLayout>
 
-                    <com.google.android.material.slider.RangeSlider
-                        android:id="@+id/tenure_rs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:valueFrom="0"
-                        android:valueTo="100"
-                        app:haloColor="@color/primaryColor"
-                        app:haloRadius="15dp"
-                        app:labelBehavior="gone"
-                        app:thumbColor="@color/white"
-                        app:thumbRadius="8dp"
-                        app:thumbStrokeColor="@color/primaryColor"
-                        app:thumbStrokeWidth="2dp"
-                        app:trackColorActive="@color/primaryColor"
-                        app:trackColorInactive="#e0e0e0" />
+
+                </LinearLayout>
 
 
-                </RelativeLayout>
-                <Button
-                    android:id="@+id/calculate_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:backgroundTint="@color/primaryColor"
-                    android:text="@string/calculate"
-                    android:textStyle="bold"
-
-                    />
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
 
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bannerad"
+        android:layout_alignParentBottom="true"/>
 
-    <include layout="@layout/emi_cal_bottom_sheet" />
+
+    <!--    <include layout="@layout/emi_cal_bottom_sheet" />-->
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

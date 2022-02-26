@@ -69,34 +69,30 @@
     <style name="result_view_lable">
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:gravity">left|center_horizontal|clip_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:padding">1dp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/poppinsregular</item>
+
     </style>
+
     <style name="result_view">
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:textColor">@color/primaryDarkColor</item>
-        <item name="android:gravity">left|center_horizontal|clip_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/robotoregular</item>
     </style>
     <style name="BrandButtonStyle">
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/button_click</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:layout_marginRight">2dp</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:minHeight">0dp</item>
     </style>
     <style name="HorizontalLine">
         <item name="android:background">#b5b4b4</item>
