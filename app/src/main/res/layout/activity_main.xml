@@ -115,6 +115,7 @@
                                         android:drawableTop="@drawable/ic_emi_calculator"
                                         android:textColor="@color/primaryColor"
                                         android:textStyle="bold"
+                                        android:fontFamily="@font/poppinsregular"
                                         android:textSize="16dp"
                                         />
                                 </com.google.android.material.card.MaterialCardView>
@@ -129,16 +130,31 @@
 
                                     app:rippleColor="@color/secondaryLightColor"
                                     >
-                                    <TextView
+                                    <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Check Eligibility"
                                         android:layout_gravity="center"
-                                        android:drawableTop="@drawable/ic_check_eligibility"
-                                        android:textColor="@color/primaryColor"
-                                        android:textStyle="bold"
-                                        android:textSize="16dp"
-                                        />
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ic_check_eligibility"/>
+                                        <TextView
+                                            android:layout_marginTop="10dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Check Eligibility"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/primaryColor"
+                                            android:textStyle="bold"
+                                            android:textSize="16dp"
+                                            android:fontFamily="@font/poppinsregular"
+                                            />
+
+                                    </LinearLayout>
+
 
 
                                 </com.google.android.material.card.MaterialCardView>
@@ -174,6 +190,7 @@
                                         android:layout_gravity="center"
                                         android:drawableTop="@drawable/ic_bt_calculator"
                                         android:textColor="@color/primaryColor"
+                                        android:fontFamily="@font/poppinsregular"
                                         android:textStyle="bold"
                                         android:textSize="16dp"
                                         />
@@ -190,19 +207,32 @@
 
                                     app:cardElevation="2dp"
                                     app:rippleColor="@color/secondaryLightColor"
-
-
                                     >
-                                    <TextView
+                                    <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Compare Loan"
                                         android:layout_gravity="center"
-                                        android:drawableTop="@drawable/ic_compare_loan"
-                                        android:textColor="@color/primaryColor"
-                                        android:textStyle="bold"
-                                        android:textSize="16dp"
-                                        />
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ic_compare_loan"/>
+                                        <TextView
+                                            android:layout_marginTop="10dp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Compare Loan"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/primaryColor"
+                                            android:textStyle="bold"
+                                            android:textSize="16dp"
+                                            android:fontFamily="@font/poppinsregular"
+                                            />
+
+                                    </LinearLayout>
+
 
 
                                 </com.google.android.material.card.MaterialCardView>
@@ -226,18 +256,19 @@
                             android:textStyle="bold"
                             android:textSize="20dp"
                             android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppinsregular"
                             />
                         <LinearLayout
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgwhite"
+                            android:id="@+id/r1"
                             android:orientation="horizontal">
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:id="@+id/r1"
                                 android:background="@drawable/round_btn"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_doc_req"
@@ -249,6 +280,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Documents Required"
                                 android:textColor="@color/primaryDarkColor"
+                                android:fontFamily="@font/poppinsregular"
                                 android:textSize="18dp"
                                 android:layout_gravity="center"/>
                         </LinearLayout>
@@ -257,13 +289,13 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/r2"
                             android:background="@drawable/bgwhite"
                             android:orientation="horizontal">
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:id="@+id/r2"
                                 android:background="@drawable/round_btn"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_emi_per_laks"
@@ -275,6 +307,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="EMI Per  Lakhs"
                                 android:textColor="@color/primaryDarkColor"
+                                android:fontFamily="@font/poppinsregular"
                                 android:textSize="18dp"
                                 android:layout_gravity="center"/>
                         </LinearLayout>
@@ -284,12 +317,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgwhite"
+                            android:id="@+id/r3"
                             android:orientation="horizontal">
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:id="@+id/r3"
                                 android:background="@drawable/round_btn"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_faq"
@@ -302,6 +335,7 @@
                                 android:text="FAQs"
                                 android:textColor="@color/primaryDarkColor"
                                 android:textSize="18dp"
+                                android:fontFamily="@font/poppinsregular"
                                 android:layout_gravity="center"/>
                         </LinearLayout>
                         <LinearLayout
@@ -310,12 +344,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgwhite"
+                            android:id="@+id/r4"
                             android:orientation="horizontal">
                             <ImageButton
                                 android:layout_margin="10dp"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:id="@+id/r4"
                                 android:background="@drawable/round_btn"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_current_roi"
@@ -327,6 +361,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Current  ROI"
                                 android:textColor="@color/primaryDarkColor"
+                                android:fontFamily="@font/poppinsregular"
                                 android:textSize="18dp"
                                 android:layout_gravity="center"/>
                         </LinearLayout>

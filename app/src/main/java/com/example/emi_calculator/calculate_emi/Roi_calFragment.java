@@ -264,10 +264,11 @@ public class Roi_calFragment extends Fragment {
         Double valueOf = Double.valueOf(Double.parseDouble(ed_amount.getText().toString().replaceAll(",", "")));
         Double valueOf2 = Double.valueOf(Double.parseDouble(ed_emi.getText().toString().replaceAll(",", "")));
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            ed_amount.setError("Enter the value more than zero");
+            ed_amount.requestFocus();
         } else if (valueOf2.doubleValue() > Utils.DOUBLE_EPSILON) {
             try {
-                calculateemi_ll_visible.setVisibility(View.VISIBLE);
+
                 emivalue = ed_emi.getText().toString().replaceAll(",","");
                 calculatestatus = true;
                 loanTenureValue = Integer.parseInt(ed_tenure.getText().toString());
@@ -278,10 +279,12 @@ public class Roi_calFragment extends Fragment {
                 double parseDouble = Double.parseDouble(interestrate.replaceAll(",", ""));
                 Double valueOf3 = Double.valueOf(Double.parseDouble(""+loanTenureValue));
                 if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf3.doubleValue() > 600.0d) {
-                    Snackbar.make(rootview, "Enter the year less than 50 and month less than 600", Snackbar.LENGTH_SHORT).show();
+                    ed_tenure.setError("Enter the year less than 50 and month less than 600");
+                    ed_tenure.requestFocus();
                 } else if (parseDouble <= Utils.DOUBLE_EPSILON) {
                     Snackbar.make(rootview, "Entered values is invalid you should increase EMI or decrease Loan Amount", Snackbar.LENGTH_SHORT).show();
                 } else {
+                    calculateemi_ll_visible.setVisibility(View.VISIBLE);
                     String rupees = "₹ ";
                     String str5 = Math.round(Double.parseDouble(utility_calculateAmount.getTotalInterestPayable().replaceAll(",", "").replaceAll(rupees, ""))) + "";
                     interestamt = str5;
@@ -305,7 +308,7 @@ public class Roi_calFragment extends Fragment {
 
                     }
                     edit.putString("tenure", str2);
-                    edit.putString("eminAmount", this.ed_emi.getText().toString());
+                    edit.putString("eminAmount", rupees + this.ed_emi.getText().toString());
                     edit.putString("totalintrestpayable", interest_amount.getText().toString());
                     edit.putString("totalpayable", total_payable.getText().toString());
                     edit.apply();

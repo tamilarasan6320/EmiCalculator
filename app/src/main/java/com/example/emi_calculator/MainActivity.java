@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 
 import com.google.android.material.navigation.NavigationView;
@@ -30,12 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Activity activity;
 
     CardView card1 ,card2 , card3 , card4;
-    ImageButton r1,r2,r3,r4;
+    LinearLayout r1,r2,r3,r4;
     public static final int PERMISSION_REQUEST_CODE = 99;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

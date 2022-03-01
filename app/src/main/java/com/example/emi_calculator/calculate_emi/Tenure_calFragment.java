@@ -255,11 +255,14 @@ public class Tenure_calFragment extends Fragment {
         Double valueOf3 = Double.valueOf(Double.parseDouble(ed_interest.getText().toString()));
         emivalue = ed_emi.getText().toString().replaceAll(",","");
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            ed_amount.setError("Enter the value more than zero");
+            ed_amount.requestFocus();
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            ed_emi.setError("Enter the value more than zero");
+            ed_emi.requestFocus();
         } else if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf3.doubleValue() >= 100.0d) {
-            Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
+            ed_interest.setError("Enter the value between 0.1 to 99.99");
+            ed_interest.requestFocus();
         }else{
             calculateemi_ll_visible.setVisibility(View.VISIBLE);
             calculatestatus = true;
@@ -280,12 +283,12 @@ public class Tenure_calFragment extends Fragment {
                 interest_amount.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(Double.parseDouble(str2))));
                 total_payable.setText(rupees + Constant_CurrencyFormat.rupeeFormat(""+Math.round(doubleValue)));
                 SharedPreferences.Editor edit = getActivity().getSharedPreferences("ShareMessage", 0).edit();
-                edit.putString("loanamount", principal_amount.getText().toString());
-                edit.putString("intrestrate", interest_amount.getText().toString()+ " %");
-                edit.putString("tenure", (Float.parseFloat(str) / 12.0f) + " Years (" + str + " Months)");
-                edit.putString("eminAmount", ed_emi.getText().toString());
-                edit.putString("totalintrestpayable", rupees+this.interest_amount.getText().toString());
-                edit.putString("totalpayable", rupees+total_payable.getText().toString());
+                edit.putString("loanamount", ed_amount.getText().toString());
+                edit.putString("intrestrate", ed_interest.getText().toString()+ " %");
+                edit.putString("tenure", Math.round(Float.parseFloat(str) / 12.0f) + " Years (" + str + " Months)");
+                edit.putString("eminAmount", rupees + ed_emi.getText().toString());
+                edit.putString("totalintrestpayable", interest_amount.getText().toString());
+                edit.putString("totalpayable", total_payable.getText().toString());
                 edit.apply();
 
 

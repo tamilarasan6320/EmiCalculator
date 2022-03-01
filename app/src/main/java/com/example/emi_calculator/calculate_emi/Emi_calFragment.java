@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,7 @@ public class Emi_calFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_emi_cal, container, false);
+
 
         calculateemi_ll_visible = rootview.findViewById(R.id.calculateemi_ll_visible);
         ed_amount = rootview.findViewById(R.id.activity_calculate_emi_ed_amount);
@@ -256,17 +258,31 @@ public class Emi_calFragment extends Fragment {
 
     private boolean validate() {
         if (TextUtils.isEmpty(ed_amount.getText().toString())) {
-            Snackbar.make(rootview, "Enter the Loan Amount", Snackbar.LENGTH_SHORT).show();
+            ed_amount.setError("Enter the Loan Amount");
+            ed_amount.requestFocus();
             return false;
         } else if (TextUtils.isEmpty(ed_interest.getText().toString())) {
-            Snackbar.make(rootview, "Enter the Interest Rate", Snackbar.LENGTH_SHORT).show();
+            ed_interest.setError("Enter the Interest Rate");
+            ed_interest.requestFocus();
             return false;
         } else if (TextUtils.isEmpty(ed_tenure.getText().toString())) {
-            Snackbar.make(rootview, "Enter the Tenure", Snackbar.LENGTH_SHORT).show();
+            ed_tenure.setError("Enter the Tenure");
+            ed_tenure.requestFocus();
             return false;
         }
         return true;
     }
+
+    @SuppressLint("WrongConstant")
+    @Override
+    public void onResume() {
+        super.onResume();
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService("input_method");
+        inputMethodManager.hideSoftInputFromWindow(rootview.getWindowToken(), 0);
+
+    }
+
+
 
     private void calculate() {
         String str;
@@ -277,9 +293,11 @@ public class Emi_calFragment extends Fragment {
 
 
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            ed_amount.setError("Enter the value more than zero");
+            ed_amount.requestFocus();
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
-            Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
+            ed_interest.setError("Enter the value between 0.1 to 99.99");
+            ed_interest.requestFocus();
         } else {
             calculateemi_ll_visible.setVisibility(View.VISIBLE);
             calculatestatus = true;
@@ -290,7 +308,8 @@ public class Emi_calFragment extends Fragment {
 
             Double valueOf3 = Double.valueOf(Double.parseDouble(ed_tenure.getText().toString()));
             if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf3.doubleValue() > 999.0d) {
-                Snackbar.make(rootview, "Enter the year less than 50 and month less than 600", Snackbar.LENGTH_SHORT).show();
+                ed_tenure.setError("Enter the year less than 50 and month less than 600");
+                ed_tenure.requestFocus();
                 return;
             }
             String emiamount = utility_calculateEMI.getEmiamount(ed_amount.getText().toString().trim(), String.valueOf(loanTenureValue), ed_interest.getText().toString(), "0");
@@ -318,7 +337,7 @@ public class Emi_calFragment extends Fragment {
                 str3 = parseInt + " Years (" + (parseInt * 12) + " Months)";
             }
             edit.putString("tenure", str3);
-            edit.putString("eminAmount", total_payable.getText().toString());
+            edit.putString("eminAmount", result_view_emi.getText().toString());
             edit.putString("totalintrestpayable", interest_amount.getText().toString());
             edit.putString("totalpayable", total_payable.getText().toString());
             edit.apply();

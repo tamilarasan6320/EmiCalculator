@@ -5,9 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/primaryDarkColor"
+        android:text="Repayment Schedule"
+        android:textSize="20dp"
+        android:fontFamily="@font/poppinsregular"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/white"/>
 
     <include
         android:id="@+id/emi_statistics"
+        android:layout_margin="5dp"
         layout="@layout/view_emi_statistics_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -26,6 +37,7 @@
             android:paddingBottom="4dp"
             android:text="@string/lbl_emi_starting_time"
             android:textColor="@color/primaryDarkColor"
+            android:fontFamily="@font/poppinsregular"
             android:textSize="15dp" />
 
         <FrameLayout
@@ -50,7 +62,7 @@
                 android:layout_weight="1"
                 android:focusable="false"
                 android:padding="4dp"
-                android:text="asa"
+                android:text="Date"
                 android:textSize="18sp" />
         </FrameLayout>
     </LinearLayout>
@@ -76,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/poppinsregular"
                 android:text="Monthly" />
 
             <RadioButton
@@ -84,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/poppinsregular"
                 android:text="Yearly" />
         </RadioGroup>
 
@@ -118,7 +130,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppinsregular"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -131,7 +143,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppinsregular"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -143,7 +155,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppinsregular"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -156,7 +168,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppinsregular"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -195,7 +207,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/poppinsregular"
             android:gravity="center"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
