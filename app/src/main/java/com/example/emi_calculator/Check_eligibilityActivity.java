@@ -35,9 +35,10 @@ import com.google.android.material.snackbar.Snackbar;
 public class Check_eligibilityActivity extends AppCompatActivity {
 
 
-    private BottomSheetBehavior bottomSheetBehavior;
+   // private BottomSheetBehavior bottomSheetBehavior;
     ImageButton ToolIcon;
     Button calbtn;
+    LinearLayout calculateemi_ll_visible;
     LinearLayout linearLayout;
     EditText edSalary, edExisting
             , edNewPossibleEmi, edInterest, edYear, edPropertyValue, edAgreementValue;
@@ -57,7 +58,8 @@ public class Check_eligibilityActivity extends AppCompatActivity {
         utility_calculateAmount = new Utility_CalculateAmount();
 
         linearLayout = findViewById(R.id.design_bottom_sheetcl);
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+        calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
+       // bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
         ToolIcon = findViewById(R.id.toolbar);
         calbtn = findViewById(R.id.calculate_btn);
         spAgreementPer = findViewById(R.id.eligiblity_document_sp_agreement_value_per);
@@ -267,7 +269,8 @@ public class Check_eligibilityActivity extends AppCompatActivity {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                calculateemi_ll_visible.setVisibility(View.VISIBLE);
+              //  bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 ((InputMethodManager) getSystemService("input_method")).hideSoftInputFromWindow(v.getWindowToken(), 0);
                 calculate();
             }

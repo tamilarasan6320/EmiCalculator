@@ -102,5 +102,12 @@
         <item name="android:layout_height">1dp</item>
     </style>
 
+
+
+    <style name="Custom_textinputlayout_filledbox" parent="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+        <item name="boxStrokeColor">@color/Black</item>
+    </style>
+
 </resources>
 

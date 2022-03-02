@@ -67,11 +67,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="15dp"
             app:cardCornerRadius="10dp"
             >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -88,7 +100,8 @@
                     android:padding="5dp"
                     android:background="@color/primaryDarkColor"
                     android:layout_marginTop="5dp"
-                    android:textStyle="bold|italic"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsregular"
                     android:textSize="15dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -115,6 +128,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLength="14"
+                            android:fontFamily="@font/poppinsregular"
                             android:inputType="number"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -167,6 +181,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
+                                android:fontFamily="@font/poppinsregular"
+
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -200,6 +216,7 @@
                                 android:maxLength="14"
                                 android:inputType="number"
                                 android:focusable="false"
+                                android:fontFamily="@font/poppinsregular"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -238,6 +255,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="5"
+                                android:fontFamily="@font/poppinsregular"
+
                                 android:inputType="numberDecimal"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -261,6 +280,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="3"
+                                android:fontFamily="@font/poppinsregular"
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -277,7 +297,9 @@
                     android:padding="5dp"
                     android:background="@color/primaryDarkColor"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold|italic"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsregular"
+
                     android:textSize="15dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -310,6 +332,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
+                                android:fontFamily="@font/poppinsregular"
+
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -320,6 +344,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginTop="5dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -343,16 +368,20 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/primaryDarkColor"
+                    android:padding="5dp"
                     android:text="@string/document_details"
                     android:textColor="@color/white"
-                    android:padding="5dp"
-                    android:background="@color/primaryDarkColor"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold|italic"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:fontFamily="@font/poppinsregular"
+
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -384,6 +413,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
+                                android:fontFamily="@font/poppinsregular"
+
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -394,6 +425,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginTop="5dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="wrap_content"
@@ -422,24 +454,115 @@
 
 
 
-
-                <Button
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginBottom="20dp"
-
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    >
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/calculate_btn"
-                    android:textStyle="bold"
                     android:backgroundTint="@color/primaryColor"
                     android:text="Calculate"
+                    android:textSize="9dp"
                     android:layout_gravity="bottom"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    app:icon="@drawable/ic_baseline_calculate_24"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reset_btn"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="Reset"
+                    android:textSize="9dp"
+                    app:icon="@drawable/ic_baseline_refresh_24"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+
+                    android:layout_margin="1dp"
+
 
                     />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:textSize="9dp"
+                        android:textStyle="bold"
+                        app:icon="@drawable/ic_baseline_history_24"
+                        android:backgroundTint="@color/primaryColor"
+                        android:text="History"
+                        android:layout_margin="1dp"
+                        />
+
+                </LinearLayout>
+
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/calculateemi_ll_visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/news_title"
+                    layout="@layout/view_check_eligibility_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_share"
+                        style="@style/BrandButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:text="Share"
+                        app:icon="@drawable/ic_baseline_share_24"
+                        app:backgroundTint="@color/primaryColor"/>
+
+                    <Button
+                        android:visibility="gone"
+                        android:id="@+id/activity_calculate_emi_btn_save"
+                        style="@style/BrandButtonStyle"
+                        android:layout_weight="1"
+                        android:text="Save"
+                        app:backgroundTint="@color/primaryColor"/>
+                </LinearLayout>
+
+                <LinearLayout style="@style/HorizontalLine" />
+            </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            </ScrollView>
+
 
 
 
@@ -453,8 +576,7 @@
 
     </LinearLayout>
 
-    <include
-        layout="@layout/bottom_sheet_check_eligibility"/>
+
 
 
 

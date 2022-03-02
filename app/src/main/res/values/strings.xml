@@ -23,6 +23,7 @@
     <string name="select_segment">Select Segment</string>
 
     <string-array name="emitype">
+
         <item>EMI Type</item>
         <item>Reducing</item>
         <item>Flat</item>
@@ -155,6 +156,10 @@
     <string name="rb_pr">pr</string>
     <string name="rb_rs">rs</string>
     <string name="reset">reset</string>
+
+
+
+
 
 
 </resources>

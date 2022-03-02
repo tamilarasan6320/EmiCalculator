@@ -2,45 +2,59 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item
-        android:id="@+id/menu_nav1"
-        android:icon="@drawable/menu_icon"
-        android:title="EMI Calculator" />
+
+
+       <item
+           android:id="@+id/menu_nav1"
+           android:icon="@drawable/ic_emi_calculator"
+           android:title="EMI Calculator"
+
+           />
+
+
+
     <item
         android:id="@+id/menu_nav2"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_compare_loan"
         android:title="Compare EMI" />
     <item
         android:id="@+id/menu_nav3"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_bt_calculator"
         android:title="BT - Topup" />
     <item
         android:id="@+id/menu_nav4"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_baseline_calculate_24"
+        android:iconTint="@color/primaryColor"
         android:title="Home Loan Eligibility" />
     <item
         android:id="@+id/menu_nav5"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_current_roi"
+        android:iconTint="@color/primaryColor"
         android:title="Current Rate of Interest" />
     <item
         android:id="@+id/menu_nav6"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_doc_req"
+        android:iconTint="@color/primaryColor"
         android:title="Documentation" />
     <item
         android:id="@+id/menu_nav7"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_emi_per_laks"
+        android:iconTint="@color/primaryColor"
         android:title="EMI per Lakhs" />
     <item
         android:id="@+id/menu_compound"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_baseline_architecture_24"
+        android:iconTint="@color/primaryColor"
         android:title="Compound Interest Calculator" />
     <item
         android:id="@+id/menu_nav8"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_baseline_group_add_24"
+        android:iconTint="@color/primaryColor"
         android:title="Invite Friends" />
     <item
         android:id="@+id/menu_nav9"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_baseline_rss_feed_24"
+        android:iconTint="@color/primaryColor"
         android:title="Feedback"
 
 
@@ -49,7 +63,8 @@
 
     <item
         android:id="@+id/menu_nav10"
-        android:icon="@drawable/menu_icon"
+        android:icon="@drawable/ic_baseline_help_outline_24"
+        android:iconTint="@color/primaryColor"
         android:title="About Us" />
 
 </menu>
