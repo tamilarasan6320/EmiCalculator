@@ -1,9 +1,11 @@
 package com.example.emi_calculator.statistics;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,8 +28,11 @@ import com.example.emi_calculator.model.Model_Monthwisecalculation;
 import com.example.emi_calculator.model.Model_Yearwisecalculation;
 import com.github.mikephil.charting.utils.Utils;
 
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -67,6 +72,7 @@ public class Design_StatisticsActivity extends AppCompatActivity {
     Adapter_YearlyCalculation f4128F;
     DatePickerFragment f4139Q;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +89,14 @@ public class Design_StatisticsActivity extends AppCompatActivity {
         rbtnyearly = findViewById(R.id.statistics_rbtn_yearly);
         tv_name = findViewById(R.id.activity_statistics_tv_name);
         et_date = findViewById(R.id.activity_statistics_et_date);
+
+        LocalDate currentdate = LocalDate.now();
+
+        Month currentMonth = currentdate.getMonth();
+        int currentYear = currentdate.getYear();
+        Format f = new SimpleDateFormat("MMM");
+        String strMonth = f.format(new Date());
+        et_date.setText(""+strMonth + " - " + currentYear);
 
         this.et_date.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -179,9 +193,9 @@ public class Design_StatisticsActivity extends AppCompatActivity {
 //                    e.printStackTrace();
 //                }
 ////                this.f4138P.setTime(date);
-////                TextView textView = this.et_date;
-////                textView.setText(theMonth(this.f4138P.getTime().getMonth()) + "-" + (this.f4138P.getTime().getYear() + C0852R2.C0855id.accessibility_custom_action_11));
-//
+                  TextView textView = this.et_date;
+                  textView.setText(theMonth(this.f4138P.getTime().getMonth()) + "-" + (this.f4138P.getTime().getYear() + R.id.accessibility_custom_action_11));
+
 //                Cursor cursor3 = this.f4134L;
 //                this.f4140j = cursor3.getString(cursor3.getColumnIndex("Amount"));
 //                Cursor cursor4 = this.f4134L;
@@ -229,6 +243,9 @@ public class Design_StatisticsActivity extends AppCompatActivity {
         setdatavalue();
 
 
+    }
+    public static String theMonth(int i) {
+        return new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}[i];
     }
 
     public ArrayList<Model_Yearwisecalculation> scheduleYearly(double d, double d2, double d3, String str, double d4, String str2) {

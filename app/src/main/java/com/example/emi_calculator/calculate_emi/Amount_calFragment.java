@@ -102,6 +102,7 @@ public class Amount_calFragment extends Fragment {
         btn_share = rootview.findViewById(R.id.btn_share);
         result_view_title = rootview.findViewById(R.id.result_view_title);
 
+
         result_view_title.setText("Amount");
 
         //title.setText("Calculate EMI");

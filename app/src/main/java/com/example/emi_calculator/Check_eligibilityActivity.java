@@ -47,6 +47,7 @@ public class Check_eligibilityActivity extends AppCompatActivity {
     Utility_CalculateAmount utility_calculateAmount;
     Utility_CalculateEMI utility_calculateEMI;
     int loanTenureValue;
+    Button reset_btn;
 
 
     @Override
@@ -57,6 +58,7 @@ public class Check_eligibilityActivity extends AppCompatActivity {
         utility_calculateEMI = new Utility_CalculateEMI();
         utility_calculateAmount = new Utility_CalculateAmount();
 
+        reset_btn = findViewById(R.id.reset_btn);
         linearLayout = findViewById(R.id.design_bottom_sheetcl);
         calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
        // bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
@@ -78,6 +80,23 @@ public class Check_eligibilityActivity extends AppCompatActivity {
         tvMinimum = findViewById(R.id.activity__eligible_tv_minimum);
         tvEmiPerLac = findViewById(R.id.activity__eligible_tv_emi_per_lac);
         tvMiniEMI = findViewById(R.id.activity__eligible_tv_emi);
+
+        reset_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edSalary.getText().clear();
+                spSalaryPer.setSelection(0);
+                edExisting.getText().clear();
+                edNewPossibleEmi.getText().clear();
+                edInterest.getText().clear();
+                edYear.getText().clear();
+                edPropertyValue.getText().clear();
+                spPropertyPer.setSelection(0);
+                edAgreementValue.getText().clear();
+                spAgreementPer.setSelection(0);
+                calculateemi_ll_visible.setVisibility(View.GONE);
+            }
+        });
 
         edSalary.addTextChangedListener(new TextWatcher() {
             @Override
@@ -269,8 +288,6 @@ public class Check_eligibilityActivity extends AppCompatActivity {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                calculateemi_ll_visible.setVisibility(View.VISIBLE);
-              //  bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 ((InputMethodManager) getSystemService("input_method")).hideSoftInputFromWindow(v.getWindowToken(), 0);
                 calculate();
             }
@@ -342,6 +359,7 @@ public class Check_eligibilityActivity extends AppCompatActivity {
                 Toast.makeText(this, "Enter the Tenure Year more than zero", Toast.LENGTH_SHORT).show();
             }
             else{
+                calculateemi_ll_visible.setVisibility(View.VISIBLE);
                 loanTenureValue = Integer.parseInt(edYear.getText().toString());
                 loanTenureValue = loanTenureValue * 12;
                 String emiamount = utility_calculateEMI.getEmiamount("100000", String.valueOf(loanTenureValue), edInterest.getText().toString(), "0");

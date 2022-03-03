@@ -4,7 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="loanamount">Loan Amount</string>
@@ -156,10 +155,11 @@
     <string name="rb_pr">pr</string>
     <string name="rb_rs">rs</string>
     <string name="reset">reset</string>
-
-
-
-
+    <string name="salary">Salary</string>
+    <string name="current_balance">Current Balance</string>
+    <string name="bt_tenure">Bt Tenure(in Months)</string>
+    <string name="top_up_tenure">Top Up Tenure(in Months)</string>
+    <string name="foir">Foir</string>
 
 
 </resources>

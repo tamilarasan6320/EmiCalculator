@@ -41,17 +41,16 @@ import java.util.Date;
 
 public class CompareLoanActivity extends AppCompatActivity {
 
-    private BottomSheetBehavior bottomSheetBehavior;
+
     EditText AmountEt1,AmountEt2,InterestEt1,InterestEt2,TenureEt1,TenureEt2;
     Spinner TypeSpin1,TypeSpin2;
     TextView Emi1tv,Emi2tv,EmiDiff,Interesttv1,Interesttv2,InterestDiff,TotalRepay1,TotalRepay2,TotalRepayDiff;
     Button Calculatebtn;
-    LinearLayout linearLayout;
     ImageButton Toolbtn;
     Utility_CalculateLoanCompare utility_calculateLoanCompare;
     String rupees = "₹ ";
     String rs = "₹";
-    Button Share;
+    LinearLayout calculateemi_ll_visible;
 
 
     @Override
@@ -60,13 +59,13 @@ public class CompareLoanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_compare_loan);
 
         utility_calculateLoanCompare = new Utility_CalculateLoanCompare();
-        Share = findViewById(R.id.share);
+
 
 
 
         Calculatebtn = findViewById(R.id.calculate_btn);
-        linearLayout = findViewById(R.id.design_bottom_sheethl);
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+        calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
+
         Toolbtn = findViewById(R.id.toolbar);
 
         AmountEt1 = findViewById(R.id.amtEt1);
@@ -88,16 +87,16 @@ public class CompareLoanActivity extends AppCompatActivity {
         TotalRepay2 = findViewById(R.id.total_repay2_tv);
         TotalRepayDiff = findViewById(R.id.total_repaydiff_tv);
 
-        Share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View rootView = CompareLoanActivity.this.getWindow().getDecorView().getRootView();
-                rootView.setDrawingCacheEnabled(true);
-                Bitmap createBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
-                rootView.setDrawingCacheEnabled(false);
-                shareImage(createBitmap, CompareLoanActivity.this);
-            }
-        });
+////        Share.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                View rootView = CompareLoanActivity.this.getWindow().getDecorView().getRootView();
+////                rootView.setDrawingCacheEnabled(true);
+////                Bitmap createBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
+////                rootView.setDrawingCacheEnabled(false);
+////                shareImage(createBitmap, CompareLoanActivity.this);
+////            }
+//        });
 
         AmountEt1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -187,7 +186,7 @@ public class CompareLoanActivity extends AppCompatActivity {
         Calculatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
                 calculate();
             }
         });
@@ -266,6 +265,7 @@ public class CompareLoanActivity extends AppCompatActivity {
             Toast.makeText(this, "Choose Emi Type", Toast.LENGTH_SHORT).show();
 
         }else{
+            calculateemi_ll_visible.setVisibility(View.VISIBLE);
 
             String obj = TypeSpin1.getSelectedItem().toString();
             String obj2 = TypeSpin2.getSelectedItem().toString();

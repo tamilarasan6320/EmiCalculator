@@ -98,11 +98,10 @@
                     android:text="@string/salary_details"
                     android:textColor="@color/white"
                     android:padding="5dp"
-                    android:background="@color/primaryDarkColor"
+                    android:background="@color/primaryLightColor"
                     android:layout_marginTop="5dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="15dp"/>
+                    android:fontFamily="@font/sansregular"
+                    android:textSize="18dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,6 +114,7 @@
                         android:textColor="@color/primaryColor"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sansregular"
                         android:textSize="20dp"/>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginStart="3dp"
@@ -128,8 +128,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLength="14"
-                            android:fontFamily="@font/poppinsregular"
                             android:inputType="number"
+                            android:fontFamily="@font/sansregular"
+                            android:textSize="15dp"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,6 +169,7 @@
                             android:textColor="@color/primaryColor"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
+                            android:fontFamily="@font/sansregular"
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
@@ -181,9 +183,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/poppinsregular"
-
                                 android:inputType="number"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -216,7 +218,6 @@
                                 android:maxLength="14"
                                 android:inputType="number"
                                 android:focusable="false"
-                                android:fontFamily="@font/poppinsregular"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -242,6 +243,7 @@
                             android:textColor="@color/primaryColor"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
+                            android:fontFamily="@font/sansregular"
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
@@ -255,8 +257,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="5"
-                                android:fontFamily="@font/poppinsregular"
-
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 android:inputType="numberDecimal"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -280,7 +282,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="3"
-                                android:fontFamily="@font/poppinsregular"
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -295,12 +296,11 @@
                     android:text="@string/property_details"
                     android:textColor="@color/white"
                     android:padding="5dp"
-                    android:background="@color/primaryDarkColor"
+                    android:background="@color/primaryLightColor"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/poppinsregular"
-
-                    android:textSize="15dp"/>
+                    android:fontFamily="@font/sansregular"
+                    android:textSize="18dp"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -319,6 +319,7 @@
                             android:textColor="@color/primaryColor"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
+                            android:fontFamily="@font/sansregular"
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
@@ -332,9 +333,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/poppinsregular"
-
                                 android:inputType="number"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -373,14 +374,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@color/primaryDarkColor"
+                    android:background="@color/primaryLightColor"
                     android:padding="5dp"
                     android:text="@string/document_details"
                     android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:fontFamily="@font/poppinsregular"
-
-                    android:textStyle="bold" />
+                    android:textSize="18dp"
+                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -400,6 +399,7 @@
                             android:textColor="@color/primaryColor"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
+                            android:fontFamily="@font/sansregular"
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
@@ -413,9 +413,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/poppinsregular"
-
                                 android:inputType="number"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -452,59 +452,43 @@
 
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    >
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/calculate_btn"
-                    android:backgroundTint="@color/primaryColor"
-                    android:text="Calculate"
-                    android:textSize="9dp"
-                    android:layout_gravity="bottom"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:layout_margin="1dp"
-                    app:icon="@drawable/ic_baseline_calculate_24"
-                    />
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/reset_btn"
-                    android:backgroundTint="@color/primaryColor"
-                    android:text="Reset"
-                    android:textSize="9dp"
-                    app:icon="@drawable/ic_baseline_refresh_24"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-
-                    android:layout_margin="1dp"
-
-
-                    />
+                    android:weightSum="2">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnHistory"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/calculate_btn"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
+                        android:layout_margin="2dp"
                         android:layout_weight="1"
-                        android:textSize="9dp"
-                        android:textStyle="bold"
-                        app:icon="@drawable/ic_baseline_history_24"
-                        android:backgroundTint="@color/primaryColor"
-                        android:text="History"
-                        android:layout_margin="1dp"
+                        app:iconGravity="textStart"
+                        android:drawableStart="@drawable/ic_baseline_calculate_24"
+                        android:backgroundTint="@color/secondary"
+                        app:icon="@drawable/ic_baseline_calculate_24"
+                        android:text="@string/calculate"
+                        android:textSize="13dp"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/reset_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/grey"
+                        android:text="@string/reset"
+                        app:icon="@drawable/ic_baseline_delete_24"
+                        android:textSize="13dp"
+                        app:iconGravity="textStart"
+                        android:layout_gravity="start"
                         />
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
@@ -525,6 +509,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -533,6 +519,7 @@
                     android:layout_marginBottom="2dp"
                     android:gravity="center"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:padding="3dp">
 
 

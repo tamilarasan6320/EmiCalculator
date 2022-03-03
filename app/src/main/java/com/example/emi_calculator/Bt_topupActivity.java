@@ -10,7 +10,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Constant.Constant_Variable;
 import com.example.emi_calculator.Databasehelper.DB_BTHistory;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
@@ -152,6 +155,347 @@ public class Bt_topupActivity extends AppCompatActivity{
         TenureYears_rb.setTextColor(getResources().getColor(R.color.white));
         ProfeesPR_rb.setTextColor(getResources().getColor(R.color.white));
         InsurancePR_rb.setTextColor(getResources().getColor(R.color.white));
+
+        SanctionedAmount_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = SanctionedAmount_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    SanctionedAmount_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    SanctionedAmount_et.setText(trim2);
+                    SanctionedAmount_et.addTextChangedListener(this);
+                    EditText editText = SanctionedAmount_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    SanctionedAmount_et.removeTextChangedListener(this);
+                    SanctionedAmount_et.setText("");
+                    SanctionedAmount_et.addTextChangedListener(this);
+                    EditText editText2 = SanctionedAmount_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        OutstandingAmount_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = OutstandingAmount_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    OutstandingAmount_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    OutstandingAmount_et.setText(trim2);
+                    OutstandingAmount_et.addTextChangedListener(this);
+                    EditText editText = OutstandingAmount_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    OutstandingAmount_et.removeTextChangedListener(this);
+                    OutstandingAmount_et.setText("");
+                    OutstandingAmount_et.addTextChangedListener(this);
+                    EditText editText2 = OutstandingAmount_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        BTAmount_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = BTAmount_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    BTAmount_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    BTAmount_et.setText(trim2);
+                    BTAmount_et.addTextChangedListener(this);
+                    EditText editText = BTAmount_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    BTAmount_et.removeTextChangedListener(this);
+                    BTAmount_et.setText("");
+                    BTAmount_et.addTextChangedListener(this);
+                    EditText editText2 = BTAmount_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        TopupAmount_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = TopupAmount_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    TopupAmount_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    TopupAmount_et.setText(trim2);
+                    TopupAmount_et.addTextChangedListener(this);
+                    EditText editText = TopupAmount_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    TopupAmount_et.removeTextChangedListener(this);
+                    TopupAmount_et.setText("");
+                    TopupAmount_et.addTextChangedListener(this);
+                    EditText editText2 = TopupAmount_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        BTEmi_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = BTEmi_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    BTEmi_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    BTEmi_et.setText(trim2);
+                    BTEmi_et.addTextChangedListener(this);
+                    EditText editText = BTEmi_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    BTEmi_et.removeTextChangedListener(this);
+                    BTEmi_et.setText("");
+                    BTEmi_et.addTextChangedListener(this);
+                    EditText editText2 = BTEmi_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        ToupEmi_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = ToupEmi_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    ToupEmi_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    ToupEmi_et.setText(trim2);
+                    ToupEmi_et.addTextChangedListener(this);
+                    EditText editText = ToupEmi_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    ToupEmi_et.removeTextChangedListener(this);
+                    ToupEmi_et.setText("");
+                    ToupEmi_et.addTextChangedListener(this);
+                    EditText editText2 = ToupEmi_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        ProcessingGST_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = ProcessingGST_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    ProcessingGST_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    ProcessingGST_et.setText(trim2);
+                    ProcessingGST_et.addTextChangedListener(this);
+                    EditText editText = ProcessingGST_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    ProcessingGST_et.removeTextChangedListener(this);
+                    ProcessingGST_et.setText("");
+                    ProcessingGST_et.addTextChangedListener(this);
+                    EditText editText2 = ProcessingGST_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        InsuranceGST_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = InsuranceGST_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    InsuranceGST_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    InsuranceGST_et.setText(trim2);
+                    InsuranceGST_et.addTextChangedListener(this);
+                    EditText editText = InsuranceGST_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    InsuranceGST_et.removeTextChangedListener(this);
+                    InsuranceGST_et.setText("");
+                    InsuranceGST_et.addTextChangedListener(this);
+                    EditText editText2 = InsuranceGST_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        ToupEMIInsurance_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = ToupEMIInsurance_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    ToupEMIInsurance_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    ToupEMIInsurance_et.setText(trim2);
+                    ToupEMIInsurance_et.addTextChangedListener(this);
+                    EditText editText = ToupEMIInsurance_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    ToupEMIInsurance_et.removeTextChangedListener(this);
+                    ToupEMIInsurance_et.setText("");
+                    ToupEMIInsurance_et.addTextChangedListener(this);
+                    EditText editText2 = ToupEMIInsurance_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        TotalEMI_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = TotalEMI_et.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    TotalEMI_et.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    TotalEMI_et.setText(trim2);
+                    TotalEMI_et.addTextChangedListener(this);
+                    EditText editText = TotalEMI_et;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+
+                } else {
+                    TotalEMI_et.removeTextChangedListener(this);
+                    TotalEMI_et.setText("");
+                    TotalEMI_et.addTextChangedListener(this);
+                    EditText editText2 = TotalEMI_et;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         ToolIcon.setOnClickListener(new View.OnClickListener() {
             @Override

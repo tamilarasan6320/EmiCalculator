@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:background="@drawable/bg"
     tools:context=".calculate_emi.Emi_calFragment">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +43,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:fontFamily="@font/poppinsregular"
+                            android:fontFamily="@font/sansregular"
+                            android:textSize="15dp"
                             android:maxLength="14" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +65,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
-                            android:fontFamily="@font/poppinsregular"
+                            android:fontFamily="@font/sansregular"
+                            android:textSize="15dp"
                             android:maxLength="5" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +92,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:fontFamily="@font/poppinsregular"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 android:maxLength="3" />
                         </com.google.android.material.textfield.TextInputLayout>
 
