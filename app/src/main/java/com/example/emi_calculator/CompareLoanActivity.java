@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
@@ -51,6 +52,7 @@ public class CompareLoanActivity extends AppCompatActivity {
     String rupees = "₹ ";
     String rs = "₹";
     LinearLayout calculateemi_ll_visible;
+    Button btn_reset;
 
 
     @Override
@@ -64,6 +66,7 @@ public class CompareLoanActivity extends AppCompatActivity {
 
 
         Calculatebtn = findViewById(R.id.calculate_btn);
+        btn_reset = findViewById(R.id.btn_reset);
         calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
 
         Toolbtn = findViewById(R.id.toolbar);
@@ -86,6 +89,21 @@ public class CompareLoanActivity extends AppCompatActivity {
         TotalRepay1 = findViewById(R.id.total_repay1_tv);
         TotalRepay2 = findViewById(R.id.total_repay2_tv);
         TotalRepayDiff = findViewById(R.id.total_repaydiff_tv);
+
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AmountEt1.setText("");
+                AmountEt2.setText("");
+                InterestEt1.setText("");
+                InterestEt2.setText("");
+                TenureEt1.setText("");
+                TenureEt2.setText("");
+                TypeSpin1.setSelection(0);
+                TypeSpin2.setSelection(0);
+                calculateemi_ll_visible.setVisibility(View.GONE);
+            }
+        });
 
 ////        Share.setOnClickListener(new View.OnClickListener() {
 ////            @Override
@@ -186,8 +204,20 @@ public class CompareLoanActivity extends AppCompatActivity {
         Calculatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(AmountEt1.getText().toString()) || TextUtils.isEmpty(AmountEt2.getText().toString())){
+                    Toast.makeText(CompareLoanActivity.this, "Enter Amount", Toast.LENGTH_SHORT).show();
+                }else if (TextUtils.isEmpty(InterestEt1.getText().toString()) || TextUtils.isEmpty(InterestEt2.getText().toString())){
+                    Toast.makeText(CompareLoanActivity.this, "Enter Interest", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(TenureEt1.getText().toString()) || TextUtils.isEmpty(TenureEt2.getText().toString())){
+                    Toast.makeText(CompareLoanActivity.this, "Enter Tenre", Toast.LENGTH_SHORT).show();
+                }else {
+                    calculate();
 
-                calculate();
+                }
+
+
+
             }
         });
 

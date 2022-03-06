@@ -69,13 +69,17 @@ public class EMI_perlakhsActivity extends AppCompatActivity{
                 else if (TextUtils.isEmpty(etTenure.getText().toString())){
                     Toast.makeText(EMI_perlakhsActivity.this, "Enter Tenure", Toast.LENGTH_SHORT).show();
                 }
-                Double valueOf2 = Double.valueOf(Double.parseDouble(etInterestRate.getText().toString().replaceAll(",", "")));
+                else{
+                    Double valueOf2 = Double.valueOf(Double.parseDouble(etInterestRate.getText().toString().replaceAll(",", "")));
 
-                if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
-                    Toast.makeText(EMI_perlakhsActivity.this, "Enter the value between 0.1 to 99.99", Toast.LENGTH_SHORT).show();
-                }else {
-                    calculate();
+                    if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
+                        Toast.makeText(EMI_perlakhsActivity.this, "Enter the value between 0.1 to 99.99", Toast.LENGTH_SHORT).show();
+                    }else {
+                        calculate();
+                    }
+
                 }
+
 
 
             }

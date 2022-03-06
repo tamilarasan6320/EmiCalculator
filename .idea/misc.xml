@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_bt_topup.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_check_eligibility.xml" value="0.22" />
-        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_compare_loan.xml" value="0.22" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_bt_topup.xml" value="0.22" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_check_eligibility.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_compare_loan.xml" value="0.1" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_e_m_i_perlakhs.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_emi_calculator.xml" value="0.1" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_new_bt_topup.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/bottom_sheet_compare_loan.xml" value="0.22" />

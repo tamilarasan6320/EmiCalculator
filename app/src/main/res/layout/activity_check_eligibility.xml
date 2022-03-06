@@ -218,6 +218,8 @@
                                 android:maxLength="14"
                                 android:inputType="number"
                                 android:focusable="false"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -283,6 +285,8 @@
                                 android:layout_height="wrap_content"
                                 android:maxLength="3"
                                 android:inputType="number"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -323,6 +327,7 @@
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
+                            android:layout_marginTop="7dp"
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -334,6 +339,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
                                 android:inputType="number"
+
                                 android:fontFamily="@font/sansregular"
                                 android:textSize="15dp"
                                 />
@@ -403,6 +409,7 @@
                             android:textSize="20dp"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginStart="3dp"
+                            android:layout_marginTop="7dp"
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

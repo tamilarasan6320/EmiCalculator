@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="50dp"
             android:layout_marginRight="10dp"
             app:cardCornerRadius="10dp"
             >
@@ -116,8 +116,6 @@
                                 android:textSize="15dp"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
-
-
 
                     </LinearLayout>
                     <LinearLayout
@@ -184,8 +182,6 @@
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
-
-
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -211,15 +207,19 @@
                                 android:id="@+id/etEMIPaid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:maxLength="2"
+                                android:maxLength="3"
                                 android:fontFamily="@font/sansregular"
                                 android:textSize="15dp"
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
-
-
                     </LinearLayout>
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/primaryLightColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -453,7 +453,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 style="@style/Widget.Design.TextInputLayout"
-                                android:hint="@string/bt_amount">
+                                android:hint="@string/bt_emi">
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/etBTEMI"
                                     android:layout_width="match_parent"
@@ -486,7 +486,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 style="@style/Widget.Design.TextInputLayout"
-                                android:hint="@string/topup_amount">
+                                android:hint="@string/topup_emi">
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/etTopupEMI"
                                     android:layout_width="match_parent"
@@ -511,7 +511,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/currency_symbol"
+                            android:text="@string/percentage"
                             android:textColor="@color/primaryColor"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"

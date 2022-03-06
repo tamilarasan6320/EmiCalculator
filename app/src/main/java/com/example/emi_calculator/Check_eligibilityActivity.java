@@ -15,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -157,6 +158,22 @@ public class Check_eligibilityActivity extends AppCompatActivity {
                     edExisting.addTextChangedListener(this);
                     EditText editText = edExisting;
                     editText.setSelection(editText.getText().toString().trim().length());
+
+                    int parseInt = Integer.parseInt(spSalaryPer.getSelectedItem().toString());
+                    double parseDouble1 = (Double.parseDouble(edSalary.getText().toString().replaceAll(",", "")) * ((double) parseInt)) / 100.0d;
+                    if (parseDouble1 < Utils.DOUBLE_EPSILON) {
+                        parseDouble1 = 0.0d;
+                    }
+                    String trim4 = Constant_CurrencyFormatDoller.dollerFormat(String.valueOf(parseDouble1), "₹").replaceAll("₹", "").trim();
+
+
+
+                    double parseDouble = (Double.parseDouble(trim4.replaceAll(",", ""))) - (Double.parseDouble(edExisting.getText().toString().replaceAll(",", "")));
+                    if (parseDouble < Utils.DOUBLE_EPSILON) {
+                        parseDouble = 0.0d;
+                    }
+                    String trim3 = Constant_CurrencyFormatDoller.dollerFormat(String.valueOf(parseDouble), "₹").replaceAll("₹", "").trim();
+                    edNewPossibleEmi.setText(trim3);
                     //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
 
                 } else {
@@ -172,6 +189,26 @@ public class Check_eligibilityActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
+            }
+        });
+        spSalaryPer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String replaceAll = edSalary.getText().toString().replaceAll(",", "");
+                int parseInt = Integer.parseInt(spSalaryPer.getSelectedItem().toString());
+                if (replaceAll.length() > 0) {
+                    double parseDouble = (Double.parseDouble(replaceAll) * ((double) parseInt)) / 100.0d;
+                    if (parseDouble < Utils.DOUBLE_EPSILON) {
+                        parseDouble = 0.0d;
+                    }
+                    String dollerFormat = Constant_CurrencyFormatDoller.dollerFormat(String.valueOf(parseDouble), "₹");
+                    edNewPossibleEmi.setText(dollerFormat);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });

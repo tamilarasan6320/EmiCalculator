@@ -372,7 +372,7 @@
                             />
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/activity_calculate_emi_btn_reset"
+                            android:id="@+id/btn_reset"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
