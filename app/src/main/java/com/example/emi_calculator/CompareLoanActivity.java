@@ -20,6 +20,7 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -53,6 +54,7 @@ public class CompareLoanActivity extends AppCompatActivity {
     String rs = "₹";
     LinearLayout calculateemi_ll_visible;
     Button btn_reset;
+    InputMethodManager inputMethodManager;
 
 
     @Override
@@ -204,6 +206,9 @@ public class CompareLoanActivity extends AppCompatActivity {
         Calculatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                 if (TextUtils.isEmpty(AmountEt1.getText().toString()) || TextUtils.isEmpty(AmountEt2.getText().toString())){
                     Toast.makeText(CompareLoanActivity.this, "Enter Amount", Toast.LENGTH_SHORT).show();
                 }else if (TextUtils.isEmpty(InterestEt1.getText().toString()) || TextUtils.isEmpty(InterestEt2.getText().toString())){

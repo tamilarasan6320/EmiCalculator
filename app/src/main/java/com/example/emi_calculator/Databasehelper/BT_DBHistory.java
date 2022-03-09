@@ -13,8 +13,8 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
 
-public class DB_BTHistory extends SQLiteAssetHelper {
-    private static DB_BTHistory instance;
+public class BT_DBHistory extends SQLiteAssetHelper {
+    private static BT_DBHistory instance;
 
 
     /* renamed from: a */
@@ -61,15 +61,14 @@ public class DB_BTHistory extends SQLiteAssetHelper {
     public String colTopupLoanROI = "TopupLoanROI";
     public String colTopupLoanTenure = "TopupLoanTenure";
     public String tblName = "BTHistory";
-    public String tblNameBT = "BTHistoryValues";
 
-    public DB_BTHistory(Context context) {
+    public BT_DBHistory(Context context) {
         super(context, Constant_Variable.DATABASE_NAME, (SQLiteDatabase.CursorFactory) null, 13);
     }
 
-    public static DB_BTHistory getInstance(Context context) {
+    public static BT_DBHistory getInstance(Context context) {
         if (instance == null) {
-            instance = new DB_BTHistory(context);
+            instance = new BT_DBHistory(context);
         }
         return instance;
     }
@@ -184,42 +183,7 @@ public class DB_BTHistory extends SQLiteAssetHelper {
         return modelBTHistory;
     }
 
-    public long insertHistory(ModelBTHistory modelBTHistory) {
-        SQLiteDatabase writableDatabase = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(this.colCustomerName, modelBTHistory.getCustomerName());
-        contentValues.put(this.colCustomerMobile, modelBTHistory.getCustomerMobile());
-        contentValues.put(this.colCustomerReference, modelBTHistory.getCustomerReference());
-        contentValues.put(this.colBTCompanyID, Integer.valueOf(modelBTHistory.getBTCompanyID()));
-        contentValues.put(this.colBTBankSegmentID, Integer.valueOf(modelBTHistory.getBTBankSegmentID()));
-        contentValues.put(this.colSanctionedAmount, Long.valueOf(modelBTHistory.getSanctionedAmount()));
-        contentValues.put(this.colOutstandingAmount, Long.valueOf(modelBTHistory.getOutstandingAmount()));
-        contentValues.put(this.colEMIPaid, Long.valueOf(modelBTHistory.getEMIPaid()));
-        contentValues.put(this.colMultiplier, Double.valueOf(modelBTHistory.getMultiplier()));
-        contentValues.put(this.colBTLoanAmount, Long.valueOf(modelBTHistory.getBTLoanAmount()));
-        contentValues.put(this.colBTLoanROI, Double.valueOf(modelBTHistory.getBTLoanROI()));
-        contentValues.put(this.colBTLoanTenure, Long.valueOf(modelBTHistory.getBTLoanTenure()));
-        contentValues.put(this.colTopupLoanAmount, Long.valueOf(modelBTHistory.getTopupLoanAmount()));
-        contentValues.put(this.colTopupLoanROI, Double.valueOf(modelBTHistory.getTopupLoanROI()));
-        contentValues.put(this.colTopupLoanTenure, Long.valueOf(modelBTHistory.getTopupLoanTenure()));
-        contentValues.put(this.colProcessingFee, Double.valueOf(modelBTHistory.getProcessingFee()));
-        contentValues.put(this.colProcessingFeeType, modelBTHistory.getProcessingFeeType());
-        contentValues.put(this.colProcessingFeeAmount, Long.valueOf(modelBTHistory.getProcessingFeeAmount()));
-        contentValues.put(this.colProcessingFeeAmountwithGST, Long.valueOf(modelBTHistory.getProcessingFeeAmountwithGST()));
-        contentValues.put(this.colInsurance, Double.valueOf(modelBTHistory.getInsurance()));
-        contentValues.put(this.colInsuranceType, modelBTHistory.getInsuranceType());
-        contentValues.put(this.colInsuranceAmount, Long.valueOf(modelBTHistory.getInsuranceAmount()));
-        contentValues.put(this.colInsuranceAmountwithGST, Long.valueOf(modelBTHistory.getInsuranceAmountwithGST()));
-        contentValues.put(this.colTopupLoanAmountwithInsurance, Long.valueOf(modelBTHistory.getTopupLoanAmountwithInsurance()));
-        contentValues.put(this.colBTEMIAmount, Long.valueOf(modelBTHistory.getBTEMIAmount()));
-        contentValues.put(this.colTopupEMIAmount, Long.valueOf(modelBTHistory.getTopupEMIAmount()));
-        contentValues.put(this.colTopupEMIAmountwithInsurance, Long.valueOf(modelBTHistory.getTopupEMIAmountwithInsurance()));
-        mo11445b();
-        long insert = writableDatabase.insert(this.tblName, (String) null, contentValues);
-        writableDatabase.close();
-        return insert;
-    }
-    public long insertNewHistory(ModelNewBTHistory modelBTHistory) {
+    public long insertHistory(ModelNewBTHistory modelBTHistory) {
         SQLiteDatabase writableDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Salary, modelBTHistory.getSalary());
@@ -236,7 +200,7 @@ public class DB_BTHistory extends SQLiteAssetHelper {
         contentValues.put(TopupEMI, modelBTHistory.getTopupEMI());
         contentValues.put(Foir, modelBTHistory.getFoir());
         mo11445b();
-        long insert = writableDatabase.insert(this.tblNameBT, (String) null, contentValues);
+        long insert = writableDatabase.insert(this.tblName, (String) null, contentValues);
         writableDatabase.close();
         return insert;
     }

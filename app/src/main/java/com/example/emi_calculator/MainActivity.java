@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Activity activity;
 
     CardView card1 ,card2 , card3 , card4;
-    LinearLayout r1,r2,r3,r4;
+    LinearLayout cil,r1,r2,r3,r4;
     public static final int PERMISSION_REQUEST_CODE = 99;
 
     @Override
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         r2 = findViewById(R.id.r2);
         r3 = findViewById(R.id.r3);
         r4 = findViewById(R.id.r4);
+        r4 = findViewById(R.id.r4);
+        cil = findViewById(R.id.cil);
 
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +111,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EMI_perlakhsActivity.class);
+                startActivity(intent);
+            }
+        });
+        cil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Compond_interestActivity.class);
                 startActivity(intent);
             }
         });

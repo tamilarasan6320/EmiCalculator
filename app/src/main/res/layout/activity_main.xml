@@ -263,7 +263,34 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgwhite"
+                            android:id="@+id/cil"
+                            android:orientation="horizontal">
+                            <ImageButton
+                                android:layout_margin="10dp"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/round_btn"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_baseline_architecture_24"
+                                />
+                            <TextView
+                                android:layout_margin="10dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Compound Interest Calc."
+                                android:textColor="@color/primaryDarkColor"
+                                android:fontFamily="@font/poppinsregular"
+                                android:textSize="18dp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bgwhite"
                             android:id="@+id/r1"
+                            android:layout_marginTop="5dp"
                             android:orientation="horizontal">
                             <ImageButton
                                 android:layout_margin="10dp"

@@ -9,8 +9,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -24,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Constant.Constant_CurrencyFormatDoller;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -38,9 +41,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class Compond_interestActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Compond_interestActivity extends AppCompatActivity {
 
-    private DrawerLayout drawer;
 
     ImageButton Toolbtn;
 
@@ -55,8 +57,6 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
     RadioButton TenureYears_rb;
     @BindView(R.id.rbTenureMonth)
     RadioButton TenureMonth_rb;
-    @BindView(R.id.imgShare)
-    ImageView imgShare;
 
 
     @BindView(R.id.spCompoundingFrequency)
@@ -75,17 +75,14 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
     TextView tvTotalAmount;
     @BindView(R.id.calculate_btn)
     Button Calbtn;
-
-    BottomSheetBehavior bottomSheetBehavior;
-    LinearLayout linearLayout;
-
     InputMethodManager inputMethodManager;
+    LinearLayout calculateemi_ll_visible;
     Double f3855n,f3858q,f3860s,f3859r,f3856o,f3857p;
     boolean f3852k = true;
     boolean f3851j = true;
 
     String f3853l = "₹";
-    ImageView reset;
+    Button reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,27 +90,51 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
         setContentView(R.layout.activity_compond_interest);
         ButterKnife.bind(this);
 
-        Toolbtn = findViewById(R.id.toolbar);
-        linearLayout = findViewById(R.id.bottom_sheet_linear);
-        reset = findViewById(R.id.reset);
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
-
         TenureYears_rb.setTextColor(getResources().getColor(R.color.white));
 
+        reset = findViewById(R.id.reset_btn);
+        calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
 
-        Toolbtn.setOnClickListener(new View.OnClickListener() {
+        etPrincipal.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                drawer.openDrawer(GravityCompat.START);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String trim = etPrincipal.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    etPrincipal.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    etPrincipal.setText(trim2);
+                    etPrincipal.addTextChangedListener(this);
+                    EditText editText = etPrincipal;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                } else {
+                    etPrincipal.removeTextChangedListener(this);
+                    etPrincipal.setText("");
+                    etPrincipal.addTextChangedListener(this);
+                    EditText editText2 = etPrincipal;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
+
+
+
+
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                calculateemi_ll_visible.setVisibility(View.GONE);
                 TenureYears_rb.setTextColor(getResources().getColor(R.color.white));
                 TenureMonth_rb.setTextColor(getResources().getColor(R.color.primaryDarkColor));
                 TenureYears_rb.setChecked(true);
@@ -131,82 +152,9 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
         });
 
 
-        navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case R.id.menu_nav1: {
-                Intent i = new Intent(Compond_interestActivity.this, Emi_calculator.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav2: {
-                Intent i = new Intent(Compond_interestActivity.this, CompareLoanActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav3: {
-                Intent i = new Intent(Compond_interestActivity.this, Bt_topupActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav4: {
-                Intent i = new Intent(Compond_interestActivity.this, Check_eligibilityActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav5: {
-                Intent i = new Intent(Compond_interestActivity.this, Current_roi_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav6: {
-                Intent i = new Intent(Compond_interestActivity.this, DocumentActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav7: {
-                Intent i = new Intent(Compond_interestActivity.this, EMI_perlakhsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav8: {
-                Intent i = new Intent(Compond_interestActivity.this, InviteActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav9: {
-                Intent i = new Intent(Compond_interestActivity.this, FeedbackActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_nav10: {
-                Intent i = new Intent(Compond_interestActivity.this, AboutusActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.menu_compound: {
-                Intent i = new Intent(Compond_interestActivity.this, Compond_interestActivity.class);
-                startActivity(i);
-                break;
-            }
-
-        }
-
-        return false;
-    }
     @OnClick({R.id.rbTenureYears})
     public void onClickRbTenureYears(View view) {
         this.etTenure.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
@@ -271,6 +219,7 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
             } else if (this.spCompoundingFrequency.getSelectedItemPosition() == 6) {
                 this.f3859r = Double.valueOf(365.0d);
             }
+            calculateemi_ll_visible.setVisibility(View.VISIBLE);
             this.f3856o = Double.valueOf((this.f3855n.doubleValue() * Math.pow(((this.f3858q.doubleValue() / 100.0d) / this.f3859r.doubleValue()) + 1.0d, this.f3859r.doubleValue() * this.f3860s.doubleValue())) - this.f3855n.doubleValue());
             this.f3857p = Double.valueOf(this.f3856o.doubleValue() + this.f3855n.doubleValue());
             TextView textView = this.tvCompoundAmount;
@@ -290,19 +239,21 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
     @SuppressLint("WrongConstant")
     private boolean validate(View rootview)
     {
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
         inputMethodManager = (InputMethodManager) getSystemService("input_method");
         inputMethodManager.hideSoftInputFromWindow(rootview.getWindowToken(), 0);
 
         if (etPrincipal.getText().toString().equals("")) {
-            Toast.makeText(this, "Enter Principal", Toast.LENGTH_SHORT).show();
+            etPrincipal.setError("Enter Principal");
+            etPrincipal.requestFocus();
             return false;
         }else if (etInterestRate.getText().toString().equals("")) {
-            Toast.makeText(this, "Enter Rate of Return", Toast.LENGTH_SHORT).show();
+            etInterestRate.setError("Enter Rate of Return");
+            etInterestRate.requestFocus();
             return false;
         }else if (etTenure.getText().toString().equals("")) {
-            Toast.makeText(this, "Enter Tenure", Toast.LENGTH_SHORT).show();
+            etTenure.setError("Enter Tenure");
+            etTenure.requestFocus();
             return false;
         }
         Double valueOf = Double.valueOf(Double.parseDouble(etPrincipal.getText().toString().replaceAll(",", "")));
@@ -310,17 +261,23 @@ public class Compond_interestActivity extends AppCompatActivity implements Navig
         Double valueOf3 = Double.valueOf(Double.parseDouble(etTenure.getText().toString()));
 
         if (valueOf.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            etPrincipal.setError("Enter the value more than zero");
+            etPrincipal.requestFocus();
             return false;
         } else if (valueOf2.doubleValue() <= Utils.DOUBLE_EPSILON || valueOf2.doubleValue() >= 100.0d) {
-            Snackbar.make(rootview, "Enter the value between 0.1 to 99.99", Snackbar.LENGTH_SHORT).show();
+            etInterestRate.setError("Enter the value between 0.1 to 99.99");
+            etInterestRate.requestFocus();
             return false;
         }else if (valueOf3.doubleValue() <= Utils.DOUBLE_EPSILON) {
-            Snackbar.make(rootview, "Enter the value more than zero", Snackbar.LENGTH_SHORT).show();
+            etTenure.setError("Enter the value more than zero");
+            etTenure.requestFocus();
             return false;
         }
         return true;
     }
 
 
+    public void backbtn(View view) {
+        onBackPressed();
+    }
 }

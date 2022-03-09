@@ -530,11 +530,6 @@ public class Bt_topupActivity extends AppCompatActivity{
                             f3809q = false;
                         }
                     }
-//                    try {
-//
-//                    } catch (Exception e) {
-//                        Log.e("BTTOPMYAPP", "exception", e);
-//                    }
 
                 }
             }

@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Emi_Calculator">
         <activity
+            android:name=".BTTopUpHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewBtTopupActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
         <activity
             android:name=".Emi_calculator"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

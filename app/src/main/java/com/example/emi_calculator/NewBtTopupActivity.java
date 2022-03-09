@@ -2,8 +2,12 @@ package com.example.emi_calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +16,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
+import com.example.emi_calculator.Databasehelper.BT_DBHistory;
+import com.example.emi_calculator.Databasehelper.DB_BTHistory;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
+import com.example.emi_calculator.model.ModelBTHistory;
+import com.example.emi_calculator.model.ModelNewBTHistory;
 
 public class NewBtTopupActivity extends AppCompatActivity {
     EditText etSalary,etSanctionedAmount,etCurrentBalance,etEMIPaid,etBTAmount,etTopupAmount,etBTROI,etTopupROI,etBTEMI,etTopupEMI,etBTTenure,etTopupTenure,etFoir;
-    Button btnSave;
+    Button btnSave,btnHistory;
     Utility_CalculateEMI utility_calculateEMI;
+
+    ModelNewBTHistory modelBTHistory = new ModelNewBTHistory();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +49,15 @@ public class NewBtTopupActivity extends AppCompatActivity {
         etTopupEMI = findViewById(R.id.etTopupEMI);
         etFoir = findViewById(R.id.etFoir);
         btnSave = findViewById(R.id.btnSave);
+        btnHistory = findViewById(R.id.btnHistory);
+
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewBtTopupActivity.this,BTTopUpHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         etSalary.addTextChangedListener(new TextWatcher() {
             @Override
@@ -376,8 +395,78 @@ public class NewBtTopupActivity extends AppCompatActivity {
         });
 
 
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validate()){
+                    setValuesBt();
+                    SqliteManager dbHandler;
+                    dbHandler = new SqliteManager(NewBtTopupActivity.this);
+                    dbHandler.addItem(modelBTHistory);
+                    reset();
+                    Toast.makeText(NewBtTopupActivity.this, "Saved Succcessfully", Toast.LENGTH_SHORT).show();
+
+                }
 
 
+//                long j;
+//                if (validate()){
+//                    setValuesBt();
+//                    j = BT_DBHistory.getInstance(NewBtTopupActivity.this).insertHistory(modelBTHistory);
+//                    Toast.makeText(NewBtTopupActivity.this, "" + j, Toast.LENGTH_SHORT).show();
+//                    if (j != -1) {
+//                        Toast.makeText(NewBtTopupActivity.this, "Save Successfully", Toast.LENGTH_LONG).show();
+////                        reset();
+////                        if (f3809q) {
+////                            f3809q = false;
+////                        }
+//                    }
+//                }
+
+            }
+        });
+
+
+
+
+    }
+
+    private void reset() {
+        etSalary.setText("");
+        etSanctionedAmount.setText("");
+        etCurrentBalance.setText("");
+        etEMIPaid.setText("");
+        etBTAmount.setText("");
+        etTopupAmount.setText("");
+        etBTROI.setText("");
+        etTopupROI.setText("");
+        etBTTenure.setText("");
+        etTopupTenure.setText("");
+        etBTEMI.setText("");
+        etTopupEMI.setText("");
+        etFoir.setText("");
+    }
+
+
+    private void setValuesBt()
+    {
+        modelBTHistory.setSalary(etSalary.getText().toString());
+        modelBTHistory.setSanctionedAmount(etSanctionedAmount.getText().toString());
+        modelBTHistory.setCurrentBalance(etCurrentBalance.getText().toString());
+        modelBTHistory.setEMIPaid(etEMIPaid.getText().toString());
+        modelBTHistory.setBTAmount(etBTAmount.getText().toString());
+        modelBTHistory.setTopupAmount(etTopupAmount.getText().toString());
+        modelBTHistory.setBTROI(etBTROI.getText().toString());
+        modelBTHistory.setTopupROI(etTopupROI.getText().toString());
+        modelBTHistory.setBTTenure(etBTTenure.getText().toString());
+        modelBTHistory.setTopupTenure(etTopupTenure.getText().toString());
+        modelBTHistory.setBTEMI(etBTEMI.getText().toString());
+        modelBTHistory.setTopupEMI(etTopupEMI.getText().toString());
+        modelBTHistory.setFoir(etFoir.getText().toString());
+
+    }
+    public String clearFormet(String str) {
+        return str.toString().replaceAll("[^\\d.]+", "");
     }
 
     private void setCalculateemiBT(String btamt, String btroi, String bttenure)
@@ -426,6 +515,74 @@ public class NewBtTopupActivity extends AppCompatActivity {
 
         }
 
+    }
+    private boolean validate()
+    {
+        if (TextUtils.isEmpty(etSalary.getText().toString())){
+            etSalary.setError("Enter the Salary");
+            etSalary.requestFocus();
+            return false;
+        }else if (TextUtils.isEmpty(etSanctionedAmount.getText().toString())){
+            etSanctionedAmount.setError("Enter the  Sanctioned Amount");
+            etSanctionedAmount.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etCurrentBalance.getText().toString())){
+            etCurrentBalance.setError("Enter the  Current Balance");
+            etCurrentBalance.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etEMIPaid.getText().toString())){
+            etEMIPaid.setError("Enter the  EMI Paid");
+            etEMIPaid.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etBTAmount.getText().toString())){
+            etBTAmount.setError("Enter the BT Amount");
+            etBTAmount.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etTopupAmount.getText().toString())){
+            etTopupAmount.setError("Enter the Topup Amount");
+            etTopupAmount.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etBTROI.getText().toString())){
+            etBTROI.setError("Enter the BT ROI");
+            etBTROI.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etTopupROI.getText().toString())){
+            etTopupROI.setError("Enter the Top up ROI");
+            etTopupROI.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etBTTenure.getText().toString())){
+            etBTTenure.setError("Enter the BT Tenure");
+            etBTTenure.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etTopupTenure.getText().toString())){
+            etTopupTenure.setError("Enter the Topup Tenure");
+            etTopupTenure.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etBTEMI.getText().toString())){
+            etBTEMI.setError("Enter the BT EMI");
+            etBTEMI.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etTopupEMI.getText().toString())){
+            etTopupEMI.setError("Enter the Topup EMI");
+            etTopupEMI.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etFoir.getText().toString())){
+            etFoir.setError("Enter the Foir");
+            etFoir.requestFocus();
+            return false;
+        }
+        return true;
     }
 
     public void toolbarclicked(View view) {
