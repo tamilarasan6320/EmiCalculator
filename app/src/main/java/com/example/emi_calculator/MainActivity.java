@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -142,13 +143,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
 
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close
         );
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        storagepermiison();
+        //storagepermiison();
 
     }
 
@@ -239,7 +241,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
-
-
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        drawer.closeDrawer(Gravity.LEFT);
+    }
 }

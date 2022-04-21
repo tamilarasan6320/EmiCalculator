@@ -100,13 +100,13 @@
                 android:text="Yearly" />
         </RadioGroup>
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btn_share"-->
-        <!--            style="@style/BrandButtonStyle"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:fontFamily="sans-serif"-->
-        <!--           -->
-        <!--            android:text="PDF" />-->
+                <Button
+                    android:id="@+id/btn_pdf"
+                    style="@style/BrandButtonStyle"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:backgroundTint="@color/brown"
+                    android:text="PDF" />
 
         <!--        <Button-->
         <!--            android:id="@+id/btn_excel"-->

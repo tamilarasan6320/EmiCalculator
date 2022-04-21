@@ -7,15 +7,22 @@
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_b_t_history.xml" value="0.144017094017094" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_bt_topup.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_bttop_up_history.xml" value="0.144017094017094" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_calculate_emiactivity.xml" value="0.144017094017094" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_check_eligibility.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_compare_loan.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_compond_interest.xml" value="0.22" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_current_roi_interest.xml" value="0.144017094017094" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_design__statistics.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_e_m_i_perlakhs.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_emi_calculator.xml" value="0.1" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_export_pdf.xml" value="0.144017094017094" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_faqs.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_new_bt_topup.xml" value="0.22" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/activity_splash.xml" value="0.144017094017094" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/bottom_sheet_compare_loan.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/bottom_sheet_compound_interest.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/faq_lyt.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/fragment_amount_cal.xml" value="0.22" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/fragment_emi_cal.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/JP/StudioProjects/EmiCalculator/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />

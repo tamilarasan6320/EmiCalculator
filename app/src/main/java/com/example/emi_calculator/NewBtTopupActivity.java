@@ -23,10 +23,9 @@ import com.example.emi_calculator.model.ModelBTHistory;
 import com.example.emi_calculator.model.ModelNewBTHistory;
 
 public class NewBtTopupActivity extends AppCompatActivity {
-    EditText etSalary,etSanctionedAmount,etCurrentBalance,etEMIPaid,etBTAmount,etTopupAmount,etBTROI,etTopupROI,etBTEMI,etTopupEMI,etBTTenure,etTopupTenure,etFoir;
+    EditText etTotalEMI,etSalary,etSanctionedAmount,etCurrentBalance,etEMIPaid,etBTAmount,etTopupAmount,etBTROI,etTopupROI,etBTEMI,etTopupEMI,etBTTenure,etTopupTenure,etFoir;
     Button btnSave,btnHistory;
     Utility_CalculateEMI utility_calculateEMI;
-
     ModelNewBTHistory modelBTHistory = new ModelNewBTHistory();
 
     @Override
@@ -34,8 +33,8 @@ public class NewBtTopupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_bt_topup);
         utility_calculateEMI = new Utility_CalculateEMI();
-
         etSalary = findViewById(R.id.etSalary);
+        etTotalEMI = findViewById(R.id.etTotalEMI);
         etSanctionedAmount = findViewById(R.id.etSanctionedAmount);
         etCurrentBalance = findViewById(R.id.etCurrentBalance);
         etEMIPaid = findViewById(R.id.etEMIPaid);
@@ -50,7 +49,6 @@ public class NewBtTopupActivity extends AppCompatActivity {
         etFoir = findViewById(R.id.etFoir);
         btnSave = findViewById(R.id.btnSave);
         btnHistory = findViewById(R.id.btnHistory);
-
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +62,6 @@ public class NewBtTopupActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String trim = etSalary.getText().toString().replaceAll(",", "").trim();
@@ -75,10 +72,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
                     etSalary.addTextChangedListener(this);
                     EditText editText = etSalary;
                     editText.setSelection(editText.getText().toString().trim().length());
-                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
-
                     setFoirPercentage(etSalary.getText().toString().trim(),etBTEMI.getText().toString().trim(),etTopupEMI.getText().toString().trim());
-
                 } else {
                     etSalary.removeTextChangedListener(this);
                     etSalary.setText("");
@@ -167,9 +161,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
         etBTAmount.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String trim = etBTAmount.getText().toString().replaceAll(",", "").trim();
@@ -181,8 +173,6 @@ public class NewBtTopupActivity extends AppCompatActivity {
                     EditText editText = etBTAmount;
                     editText.setSelection(editText.getText().toString().trim().length());
                     setCalculateemiBT(etBTAmount.getText().toString().trim(),etBTROI.getText().toString().trim(),etBTTenure.getText().toString().trim());
-                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
-
                 } else {
                     etBTAmount.removeTextChangedListener(this);
                     etBTAmount.setText("");
@@ -190,10 +180,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
                     EditText editText2 = etBTAmount;
                     editText2.setSelection(editText2.getText().toString().trim().length());
                 }
-
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -260,14 +247,43 @@ public class NewBtTopupActivity extends AppCompatActivity {
                     EditText editText = etBTEMI;
                     editText.setSelection(editText.getText().toString().trim().length());
                     setFoirPercentage(etSalary.getText().toString().trim(),etBTEMI.getText().toString().trim(),etTopupEMI.getText().toString().trim());
-
-                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
-
+                    calculateEMI(etBTEMI.getText().toString().replaceAll(",", "").trim(),etTopupEMI.getText().toString().replaceAll(",", "").trim());
                 } else {
                     etBTEMI.removeTextChangedListener(this);
                     etBTEMI.setText("");
                     etBTEMI.addTextChangedListener(this);
                     EditText editText2 = etBTEMI;
+                    editText2.setSelection(editText2.getText().toString().trim().length());
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        etTotalEMI.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String trim = etTotalEMI.getText().toString().replaceAll(",", "").trim();
+                if (trim.length() > 0) {
+                    etTotalEMI.removeTextChangedListener(this);
+                    String trim2 = Constant_CurrencyFormat.rupeeFormat(trim).trim();
+                    etTotalEMI.setText(trim2);
+                    etTotalEMI.addTextChangedListener(this);
+                    EditText editText = etTotalEMI;
+                    editText.setSelection(editText.getText().toString().trim().length());
+                } else {
+                    etTotalEMI.removeTextChangedListener(this);
+                    etTotalEMI.setText("");
+                    etTotalEMI.addTextChangedListener(this);
+                    EditText editText2 = etTotalEMI;
                     editText2.setSelection(editText2.getText().toString().trim().length());
                 }
 
@@ -395,6 +411,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
         });
 
 
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -409,25 +426,23 @@ public class NewBtTopupActivity extends AppCompatActivity {
                 }
 
 
-//                long j;
-//                if (validate()){
-//                    setValuesBt();
-//                    j = BT_DBHistory.getInstance(NewBtTopupActivity.this).insertHistory(modelBTHistory);
-//                    Toast.makeText(NewBtTopupActivity.this, "" + j, Toast.LENGTH_SHORT).show();
-//                    if (j != -1) {
-//                        Toast.makeText(NewBtTopupActivity.this, "Save Successfully", Toast.LENGTH_LONG).show();
-////                        reset();
-////                        if (f3809q) {
-////                            f3809q = false;
-////                        }
-//                    }
-//                }
-
             }
         });
 
 
 
+
+    }
+
+    private void calculateEMI(String etBTEMI, String etTopupEMI)
+    {
+        if (etBTEMI != null && !etBTEMI.equals("") && etTopupEMI != null && !etTopupEMI.equals("")){
+            int btemi = (int) Integer.parseInt(etBTEMI);
+            int topemi = (int) Integer.parseInt(etTopupEMI);
+            int totalemi = (int)btemi + topemi;
+            etTotalEMI.setText(""+totalemi);
+
+        }
 
     }
 
@@ -443,6 +458,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
         etBTTenure.setText("");
         etTopupTenure.setText("");
         etBTEMI.setText("");
+        etTotalEMI.setText("");
         etTopupEMI.setText("");
         etFoir.setText("");
     }
@@ -480,8 +496,6 @@ public class NewBtTopupActivity extends AppCompatActivity {
             etBTEMI.setText(emiamount);
 
 
-            //Log.d("NEWBTCAL",btamt+btroi+bttenure);
-
         }
 
     }
@@ -494,9 +508,6 @@ public class NewBtTopupActivity extends AppCompatActivity {
 
             String emiamount = utility_calculateEMI.getEmiamount(topupamt,  topuptenure, topuproi,"0");
             etTopupEMI.setText(emiamount);
-
-
-            //Log.d("NEWBTCAL",btamt+btroi+bttenure);
 
         }
 
@@ -570,6 +581,11 @@ public class NewBtTopupActivity extends AppCompatActivity {
         else if (TextUtils.isEmpty(etBTEMI.getText().toString())){
             etBTEMI.setError("Enter the BT EMI");
             etBTEMI.requestFocus();
+            return false;
+        }
+        else if (TextUtils.isEmpty(etTotalEMI.getText().toString())){
+            etTotalEMI.setError("Enter the Total EMI");
+            etTotalEMI.requestFocus();
             return false;
         }
         else if (TextUtils.isEmpty(etTopupEMI.getText().toString())){

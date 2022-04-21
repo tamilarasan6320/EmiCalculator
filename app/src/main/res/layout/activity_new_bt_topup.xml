@@ -359,7 +359,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
-                                    android:inputType="number"
+                                    android:inputType="numberDecimal"
                                     android:fontFamily="@font/sansregular"
                                     android:textSize="15dp"
                                     />
@@ -503,10 +503,17 @@
 
 
                     </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
@@ -536,6 +543,42 @@
 
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/currency_symbol"
+                            android:textColor="@color/primaryColor"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textSize="20dp"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginStart="3dp"
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Design.TextInputLayout"
+                            android:hint="@string/total_emi">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etTotalEMI"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="14"
+                                android:fontFamily="@font/sansregular"
+                                android:textSize="15dp"
+                                android:inputType="number"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
