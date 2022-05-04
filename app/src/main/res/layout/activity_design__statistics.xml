@@ -105,6 +105,7 @@
                     style="@style/BrandButtonStyle"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif"
+                    android:visibility="gone"
                     android:backgroundTint="@color/brown"
                     android:text="PDF" />
 

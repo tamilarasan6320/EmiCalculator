@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -32,16 +33,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Activity activity;
 
     CardView card1 ,card2 , card3 , card4;
-    LinearLayout cil,r1,r2,r3,r4;
+    LinearLayout cil,r1,r2,r3,r4,mortigage_loan,bt_mortigage_loan,home_loan,bt_home_loan,business_loan;
     public static final int PERMISSION_REQUEST_CODE = 99;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activity = MainActivity.this;
-
-
         card1 = findViewById(R.id.card1);
         card2 = findViewById(R.id.card2);
         card3 = findViewById(R.id.card3);
@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         r3 = findViewById(R.id.r3);
         r4 = findViewById(R.id.r4);
         r4 = findViewById(R.id.r4);
+        mortigage_loan = findViewById(R.id.mortigage_loan);
+        bt_mortigage_loan = findViewById(R.id.bt_mortigage_loan);
+        home_loan = findViewById(R.id.home_loan);
+        bt_home_loan = findViewById(R.id.bt_home_loan);
+        business_loan = findViewById(R.id.business_loan);
         cil = findViewById(R.id.cil);
 
         card1.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +83,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CompareLoanActivity.class);
+                startActivity(intent);
+            }
+        });
+        mortigage_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","mortigage_loan");
+                startActivity(intent);
+            }
+        });
+        bt_mortigage_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","bt_mortigage_loan");
+                startActivity(intent);
+            }
+        });
+
+        home_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","home_loan");
+                startActivity(intent);
+            }
+        });
+        bt_home_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","bt_home_loan");
+                startActivity(intent);
+            }
+        });
+        business_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","business_loan");
                 startActivity(intent);
             }
         });

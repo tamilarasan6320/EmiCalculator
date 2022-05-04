@@ -32,6 +32,11 @@
         <item>BF</item>
 
     </string-array>
+    <string-array name="categoryemployee">
+        <item>Self Employed</item>
+        <item>Salaried Employed</item>
+
+    </string-array>
     <string-array name="segments">
         <item>Super WOW</item>
         <item>WOW</item>

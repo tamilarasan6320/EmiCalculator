@@ -55,6 +55,18 @@
 
 
         </RelativeLayout>
+        <Button
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:layout_gravity="end"
+            android:textSize="20dp"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/primaryDarkColor"
+            android:backgroundTint="@color/white"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

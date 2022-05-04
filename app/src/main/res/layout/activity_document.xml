@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,122 +8,140 @@
     tools:context=".DocumentActivity"
     android:background="@drawable/bg"
     >
-
-    <androidx.drawerlayout.widget.DrawerLayout
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/salaried"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:text="Salaried"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/selfemployed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/primaryDarkColor"
+            android:text="Self Employed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/title"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="end"
-        android:id="@+id/drawer_layout">
+        android:orientation="vertical"
 
-        <LinearLayout
+        >
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/linear_toolbar"
-                android:layout_marginBottom="20dp"
-                >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:id="@+id/toolbar"
-                        android:background="@drawable/ic_baseline_arrow_back_24"
-                        android:backgroundTint="@color/white"
-                        />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Document"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:id="@+id/tv1"
-                            />
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/tab_layout"
-                android:elevation="6dp"
-                app:tabBackground="@drawable/tab_color_selector"
-                app:tabTextColor="@color/white"
-                app:tabTextAppearance="@style/CustomTextStyle"
-
-                app:tabSelectedTextColor="@color/primaryColor"
-                app:tabIndicatorColor="@color/white"
-                app:tabIndicatorFullWidth="false"
-                />
-
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/view_pager"
-                android:layout_below="@+id/tab_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-
-
-
-
-
-
-        </LinearLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@color/secondaryLightColor"
-            android:layout_gravity="start"
-            app:itemTextColor="@color/primaryColor"
-            app:menu="@menu/activity_main_drawer"
-            app:itemIconTint="@color/primaryDarkColor"
-            app:itemVerticalPadding="20dp"
-            android:layout_marginTop="20dp"
-            app:headerLayout="@layout/nav_header_main"
+            app:cardCornerRadius="3dp"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp"
+                    android:id="@+id/l1">
+                    <TextView
+                        android:id="@+id/type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Salaried"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:background="@color/primaryDarkColor"
+                        />
+
+                    <TextView
+                        android:id="@+id/doctitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:padding="13dp"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/docsubtitle1"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="@color/primaryColor"
+                        />
+
+                    <TextView
+                        android:id="@+id/doctitle2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:padding="13dp"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/docsubtitle2"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="@color/primaryColor"
+                        />
+
+                    <TextView
+                        android:id="@+id/doctitle3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:padding="13dp"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/docsubtitle3"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textColor="@color/primaryColor"
+                        />
 
 
-            />
 
 
 
 
-    </androidx.drawerlayout.widget.DrawerLayout>
+                </LinearLayout>
+            </ScrollView>
+
+
+        </androidx.cardview.widget.CardView>
 
 
 
+    </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
