@@ -36,14 +36,15 @@
                         app:endIconMode="custom"
                         app:endIconTint="@color/primaryDarkColor"
                         app:endIconDrawable="@drawable/ic_indrupee"
-                        android:hint="@string/loanamount">
+                        android:hint="@string/loanamount"
+                        android:textColorHint="@color/primaryColor"
+                        >
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/activity_calculate_emi_ed_amount"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:fontFamily="@font/poppinsregular"
                             android:maxLength="14" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,14 +58,15 @@
                         app:endIconMode="custom"
                         app:endIconTint="@color/primaryDarkColor"
                         app:endIconDrawable="@drawable/ic_indrupee"
-                        android:hint="@string/emi">
+                        android:hint="@string/emi"
+                        android:textColorHint="@color/primaryColor"
+                        >
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/activity_calculate_emi_ed_emi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:fontFamily="@font/poppinsregular"
                             android:maxLength="14" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="3dp"
+                            android:textColorHint="@color/primaryColor"
                             android:layout_weight="3"
                             android:hint="@string/tenure">
 
@@ -90,7 +93,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:fontFamily="@font/poppinsregular"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
+                                android:backgroundTint="@color/primaryColor"
                                 android:maxLength="3" />
                         </com.google.android.material.textfield.TextInputLayout>
 

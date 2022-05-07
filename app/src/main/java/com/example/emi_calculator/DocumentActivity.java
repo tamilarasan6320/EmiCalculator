@@ -7,31 +7,52 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DocumentActivity extends AppCompatActivity {
 
 
-    TextView salaried,selfemployed,type,doctitle1,docsubtitle1,doctitle2,docsubtitle2,doctitle3,docsubtitle3;
+    TextView salaried,selfemployed,doctitle1,docsubtitle1,doctitle2,docsubtitle2,doctitle3,docsubtitle3;
     String Loan;
+    ImageButton Toolbtn;
+    LinearLayout title;
+    TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document);
 
+        Toolbtn = findViewById(R.id.toolbar);
+        tv1 = findViewById(R.id.tv1);
+
+
+        Toolbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onBackPressed();
+
+            }
+        });
+
         Loan = getIntent().getStringExtra("loan");
 
 
         salaried =findViewById(R.id.salaried);
         selfemployed =findViewById(R.id.selfemployed);
-        type =findViewById(R.id.type);
         doctitle1 =findViewById(R.id.doctitle1);
         docsubtitle1 =findViewById(R.id.docsubtitle1);
         doctitle2 =findViewById(R.id.doctitle2);
         docsubtitle2 =findViewById(R.id.docsubtitle2);
         doctitle3 =findViewById(R.id.doctitle3);
         docsubtitle3 =findViewById(R.id.docsubtitle3);
+        title = findViewById(R.id.title);
+
+
+        tv1.setText(Loan);
         if (Loan.equals("mortigage_loan")){
             salariedMortageLoan();
 
@@ -49,9 +70,10 @@ public class DocumentActivity extends AppCompatActivity {
 
         }
         else if (Loan.equals("business_loan")){
+            title.setVisibility(View.GONE);
             salaried.setVisibility(View.GONE);
             selfemployed.setVisibility(View.GONE);
-            type.setVisibility(View.GONE);
+
             businessLoan();
 
         }
@@ -60,10 +82,11 @@ public class DocumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selfemployed.setTextColor(Color.WHITE);
-                selfemployed.setBackgroundColor(getColor(R.color.primaryDarkColor));
+                selfemployed.setBackgroundResource(R.drawable.btn_right);
+             //   selfemployed.setBackgroundColor(getColor(R.color.primaryDarkColor));
                 salaried.setTextColor(getColor(R.color.primaryDarkColor));
                 salaried.setBackgroundColor(getColor(R.color.white));
-                type.setText("Salaried");
+                salaried.setBackgroundResource(R.drawable.btn_left);
                 if (Loan.equals("mortigage_loan")){
                     salariedMortageLoan();
 
@@ -91,10 +114,12 @@ public class DocumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 salaried.setTextColor(Color.WHITE);
-                salaried.setBackgroundColor(getColor(R.color.primaryDarkColor));
+                salaried.setBackgroundResource(R.drawable.btn_left_clicked);
+                //  salaried.setBackgroundColor(getColor(R.color.primaryDarkColor));
                 selfemployed.setTextColor(getColor(R.color.primaryDarkColor));
                 selfemployed.setBackgroundColor(getColor(R.color.white));
-                type.setText("Self Employed");
+                selfemployed.setBackgroundResource(R.drawable.btn_right_click);
+
                 if (Loan.equals("mortigage_loan")){
                     doctitle1.setText("PERSONAL & INCOME DOCUMENTS");
                     doctitle2.setText("PROPERTY DOCUMENTS");

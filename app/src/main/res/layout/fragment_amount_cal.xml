@@ -46,7 +46,6 @@
                             android:inputType="number"
                             android:backgroundTint="@color/primaryColor"
                             android:textColor="@color/primaryColor"
-                            android:textColorHint="@color/primaryColor"
                             android:fontFamily="@font/sansregular"
                             android:maxLength="14" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +71,6 @@
                             android:backgroundTint="@color/primaryColor"
                             android:textColor="@color/primaryColor"
                             android:textColorHint="@color/primaryColor"
-                            android:fontFamily="@font/sansregular"
                             android:maxLength="5" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +100,6 @@
                                 android:backgroundTint="@color/primaryColor"
                                 android:textColor="@color/primaryColor"
                                 android:textColorHint="@color/primaryColor"
-                                android:fontFamily="@font/sansregular"
                                 android:maxLength="3" />
                         </com.google.android.material.textfield.TextInputLayout>
 

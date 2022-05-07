@@ -89,6 +89,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/primaryColor"
                     style="@style/Widget.Design.TextInputLayout"
                     android:hint="@string/interest_rate_percent">
                     <com.google.android.material.textfield.TextInputEditText
@@ -96,6 +97,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLength="5"
+                        android:backgroundTint="@color/primaryColor"
+                        android:textColor="@color/primaryColor"
+                        android:textColorHint="@color/primaryColor"
                         android:inputType="numberDecimal"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -104,6 +108,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/primaryColor"
                     style="@style/Widget.Design.TextInputLayout"
                     android:hint="@string/loan_tenure_months">
                     <com.google.android.material.textfield.TextInputEditText
@@ -112,6 +117,9 @@
                         android:layout_height="wrap_content"
                         android:maxLength="5"
                         android:inputType="numberDecimal"
+                        android:backgroundTint="@color/primaryColor"
+                        android:textColor="@color/primaryColor"
+                        android:textColorHint="@color/primaryColor"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +134,7 @@
                     android:layout_marginTop="5dp"
                     android:id="@+id/calculate_btn"
                     android:textStyle="bold"
-                    android:backgroundTint="@color/primaryColor"
+                    android:backgroundTint="@color/secondary"
                     android:text="Calculate"
                     android:layout_gravity="bottom"
 

@@ -392,21 +392,8 @@
                                 android:textColor="@color/primaryDarkColor"
                                 android:textSize="14dp" />
                         </LinearLayout>
-
-                        <TextView
-                            android:layout_width="340dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/poppinsregular"
-                            android:padding="10dp"
-                            android:text="Documents Required"
-                            android:textColor="@color/primaryColor"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
                         <LinearLayout
-                            android:id="@+id/mortigage_loan"
+                            android:id="@+id/r5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -429,123 +416,12 @@
                                 android:layout_margin="10dp"
                                 android:layout_marginStart="10dp"
                                 android:fontFamily="@font/poppinsregular"
-                                android:text="Mortigage Loan"
+                                android:text="Documents Required"
                                 android:textColor="@color/primaryDarkColor"
                                 android:textSize="14dp" />
                         </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/bt_mortigage_loan"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/bgwhite"
-                            android:orientation="horizontal">
 
-                            <ImageButton
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:background="@drawable/round_btn"
-                                android:src="@drawable/ic_doc_req" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/poppinsregular"
-                                android:text="Balance Transfer \nMortigage Loan"
-                                android:textColor="@color/primaryDarkColor"
-                                android:textSize="14dp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/home_loan"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/bgwhite"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:background="@drawable/round_btn"
-                                android:src="@drawable/ic_doc_req" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/poppinsregular"
-                                android:text="Home Loan"
-                                android:textColor="@color/primaryDarkColor"
-                                android:textSize="14dp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/bt_home_loan"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/bgwhite"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:background="@drawable/round_btn"
-                                android:src="@drawable/ic_doc_req" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/poppinsregular"
-                                android:text="Balance Transfer \nHome Loan"
-                                android:textColor="@color/primaryDarkColor"
-                                android:textSize="14dp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/business_loan"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/bgwhite"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:background="@drawable/round_btn"
-                                android:src="@drawable/ic_doc_req" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="10dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/poppinsregular"
-                                android:text="Business Loan"
-                                android:textColor="@color/primaryDarkColor"
-                                android:textSize="14dp" />
-                        </LinearLayout>
 
 
                     </LinearLayout>

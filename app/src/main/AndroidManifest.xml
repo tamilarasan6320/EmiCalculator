@@ -21,11 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Emi_Calculator"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Document_listActivity"></activity>
         <activity
             android:name=".TestActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ExportPdfActivity"
             android:exported="false" />
@@ -43,7 +42,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".BTHistoryActivity" />
         <activity android:name=".statistics.Design_StatisticsActivity" />

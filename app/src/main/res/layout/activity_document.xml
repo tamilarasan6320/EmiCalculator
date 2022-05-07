@@ -8,29 +8,81 @@
     tools:context=".DocumentActivity"
     android:background="@drawable/bg"
     >
+
     <LinearLayout
-        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linear_toolbar"
+        android:layout_marginBottom="20dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/toolbar"
+                android:background="@drawable/ic_baseline_arrow_back_24"
+                android:backgroundTint="@color/white"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:id="@+id/tv1"
+                    />
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_below="@+id/linear_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
+        android:background="@drawable/stroke_line"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/salaried"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_left"
             android:text="Salaried"
+            android:layout_gravity="center"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18dp"
             android:gravity="center"
+            android:layout_marginLeft="3dp"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/selfemployed"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/primaryDarkColor"
+            android:background="@drawable/btn_right"
             android:text="Self Employed"
             android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
             android:textSize="18dp"
             android:gravity="center"
             android:layout_weight="1"/>
@@ -58,16 +110,7 @@
                     android:orientation="vertical"
                     android:layout_margin="5dp"
                     android:id="@+id/l1">
-                    <TextView
-                        android:id="@+id/type"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Salaried"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:textSize="16dp"
-                        android:background="@color/primaryDarkColor"
-                        />
+
 
                     <TextView
                         android:id="@+id/doctitle1"

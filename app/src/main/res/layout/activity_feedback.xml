@@ -82,50 +82,61 @@
                 android:layout_marginTop="20dp"
                 >
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:hint="Name">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:hint="Mobile Number">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:hint="Email">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="5"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:hint="Name"
-                    android:textColorHint="@color/primaryColor"
-                    android:paddingBottom="15dp"
-                    android:backgroundTint="@color/black"
-                    />
-                <EditText
-                    android:id="@+id/mobile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Mobile Number"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:inputType="number"
-                    android:textColorHint="@color/primaryColor"
-                    android:paddingBottom="15dp"
-                    android:backgroundTint="@color/black"
-                    android:layout_marginTop="20dp"
-                    />
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:textSize="14dp"
-                    android:textStyle="bold"
-                    android:textColorHint="@color/primaryColor"
-                    android:paddingBottom="15dp"
-                    android:backgroundTint="@color/black"
-                    android:layout_marginTop="20dp"
-                    />
+
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Feedback"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/primaryColor"
-                    android:textStyle="bold"/>
+                    />
                 <EditText
                     android:id="@+id/feedback"
                     android:layout_width="match_parent"

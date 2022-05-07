@@ -104,6 +104,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/salary">
                             <com.google.android.material.textfield.TextInputEditText
@@ -111,9 +112,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/sansregular"
                                 android:inputType="number"
-                                android:textSize="15dp"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +139,7 @@
                             android:id="@+id/tilSanctionedAmount"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/hint_sanctioned_amount">
                             <com.google.android.material.textfield.TextInputEditText
@@ -144,9 +147,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/sansregular"
-                                android:textSize="15dp"
                                 android:inputType="number"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,6 +174,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/current_balance">
                             <com.google.android.material.textfield.TextInputEditText
@@ -177,9 +182,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/sansregular"
-                                android:textSize="15dp"
                                 android:inputType="number"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
@@ -201,6 +207,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/number_of_emi_paid">
                             <com.google.android.material.textfield.TextInputEditText
@@ -208,9 +215,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="3"
-                                android:fontFamily="@font/sansregular"
-                                android:textSize="15dp"
                                 android:inputType="number"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
@@ -244,6 +252,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/bt_amount">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -252,8 +261,9 @@
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
                                     android:inputType="number"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -277,6 +287,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/topup_amount">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -284,8 +295,9 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     android:inputType="number"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
@@ -320,14 +332,16 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 style="@style/Widget.Design.TextInputLayout"
+                                android:textColorHint="@color/primaryColor"
                                 android:hint="@string/btroi">
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/etBTROI"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLength="5"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     android:inputType="numberDecimal"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
@@ -352,6 +366,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/top_roi">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -360,8 +375,9 @@
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
                                     android:inputType="numberDecimal"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -385,6 +401,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/bt_tenure">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -392,8 +409,9 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLength="5"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     android:inputType="numberDecimal"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
@@ -410,6 +428,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/top_up_tenure">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -418,8 +437,9 @@
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
                                     android:inputType="number"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -452,6 +472,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/bt_emi">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -460,8 +481,9 @@
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
                                     android:inputType="number"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -485,6 +507,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:textColorHint="@color/primaryColor"
                                 style="@style/Widget.Design.TextInputLayout"
                                 android:hint="@string/topup_emi">
                                 <com.google.android.material.textfield.TextInputEditText
@@ -492,8 +515,9 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLength="14"
-                                    android:fontFamily="@font/sansregular"
-                                    android:textSize="15dp"
+                                    android:backgroundTint="@color/primaryColor"
+                                    android:textColor="@color/primaryColor"
+                                    android:textColorHint="@color/primaryColor"
                                     android:inputType="number"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
@@ -528,6 +552,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/foir">
                             <com.google.android.material.textfield.TextInputEditText
@@ -535,8 +560,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="5"
-                                android:fontFamily="@font/sansregular"
-                                android:textSize="15dp"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -561,6 +587,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/total_emi">
                             <com.google.android.material.textfield.TextInputEditText
@@ -568,8 +595,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLength="14"
-                                android:fontFamily="@font/sansregular"
-                                android:textSize="15dp"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 android:inputType="number"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>

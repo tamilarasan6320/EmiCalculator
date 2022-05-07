@@ -98,6 +98,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         app:endIconMode="custom"
+                        android:textColorHint="@color/primaryColor"
                         app:endIconTint="@color/primaryDarkColor"
                         app:endIconDrawable="@drawable/ic_indrupee"
                         android:hint="@string/principal_amount">
@@ -106,8 +107,10 @@
                             android:id="@+id/etPrincipal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/sansregular"
                             android:maxLength="14"
+                            android:backgroundTint="@color/primaryColor"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"
                             android:inputType="number"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
@@ -117,6 +120,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         app:endIconMode="custom"
+                        android:textColorHint="@color/primaryColor"
                         app:endIconTint="@color/primaryDarkColor"
                         app:endIconDrawable="@drawable/ic_percentage"
                         android:hint="@string/rate_of_return">
@@ -126,8 +130,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
-                            android:fontFamily="@font/sansregular"
-                            android:maxLength="3" />
+                            android:backgroundTint="@color/primaryColor"
+                            android:textColor="@color/primaryColor"
+                            android:textColorHint="@color/primaryColor"                             android:maxLength="3" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <LinearLayout
@@ -144,6 +149,7 @@
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/primaryColor"
                             style="@style/Widget.Design.TextInputLayout"
                             android:hint="@string/tenure">
 
@@ -152,6 +158,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
+                                android:backgroundTint="@color/primaryColor"
+                                android:textColor="@color/primaryColor"
+                                android:textColorHint="@color/primaryColor"
                                 android:maxLength="3" />
                         </com.google.android.material.textfield.TextInputLayout>
                         <RadioGroup

@@ -13,7 +13,7 @@
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
         android:text="EMI"
-        android:textColor="@color/secondary" />
+        android:textColor="@color/primaryDarkColor" />
 
     <TextView
         android:id="@+id/result_view_emi"
