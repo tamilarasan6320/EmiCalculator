@@ -50,6 +50,7 @@
         android:id="@+id/menu_nav8"
         android:icon="@drawable/ic_baseline_group_add_24"
         android:iconTint="@color/primaryColor"
+        android:visible="false"
         android:title="Invite Friends" />
     <item
         android:id="@+id/menu_nav9"

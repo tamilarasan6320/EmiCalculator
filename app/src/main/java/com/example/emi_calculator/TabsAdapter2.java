@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.emi_calculator.fragment.BikeFragment;
-import com.example.emi_calculator.fragment.CarFragment;
+import com.example.emi_calculator.fragment.LOBFragment;
+import com.example.emi_calculator.fragment.BusinessFragment;
 import com.example.emi_calculator.fragment.HomeFragment;
 import com.example.emi_calculator.fragment.PersonalFragment;
 
@@ -33,12 +33,12 @@ public class TabsAdapter2 extends FragmentStatePagerAdapter {
                 return Amount;
 
             case 2:
-                CarFragment TENURE = new CarFragment();
-                return TENURE;
+                BusinessFragment Business = new BusinessFragment();
+                return Business;
 
             case 3:
-                BikeFragment ROI = new BikeFragment();
-                return ROI;
+                LOBFragment LOB = new LOBFragment();
+                return LOB;
 
 
             default:

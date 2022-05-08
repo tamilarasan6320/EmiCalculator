@@ -60,21 +60,17 @@ public class Current_roi_interestActivity extends AppCompatActivity {
 
             }
         });
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateROI();
-            }
-        });
-        readAllData();
+
+        updateROI();
+        //readAllData();
 
 
 
         tabLayout = (TabLayout)findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Personal"));
         tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("Car"));
-        tabLayout.addTab(tabLayout.newTab().setText("Bike"));
+        tabLayout.addTab(tabLayout.newTab().setText("Business"));
+        tabLayout.addTab(tabLayout.newTab().setText("LOB"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
@@ -100,12 +96,7 @@ public class Current_roi_interestActivity extends AppCompatActivity {
 
     }
 
-    private void readAllData() {
-        ROI_SqliteManager dbHandler;
-        dbHandler = new ROI_SqliteManager(activity);
-        ArrayList<ROI> roi = dbHandler.readAllRoi();
-        Log.d("ROI_ALL_DATA",roi.get(0).getBank_hfc());
-    }
+
 
     private void updateROI()
     {
@@ -119,21 +110,18 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
+                        ROI_SqliteManager dbHandler;
+                        dbHandler = new ROI_SqliteManager(Current_roi_interestActivity.this);
+                        dbHandler.deleteitem();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
                                 ArrayList<ROI> rois = new ArrayList<>();
                                 ROI group = g.fromJson(jsonObject1.toString(), ROI.class);
-                                modelROI.setBank_hfc(group.getCategory());
-                                modelROI.setBank_hfc(group.getBank_hfc());
-                                modelROI.setBank_hfc(group.getLakhs_75());
-                                modelROI.setBank_hfc(group.getLakhs_30_75());
-
-                                ROI_SqliteManager dbHandler;
-                                dbHandler = new ROI_SqliteManager(Current_roi_interestActivity.this);
+                                modelROI.setCategory(group.getCategory());
+                                modelROI.setBank(group.getBank());
+                                modelROI.setInterest(group.getInterest());
                                 dbHandler.addItem(modelROI);
-
-                                Toast.makeText(activity, ""+group.getLakhs_30_75(), Toast.LENGTH_SHORT).show();
                                 rois.add(group);
                             } else {
                                 break;
@@ -151,7 +139,7 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                     Log.d("TEAM_RESPONSE",""+e.getMessage());
                 }
             }
-        }, activity, Constant.PERSONAL_LIST, params, true);
+        }, activity, Constant.ROI_LIST, params, false);
 
     }
 

@@ -62,6 +62,7 @@
             android:text="Update"
             android:layout_gravity="end"
             android:textSize="20dp"
+            android:visibility="gone"
             android:layout_margin="5dp"
             android:textStyle="bold"
             android:textColor="@color/primaryDarkColor"
@@ -70,9 +71,9 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/tab_layout"
@@ -80,7 +81,6 @@
             app:tabBackground="@drawable/tab_color_selector"
             app:tabTextColor="@color/white"
             app:tabTextAppearance="@style/CustomTextStyle"
-
             app:tabSelectedTextColor="@color/primaryColor"
             app:tabIndicatorColor="@color/white"
             app:tabIndicatorFullWidth="false"

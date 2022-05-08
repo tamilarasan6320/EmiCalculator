@@ -18,16 +18,15 @@ import com.example.emi_calculator.model.ROI;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
 
+public class BusinessFragment extends Fragment {
     RecyclerView recyclerView;
     View root;
     Activity activity;
     ROIAdapter roiAdapter;
 
 
-
-    public HomeFragment() {
+    public BusinessFragment() {
         // Required empty public constructor
     }
 
@@ -35,20 +34,17 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_home, container, false);
-
+        root = inflater.inflate(R.layout.fragment_business, container, false);
         activity = getActivity();
         recyclerView = root.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         ROI_SqliteManager dbHandler;
         dbHandler = new ROI_SqliteManager(activity);
-        ArrayList<ROI> roi = dbHandler.readAllRoi("Home");
+        ArrayList<ROI> roi = dbHandler.readAllRoi("Business");
 
         roiAdapter = new ROIAdapter(activity, roi);
         recyclerView.setAdapter(roiAdapter);
         return root;
-
-
     }
 }

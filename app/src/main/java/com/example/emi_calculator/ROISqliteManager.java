@@ -36,7 +36,7 @@ public class ROISqliteManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(bank_hfc, modelROI.getBank_hfc());
+        contentValues.put(bank_hfc, modelROI.getBank());
 
         db.insert("ROIs", null, contentValues);//Items is table name
         db.close();
