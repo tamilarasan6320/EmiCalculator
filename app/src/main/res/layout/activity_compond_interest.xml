@@ -132,7 +132,8 @@
                             android:inputType="numberDecimal"
                             android:backgroundTint="@color/primaryColor"
                             android:textColor="@color/primaryColor"
-                            android:textColorHint="@color/primaryColor"                             android:maxLength="3" />
+                            android:textColorHint="@color/primaryColor"
+                            android:maxLength="5" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <LinearLayout

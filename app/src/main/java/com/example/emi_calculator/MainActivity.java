@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.menu_nav6: {
-                Intent i = new Intent(MainActivity.this, DocumentActivity.class);
+                Intent i = new Intent(MainActivity.this, Document_listActivity.class);
                 startActivity(i);
                 break;
             }

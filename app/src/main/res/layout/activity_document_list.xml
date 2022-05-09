@@ -80,6 +80,34 @@
 
 
         <LinearLayout
+            android:id="@+id/personal_loan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bgwhite"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_btn"
+                android:src="@drawable/ic_doc_req" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="Personal Loan"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="14dp" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/mortigage_loan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

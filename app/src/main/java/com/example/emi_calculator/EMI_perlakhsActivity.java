@@ -104,7 +104,7 @@ public class EMI_perlakhsActivity extends AppCompatActivity{
     {
         String emiamount = utility_calculateEMI.getEmiamount("100000", etTenure.getText().toString(), etInterestRate.getText().toString(), "0");
 
-        emitxt.setText("EMI = ₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
+        emitxt.setText("₹ " + Constant_CurrencyFormat.rupeeFormat(emiamount).trim());
 
 
     }

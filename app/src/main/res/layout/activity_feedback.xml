@@ -88,13 +88,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Design.TextInputLayout"
+                    android:textColorHint="@color/primaryColor"
                     android:hint="Name">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="5"
-                        android:inputType="numberDecimal"
+                        android:inputType="text"
+                        android:backgroundTint="@color/primaryColor"
+                        android:textColor="@color/primaryColor"
+                        android:textColorHint="@color/primaryColor"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -103,13 +106,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Design.TextInputLayout"
-                    android:hint="Mobile Number">
+                    android:hint="Mobile Number"
+                    android:textColorHint="@color/primaryColor"
+                    >
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="5"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
+                        android:backgroundTint="@color/primaryColor"
+                        android:textColor="@color/primaryColor"
+                        android:textColorHint="@color/primaryColor"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -118,13 +125,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Design.TextInputLayout"
+                    android:textColorHint="@color/primaryColor"
                     android:hint="Email">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="5"
-                        android:inputType="numberDecimal"
+                        android:inputType="text"
+                        android:backgroundTint="@color/primaryColor"
+                        android:textColor="@color/primaryColor"
+                        android:textColorHint="@color/primaryColor"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +153,6 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textSize="14dp"
-                    android:textStyle="bold"
                     android:inputType="textMultiLine"
                     android:lines="8"
                     android:minLines="6"
@@ -152,8 +161,10 @@
                     android:scrollbars="vertical"
                     android:background="@drawable/bgborderblack"
                     android:textColorHint="@color/primaryColor"
+                    android:textColor="@color/primaryColor"
                     android:paddingBottom="15dp"
                     app:backgroundTint="@null"
+
                     />
 
                 <LinearLayout

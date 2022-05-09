@@ -42,7 +42,9 @@
                 android:text="0"
                 android:textColor="@color/secondary"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="30dp"
+                android:fontFamily="@font/robotoregular"
+
                 />
 
 
@@ -54,6 +56,41 @@
                 android:layout_marginTop="10dp"
 
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/result_view_lable"
+                    android:text="Principal\nAmount"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorBlack" />
+
+                <TextView
+                    style="@style/result_view_lable"
+                    android:text="Interest % on Total Amount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="="
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorBlack" />
+
+                <TextView
+                    style="@style/result_view_lable"
+                    android:text="Total\n Amount" />
+            </LinearLayout>
 
 
             <LinearLayout
@@ -68,22 +105,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
-                    <TextView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/principle_amount"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
-                        />
                     <TextView
                         android:id="@+id/tvPrincipalAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_margin="5dp"
-                        android:textSize="15dp"
                         android:layout_gravity="center"
+                        style="@style/result_view"
+
                         />
 
                 </LinearLayout>
@@ -92,22 +123,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
-                    <TextView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/interest_on_total_amount"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
-                        />
                     <TextView
                         android:id="@+id/tvCompoundPR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_margin="5dp"
-                        android:textSize="15dp"
                         android:layout_gravity="center"
+                        style="@style/result_view"
+
                         />
 
                 </LinearLayout>
@@ -116,21 +141,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/total_amount"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
-                        />
+
                     <TextView
                         android:id="@+id/tvTotalAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:layout_margin="5dp"
-                        android:textSize="15dp"
                         android:layout_gravity="center"
+                        style="@style/result_view"
+
                         />
 
                 </LinearLayout>
