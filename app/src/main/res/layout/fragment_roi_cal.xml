@@ -112,7 +112,6 @@
                                 android:gravity="center"
                                 android:text="Years"
                                 android:textColor="@color/white"
-                                android:fontFamily="@font/poppinsregular"
                                 android:textSize="12dp" />
 
                             <RadioButton
@@ -120,7 +119,6 @@
                                 style="@style/rbSwitch"
                                 android:gravity="center"
                                 android:text="Months"
-                                android:fontFamily="@font/poppinsregular"
                                 android:textSize="12dp" />
                         </RadioGroup>
 

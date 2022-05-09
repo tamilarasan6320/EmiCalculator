@@ -3,13 +3,17 @@ package com.example.emi_calculator;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.emi_calculator.Constant.Constant_Variable;
 
 public class DocumentActivity extends AppCompatActivity {
 
@@ -19,6 +23,8 @@ public class DocumentActivity extends AppCompatActivity {
     ImageButton Toolbtn;
     LinearLayout title;
     TextView tv1;
+    Button share;
+    boolean sal = false , self = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class DocumentActivity extends AppCompatActivity {
 
         Toolbtn = findViewById(R.id.toolbar);
         tv1 = findViewById(R.id.tv1);
+        share = findViewById(R.id.share);
 
 
         Toolbtn.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +44,7 @@ public class DocumentActivity extends AppCompatActivity {
 
             }
         });
+
 
         Loan = getIntent().getStringExtra("loan");
 
@@ -50,26 +58,38 @@ public class DocumentActivity extends AppCompatActivity {
         doctitle3 =findViewById(R.id.doctitle3);
         docsubtitle3 =findViewById(R.id.docsubtitle3);
         title = findViewById(R.id.title);
+        sal = true;
+        self = false;
+
+        if (Loan.equals("personal_loan")){
+            tv1.setText("Personal Loan");
+            salariedPersonalLoan();
+
+        }
 
 
-        tv1.setText(Loan);
-        if (Loan.equals("mortigage_loan")){
+        else if (Loan.equals("mortigage_loan")){
+            tv1.setText("Mortigage Loan");
             salariedMortageLoan();
 
         }
         else if (Loan.equals("bt_mortigage_loan")){
+            tv1.setText("Balance Transfer Mortigage Loan");
             salariedBtMortageLoan();
 
         }
         else if (Loan.equals("home_loan")){
+            tv1.setText("Home Loan");
             salariedHomeLoan();
 
         }
         else if (Loan.equals("bt_home_loan")){
+            tv1.setText("Balnce Transfer Home Loan");
             salariedBtHomeLoan();
 
         }
         else if (Loan.equals("business_loan")){
+            tv1.setText("Business Loan");
             title.setVisibility(View.GONE);
             salaried.setVisibility(View.GONE);
             selfemployed.setVisibility(View.GONE);
@@ -77,17 +97,50 @@ public class DocumentActivity extends AppCompatActivity {
             businessLoan();
 
         }
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String type = "";
+                if (sal){
+                    type = "Salaried";
+                }
+                if (self){
+                    type = "Self Employed";
+                }
+                String sharemsg = tv1.getText().toString().trim() + "\n"+
+                        type + "\n"+
+                        doctitle1.getText().toString() + "\n" +
+                        docsubtitle1.getText().toString() + "\n" +
+                        doctitle2.getText().toString() + "\n"  +
+                        docsubtitle2.getText().toString() + "\n" +
+                        doctitle3.getText().toString() + "\n" +
+                        docsubtitle3.getText().toString()
+                        ;
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.setType("text/plain");
+                intent.putExtra("android.intent.extra.TEXT", sharemsg);
+                startActivity(intent);
+            }
+        });
+
         salaried.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
+                sal = true;
+                self = false;
                 selfemployed.setTextColor(Color.WHITE);
                 selfemployed.setBackgroundResource(R.drawable.btn_right);
-             //   selfemployed.setBackgroundColor(getColor(R.color.primaryDarkColor));
                 salaried.setTextColor(getColor(R.color.primaryDarkColor));
                 salaried.setBackgroundColor(getColor(R.color.white));
                 salaried.setBackgroundResource(R.drawable.btn_left);
-                if (Loan.equals("mortigage_loan")){
+                if (Loan.equals("personal_loan")){
+                    salariedPersonalLoan();
+
+                }
+                else if (Loan.equals("mortigage_loan")){
                     salariedMortageLoan();
 
 
@@ -113,6 +166,8 @@ public class DocumentActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
+                self = true;
+                sal = false;
                 salaried.setTextColor(Color.WHITE);
                 salaried.setBackgroundResource(R.drawable.btn_left_clicked);
                 //  salaried.setBackgroundColor(getColor(R.color.primaryDarkColor));
@@ -120,7 +175,46 @@ public class DocumentActivity extends AppCompatActivity {
                 selfemployed.setBackgroundColor(getColor(R.color.white));
                 selfemployed.setBackgroundResource(R.drawable.btn_right_click);
 
-                if (Loan.equals("mortigage_loan")){
+                if (Loan.equals("personal_loan")){
+                    doctitle1.setText("KYC (Applicant & Co-Applicant's)");
+                    doctitle2.setText("Income Documents");
+                    doctitle3.setText("Other Documents");
+                    docsubtitle1.setText("1 PAN Card\n" +
+                            "2 Two Photographs\n" +
+                            "3 Address Proof\n" +
+                            "     1. Residence: Aadhaar Card / Driving\n" +
+                            "        License/Passport or Any\n" +
+                            "        Government Photo ID.\n" +
+                            "     2. Company: Udyog Aadhaar / Trade\n" +
+                            "        License / GST / VAT or any \n" +
+                            "        government license which contains address. \n" +
+                            "4 Firm / Company Constitution Proof.\n" +
+                            "  (Partnership Deed / Certificate of \n" +
+                            "  Incorption/ Shops and Establishment \n" +
+                            "  Certificate etc.)\n" +
+                            "5 Professional(Doctor / Engineer / CA / \n" +
+                            "  Architect etc. ) Degree Certificate. \n"
+                            );
+                    docsubtitle2.setText("1 Last Three Years' IT Returns, Computation\n" +
+                            "  of Income and Audit Report / Balance\n" +
+                            "  Sheets (All Firms, Applicant, Co- Applicant)\n" +
+                            "  (Balance Sheet Certified by CA).\n" +
+                            "2 Provisional Balance Sheet of Current\n" +
+                            "  Financial Year (with GST Return).\n" +
+                            "3 Last 12 Months' Bank Statements of All  \n" +
+                            "  Current and CC accounts (with recent\n" +
+                            "  entry).\n" +
+                            "4 Last 6 Months' Bank Statement of All\n" +
+                            "  Saving Accounts (with recent entry).\n");
+                    docsubtitle3.setText("1 Statement of Accounts (SOA) of All Current Loans\n" +
+                            "2 Processing Fees Cheque\n" +
+                            "3 Photocopy of Property File\n" +
+                            "4 Draft Deed\n" +
+                            "5 Any Other Documents may require for verification\n");
+
+                }
+
+                else if (Loan.equals("mortigage_loan")){
                     doctitle1.setText("PERSONAL & INCOME DOCUMENTS");
                     doctitle2.setText("PROPERTY DOCUMENTS");
                     docsubtitle1.setText("1  PAN AND ADHAR CARD\n" +
@@ -209,6 +303,30 @@ public class DocumentActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void salariedPersonalLoan()
+    {
+        doctitle1.setText("KYC (Applicant & Co-Applicant's)");
+        doctitle2.setText("Income Documents");
+        doctitle3.setText("Other Documents");
+        docsubtitle1.setText("1 PAN Card\n" +
+                "2 Two Photograph\n" +
+                "3 Residence Address Proof\n" +
+                "   Driving License\n" +
+                "   Aadhaar Card\n" +
+                "   Passport\n" +
+                "   Government Photo ID\n" +
+                "4 Professional(Doctor / Engineer / CA / Architect etc. ) Degree \n");
+        docsubtitle2.setText("1 Salary Slip: Last Three Months\n" +
+                "2 Form 16: Last Three Years\n" +
+                "3 Bank Statement: Last 6 Months Photocopy of All Saving Account Passbook with recent entry\n");
+        docsubtitle3.setText("1 Statement of Accounts (SOA) of All Current Loans\n" +
+                "2 Processing Fees Cheque\n" +
+                "3 Photocopy of Property File\n" +
+                "4 Draft Deed\n" +
+                "5 Any Other Documents may require for verification\n");
 
     }
 

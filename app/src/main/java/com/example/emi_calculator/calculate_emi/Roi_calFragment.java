@@ -3,6 +3,7 @@ package com.example.emi_calculator.calculate_emi;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -99,6 +101,25 @@ public class Roi_calFragment extends Fragment {
 
         //title.setText("Calculate EMI");
         result_view_title.setText("Interest(%)");
+
+        rbTenureMonth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rbTenureYears.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+                    rbTenureMonth.setTextColor(Color.WHITE);
+                }
+            }
+        });
+        rbTenureYears.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rbTenureMonth.setTextColor(getResources().getColor(R.color.primaryDarkColor));
+                    rbTenureYears.setTextColor(Color.WHITE);
+                }
+            }
+        });
 
 
         btn_viewstatistics.setOnClickListener(new View.OnClickListener() {

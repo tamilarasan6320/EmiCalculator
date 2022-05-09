@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/linear_toolbar"
-        android:layout_marginBottom="20dp"
 
         >
 
@@ -53,10 +52,22 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/red"
+        android:drawableLeft="@drawable/ic_baseline_share_24"
+        android:text="Share" />
+
+
 
     <LinearLayout
         android:id="@+id/title"
-        android:layout_below="@+id/linear_toolbar"
+        android:layout_below="@+id/share"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="10dp"
@@ -68,6 +79,7 @@
             android:layout_height="40dp"
             android:background="@drawable/btn_left"
             android:text="Salaried"
+            android:tag="Salaried"
             android:layout_gravity="center"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18dp"
@@ -80,6 +92,7 @@
             android:layout_height="40dp"
             android:background="@drawable/btn_right"
             android:text="Self Employed"
+            android:tag="Self Employed"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:layout_marginRight="3dp"

@@ -97,7 +97,6 @@
                         android:layout_width="match_parent"
                         android:id="@+id/abouttxt"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
                         android:text=""
                         android:padding="10dp"
                         android:textColor="@color/primaryColor"
@@ -137,6 +136,15 @@
                         android:orientation="vertical"
                         android:gravity="center"
                         >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1st Floor, Beside Harsha Mess, Ameerpet, Hyderabad, Telangana, India"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:textColor="@color/primaryColor"
+                            />
 
 
 

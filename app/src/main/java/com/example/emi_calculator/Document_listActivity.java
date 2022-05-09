@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 public class Document_listActivity extends AppCompatActivity {
 
 
-    LinearLayout mortigage_loan,bt_mortigage_loan,home_loan,bt_home_loan,business_loan;
+    LinearLayout mortigage_loan,bt_mortigage_loan,home_loan,bt_home_loan,business_loan,personal_loan;
     ImageButton Toolbtn;
 
 
@@ -27,6 +27,7 @@ public class Document_listActivity extends AppCompatActivity {
         home_loan = findViewById(R.id.home_loan);
         bt_home_loan = findViewById(R.id.bt_home_loan);
         business_loan = findViewById(R.id.business_loan);
+        personal_loan = findViewById(R.id.personal_loan);
 
         Toolbtn = findViewById(R.id.toolbar);
         Toolbtn.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,14 @@ public class Document_listActivity extends AppCompatActivity {
 
 
 
+        personal_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Document_listActivity.this,DocumentActivity.class);
+                intent.putExtra("loan","personal_loan");
+                startActivity(intent);
+            }
+        });
         mortigage_loan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

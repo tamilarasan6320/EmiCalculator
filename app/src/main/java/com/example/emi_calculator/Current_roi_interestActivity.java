@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.emi_calculator.helper.ApiConfig;
 import com.example.emi_calculator.helper.Constant;
+import com.example.emi_calculator.helper.Session;
 import com.example.emi_calculator.model.ModelNewBTHistory;
 import com.example.emi_calculator.model.ROI;
 import com.google.android.material.navigation.NavigationView;
@@ -41,12 +42,15 @@ public class Current_roi_interestActivity extends AppCompatActivity {
     Button update;
     Activity activity;
     ROI modelROI = new ROI();
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_roi_interest);
         activity = Current_roi_interestActivity.this;
+
+        session = new Session(activity);
 
         ImageButton mButton = findViewById(R.id.toolbar);
         update = findViewById(R.id.update);
@@ -60,6 +64,10 @@ public class Current_roi_interestActivity extends AppCompatActivity {
 
             }
         });
+        if (session.getData("roi").equals("")){
+            Toast.makeText(activity, "Connect Internet for Update Rate of Interesr", Toast.LENGTH_SHORT).show();
+
+        }
 
         updateROI();
         //readAllData();
@@ -107,12 +115,14 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        session.setData("roi","true");
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ROI_SqliteManager dbHandler;
                         dbHandler = new ROI_SqliteManager(Current_roi_interestActivity.this);
                         dbHandler.deleteitem();
+
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
@@ -139,7 +149,7 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                     Log.d("TEAM_RESPONSE",""+e.getMessage());
                 }
             }
-        }, activity, Constant.ROI_LIST, params, false);
+        }, activity, Constant.ROI_LIST, params, true);
 
     }
 

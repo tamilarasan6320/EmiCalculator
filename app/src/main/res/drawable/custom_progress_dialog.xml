@@ -18,7 +18,7 @@
             android:angle="0"
             android:centerColor="@color/primaryDarkColor"
             android:endColor="@color/white"
-            android:startColor="@color/black"
+            android:startColor="@color/primaryDarkColor"
             android:type="linear"
             android:useLevel="false" />
 
