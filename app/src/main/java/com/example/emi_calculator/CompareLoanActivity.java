@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Constant.Constant_CurrencyFormatDoller;
 import com.example.emi_calculator.Utility.Utility_CalculateLoanCompare;
+import com.example.emi_calculator.helper.Constant;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
@@ -45,6 +46,7 @@ public class CompareLoanActivity extends AppCompatActivity {
 
 
     EditText AmountEt1,AmountEt2,InterestEt1,InterestEt2,TenureEt1,TenureEt2;
+    String AmountEt1_,AmountEt2_,InterestEt1_,InterestEt2_,TenureEt1_,TenureEt2_,TypeSpin1_,TypeSpin2_;
     Spinner TypeSpin1,TypeSpin2;
     TextView Emi1tv,Emi2tv,EmiDiff,Interesttv1,Interesttv2,InterestDiff,TotalRepay1,TotalRepay2,TotalRepayDiff;
     Button Calculatebtn;
@@ -55,6 +57,7 @@ public class CompareLoanActivity extends AppCompatActivity {
     LinearLayout calculateemi_ll_visible;
     Button btn_reset;
     InputMethodManager inputMethodManager;
+    Button btn_share;
 
 
     @Override
@@ -69,6 +72,7 @@ public class CompareLoanActivity extends AppCompatActivity {
 
         Calculatebtn = findViewById(R.id.calculate_btn);
         btn_reset = findViewById(R.id.btn_reset);
+        btn_share = findViewById(R.id.btn_share);
         calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
 
         Toolbtn = findViewById(R.id.toolbar);
@@ -117,6 +121,28 @@ public class CompareLoanActivity extends AppCompatActivity {
 ////                shareImage(createBitmap, CompareLoanActivity.this);
 ////            }
 //        });
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Create an ACTION_SEND Intent*/
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                /*This will be the actual content you wish you share.*/
+                String shareBody = "Amount 1 = ₹ "+AmountEt1_+ "\nAmount 2 = ₹ "+AmountEt2_ +
+                        "\nInterest 1 = "+InterestEt1_+" %" +  "\nInterest 2 = "+InterestEt2_ +" %"+ "\nTenure in Months 1 = "+TenureEt1_ +
+                        "\nTenure in Months 2 = "+TenureEt2_ + "\nEMI Type 1 = "+TypeSpin1_ + "\nEMI Type 2 = "+TypeSpin2_+ "\n\n" + "EMI 1 = "+Emi1tv.getText().toString().trim() + "\nEMI 2 = "+Emi2tv.getText().toString().trim() + "\nDifference = "+EmiDiff.getText().toString().trim() +
+                        "\n\nInterest Payable 1 = "+Interesttv1.getText().toString().trim() + "\nInterest Paayable 2 = "+Interesttv2.getText().toString().trim() + "\nDifference = "+InterestDiff.getText().toString().trim()  + "\n\nTotal Payable 1 = "+TotalRepay1.getText().toString().trim()+
+                         "\nTotal Payable 2 = "+TotalRepay2.getText().toString().trim()+ "\nDifference = "+TotalRepayDiff.getText().toString().trim() + Constant.SHAREMSG;
+                /*The type of the content is text, obviously.*/
+                intent.setType("text/plain");
+                /*Applying information Subject and Body.*/
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Compare Loan");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                /*Fire!*/
+                startActivity(Intent.createChooser(intent, "Share Using "));
+            }
+        });
+
+
 
         AmountEt1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -300,6 +326,14 @@ public class CompareLoanActivity extends AppCompatActivity {
             Toast.makeText(this, "Choose Emi Type", Toast.LENGTH_SHORT).show();
 
         }else{
+            AmountEt1_ = AmountEt1.getText().toString().trim();
+            AmountEt2_ = AmountEt2.getText().toString().trim();
+            InterestEt1_ = InterestEt1.getText().toString().trim();
+            InterestEt2_ = InterestEt2.getText().toString().trim();
+            TenureEt1_ = TenureEt1.getText().toString().trim();
+            TenureEt2_ = TenureEt2.getText().toString().trim();
+            TypeSpin1_ = TypeSpin1.getSelectedItem().toString().trim();
+            TypeSpin2_ = TypeSpin2.getSelectedItem().toString().trim();
             calculateemi_ll_visible.setVisibility(View.VISIBLE);
 
             String obj = TypeSpin1.getSelectedItem().toString();
@@ -330,6 +364,7 @@ public class CompareLoanActivity extends AppCompatActivity {
             } else {
                 str2 = null;
             }
+
             double parseDouble = Double.parseDouble(str.replace(",", str3)) - Double.parseDouble(str2.replace(",", str3));
             this.EmiDiff.setText(rs + " " + Constant_CurrencyFormatDoller.dollerFormat(String.valueOf(Math.abs(parseDouble)),rs));
             String charSequence = this.Interesttv1.getText().toString();

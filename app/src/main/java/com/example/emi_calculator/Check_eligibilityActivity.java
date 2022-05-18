@@ -28,6 +28,7 @@ import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Constant.Constant_CurrencyFormatDoller;
 import com.example.emi_calculator.Utility.Utility_CalculateAmount;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
+import com.example.emi_calculator.helper.Constant;
 import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
@@ -48,7 +49,8 @@ public class Check_eligibilityActivity extends AppCompatActivity {
     Utility_CalculateAmount utility_calculateAmount;
     Utility_CalculateEMI utility_calculateEMI;
     int loanTenureValue;
-    Button reset_btn;
+    Button reset_btn,btn_share;
+    String edSalary_,edExisting_,edNewPossibleEmi_,edInterest_,edYear_,spSalaryPer_,spPropertyPer_,spAgreementPer_,edPropertyValue_,edAgreementValue_;
 
 
     @Override
@@ -62,7 +64,7 @@ public class Check_eligibilityActivity extends AppCompatActivity {
         reset_btn = findViewById(R.id.reset_btn);
         linearLayout = findViewById(R.id.design_bottom_sheetcl);
         calculateemi_ll_visible = findViewById(R.id.calculateemi_ll_visible);
-       // bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+        btn_share = findViewById(R.id.btn_share);
         ToolIcon = findViewById(R.id.toolbar);
         calbtn = findViewById(R.id.calculate_btn);
         spAgreementPer = findViewById(R.id.eligiblity_document_sp_agreement_value_per);
@@ -339,6 +341,27 @@ public class Check_eligibilityActivity extends AppCompatActivity {
 
             }
         });
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Create an ACTION_SEND Intent*/
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                /*This will be the actual content you wish you share.*/
+                String shareBody = "Salary Details : \n" +"Monthly Salary = ₹ "+edSalary_+ "\nFOIR = "+spSalaryPer_ +" %"
+                        + "\nExisting EMI = ₹ "+edExisting_+ "\nEligible EMI = ₹ "+edNewPossibleEmi_+ "\nInterest Rate Per Year = ₹ "+edInterest_ +" %"+ "\nTenure in Years = "+edYear_
+                        +"\n\n" + "Property Details : \n" +  "Property Value = "+edPropertyValue_+"\nLTV = "+spPropertyPer_+"\n\n" + "Document Details : \n" +"Agreement Value = "
+                        +edAgreementValue_+"\nAgreement(%) = "+spAgreementPer_+"\n\n" + "Loan Based on Salary = " + tvLoanBasedOnSalary.getText().toString().trim() + "\nLoan Based on Property = "+
+                        tvProperty.getText().toString().trim()  + "\nLoan Based on Agreement = " +tvAgreement.getText().toString().trim() + "\nEMI per Lakhs = " +tvEmiPerLac.getText().toString().trim() +
+                        "\nMinimum Eligible Loan Amount = " +tvMinimum.getText().toString().trim() + "\nEMI = " +tvMiniEMI.getText().toString().trim() + Constant.SHAREMSG;
+                /*The type of the content is text, obviously.*/
+                intent.setType("text/plain");
+                /*Applying information Subject and Body.*/
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Check Eligibility");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                /*Fire!*/
+                startActivity(Intent.createChooser(intent, "Share Using "));
+            }
+        });
 
 
 
@@ -396,6 +419,16 @@ public class Check_eligibilityActivity extends AppCompatActivity {
                 Toast.makeText(this, "Enter the Tenure Year more than zero", Toast.LENGTH_SHORT).show();
             }
             else{
+                edSalary_ = edSalary.getText().toString().trim();
+                edExisting_ = edExisting.getText().toString().trim();
+                edNewPossibleEmi_ = edNewPossibleEmi.getText().toString().trim();
+                edInterest_ = edInterest.getText().toString().trim();
+                edYear_ = edYear.getText().toString().trim();
+                edPropertyValue_ = edPropertyValue.getText().toString().trim();
+                edAgreementValue_ = edAgreementValue.getText().toString().trim();
+                spSalaryPer_ = spSalaryPer.getSelectedItem().toString().trim();
+                spPropertyPer_ = spPropertyPer.getSelectedItem().toString().trim();
+                spAgreementPer_ = spAgreementPer.getSelectedItem().toString().trim();
                 calculateemi_ll_visible.setVisibility(View.VISIBLE);
                 loanTenureValue = Integer.parseInt(edYear.getText().toString());
                 loanTenureValue = loanTenureValue * 12;

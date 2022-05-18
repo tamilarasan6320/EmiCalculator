@@ -393,8 +393,39 @@
                             layout="@layout/view_compareloan_result"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_share"
+                            style="@style/BrandButtonStyle"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:text="Share"
+                            app:icon="@drawable/ic_baseline_share_24"
+                            app:backgroundTint="@color/primaryColor"/>
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="3dp">
+
+
+
+
+
+                        <Button
+                            android:visibility="gone"
+                            android:id="@+id/activity_calculate_emi_btn_save"
+                            style="@style/BrandButtonStyle"
+                            android:layout_weight="1"
+                            android:text="Save"
+                            app:backgroundTint="@color/primaryColor"/>
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

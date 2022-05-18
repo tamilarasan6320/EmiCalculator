@@ -29,14 +29,14 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="EMI 1"/>
                 <TextView
                     android:id="@+id/emi1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:layout_gravity="center"
                     android:text="0"/>
             </LinearLayout>
@@ -49,14 +49,14 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="EMI 2"/>
                 <TextView
                     android:id="@+id/emi2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:layout_gravity="center"
                     android:text="0"/>
             </LinearLayout>
@@ -73,13 +73,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:textColor="@color/red"
+                android:textColor="@color/primaryDarkColor"
                 android:text="Difference"/>
             <TextView
                 android:id="@+id/emidiff_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primaryDarkColor"
+                android:textColor="@color/secondary"
                 android:textSize="20dp"
                 android:layout_gravity="center"
                 android:text="0"/>
@@ -108,13 +108,13 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="Interest Payable 1"/>
                 <TextView
                     android:id="@+id/interest1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:textSize="18dp"
                     android:layout_gravity="center"
                     android:text="0"/>
@@ -128,13 +128,13 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="Interest Payable 2"/>
                 <TextView
                     android:id="@+id/interest2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:textSize="18dp"
                     android:layout_gravity="center"
                     android:text="0"/>
@@ -152,13 +152,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:textColor="@color/red"
+                android:textColor="@color/primaryDarkColor"
                 android:text="Difference"/>
             <TextView
                 android:id="@+id/interestdiff_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primaryDarkColor"
+                android:textColor="@color/secondary"
                 android:textSize="20dp"
                 android:layout_gravity="center"
                 android:text="0"/>
@@ -187,14 +187,14 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="Total Payable 1"/>
                 <TextView
                     android:id="@+id/total_repay1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:layout_gravity="center"
                     android:text="0"/>
             </LinearLayout>
@@ -207,14 +207,14 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryLightColor"
+                    android:textColor="@color/primaryDarkColor"
                     android:text="Total Payable 2"/>
                 <TextView
                     android:id="@+id/total_repay2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@color/black"
+                    android:textColor="#353535"
                     android:layout_gravity="center"
                     android:text="0"/>
             </LinearLayout>
@@ -231,13 +231,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:textColor="@color/red"
+                android:textColor="@color/primaryDarkColor"
                 android:text="Difference"/>
             <TextView
                 android:id="@+id/total_repaydiff_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primaryDarkColor"
+                android:textColor="@color/secondary"
                 android:textSize="20dp"
                 android:layout_gravity="center"
                 android:text="0"/>

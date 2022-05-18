@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.emi_calculator.Constant.Constant_Variable;
+import com.example.emi_calculator.helper.Constant;
 
 public class DocumentActivity extends AppCompatActivity {
 
@@ -115,7 +116,7 @@ public class DocumentActivity extends AppCompatActivity {
                         doctitle2.getText().toString() + "\n"  +
                         docsubtitle2.getText().toString() + "\n" +
                         doctitle3.getText().toString() + "\n" +
-                        docsubtitle3.getText().toString()
+                        docsubtitle3.getText().toString()  + Constant.SHAREMSG
                         ;
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.SEND");

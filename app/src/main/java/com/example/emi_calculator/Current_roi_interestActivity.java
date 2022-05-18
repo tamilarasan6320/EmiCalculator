@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,12 +44,15 @@ public class Current_roi_interestActivity extends AppCompatActivity {
     Activity activity;
     ROI modelROI = new ROI();
     Session session;
+    ProgressDialog progressDialog ;
+    TabsAdapter2 tabsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_roi_interest);
         activity = Current_roi_interestActivity.this;
+        progressDialog = new ProgressDialog(this);
 
         session = new Session(activity);
 
@@ -64,13 +68,9 @@ public class Current_roi_interestActivity extends AppCompatActivity {
 
             }
         });
-        if (session.getData("roi").equals("")){
-            Toast.makeText(activity, "Connect Internet for Update Rate of Interesr", Toast.LENGTH_SHORT).show();
 
-        }
 
         updateROI();
-        //readAllData();
 
 
 
@@ -78,13 +78,13 @@ public class Current_roi_interestActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Personal"));
         tabLayout.addTab(tabLayout.newTab().setText("Home"));
         tabLayout.addTab(tabLayout.newTab().setText("Business"));
-        tabLayout.addTab(tabLayout.newTab().setText("LOB"));
+        tabLayout.addTab(tabLayout.newTab().setText("LAP"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 
         viewPager =(ViewPager)findViewById(R.id.view_pager);
-        TabsAdapter2 tabsAdapter = new TabsAdapter2(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(tabsAdapter);
+        tabsAdapter = new TabsAdapter2(getSupportFragmentManager(), tabLayout.getTabCount());
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -101,6 +101,17 @@ public class Current_roi_interestActivity extends AppCompatActivity {
 
             }
         });
+        if (session.getData("roi").equals("")){
+            progressDialog.setTitle("Fetching Data");
+            progressDialog.setMessage("Please Wait...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+            Toast.makeText(activity, "Connect Internet for Update Rate of Interesr", Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+            viewPager.setAdapter(tabsAdapter);
+        }
 
     }
 
@@ -137,6 +148,8 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                                 break;
                             }
                         }
+                        viewPager.setAdapter(tabsAdapter);
+                        progressDialog.dismiss();
 
 
                     }
@@ -149,7 +162,7 @@ public class Current_roi_interestActivity extends AppCompatActivity {
                     Log.d("TEAM_RESPONSE",""+e.getMessage());
                 }
             }
-        }, activity, Constant.ROI_LIST, params, true);
+        }, activity, Constant.ROI_LIST, params, false);
 
     }
 

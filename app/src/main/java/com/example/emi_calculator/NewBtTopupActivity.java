@@ -19,6 +19,7 @@ import com.example.emi_calculator.Constant.Constant_CurrencyFormat;
 import com.example.emi_calculator.Databasehelper.BT_DBHistory;
 import com.example.emi_calculator.Databasehelper.DB_BTHistory;
 import com.example.emi_calculator.Utility.Utility_CalculateEMI;
+import com.example.emi_calculator.helper.Constant;
 import com.example.emi_calculator.model.ModelBTHistory;
 import com.example.emi_calculator.model.ModelNewBTHistory;
 
@@ -27,6 +28,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
     Button btnSave,btnHistory;
     Utility_CalculateEMI utility_calculateEMI;
     ModelNewBTHistory modelBTHistory = new ModelNewBTHistory();
+    Button btn_share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +51,32 @@ public class NewBtTopupActivity extends AppCompatActivity {
         etFoir = findViewById(R.id.etFoir);
         btnSave = findViewById(R.id.btnSave);
         btnHistory = findViewById(R.id.btnHistory);
+        btn_share = findViewById(R.id.btn_share);
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NewBtTopupActivity.this,BTTopUpHistoryActivity.class);
                 startActivity(intent);
+            }
+        });
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Create an ACTION_SEND Intent*/
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                /*This will be the actual content you wish you share.*/
+                String shareBody = "Salary = ₹ "+etSalary.getText().toString().trim()+ "\nSanctioned Amount = ₹ "+etSanctionedAmount.getText().toString().trim()
+                        + "\nCurrent Balance = ₹ "+etCurrentBalance.getText().toString().trim()+ "\nNumber of EMI Paid = ₹ "+etEMIPaid.getText().toString().trim()+ "\nBT Amount = ₹ "+etBTAmount.getText().toString().trim()+ "\nTopUp Amount = ₹ "+etTopupAmount.getText().toString().trim()+ "\nBT ROI = "+etBTROI.getText().toString().trim() +" %"+ "\nTopUp ROI = "+etTopupROI.getText().toString().trim() +" %"+ "\nBT Tenure = "+etBTTenure.getText().toString().trim() + "\nTopUp Tenure = "+etTopupTenure.getText().toString().trim()
+                        + "\nBT EMI = ₹ "+etBTEMI.getText().toString().trim()+ "\nTopUp EMI = ₹ "+etTopupEMI.getText().toString().trim()+ "\nFOIR = "+etFoir.getText().toString().trim()+" %"
+                        + "\nTotal EMI = ₹ "+etTotalEMI.getText().toString().trim() + Constant.SHAREMSG;
+                /*The type of the content is text, obviously.*/
+                intent.setType("text/plain");
+                /*Applying information Subject and Body.*/
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "BT TopUp Calculator");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                /*Fire!*/
+                startActivity(Intent.createChooser(intent, "Share Using "));
+
             }
         });
 
@@ -311,8 +334,7 @@ public class NewBtTopupActivity extends AppCompatActivity {
                     EditText editText = etTopupEMI;
                     editText.setSelection(editText.getText().toString().trim().length());
                     setFoirPercentage(etSalary.getText().toString().trim(),etBTEMI.getText().toString().trim(),etTopupEMI.getText().toString().trim());
-
-                    //rupeeswords.setText(Constant_NumToWord_Rupee.convertNumberToWords(Long.parseLong(clearFormet(trim2))));
+                    calculateEMI(etBTEMI.getText().toString().replaceAll(",", "").trim(),etTopupEMI.getText().toString().replaceAll(",", "").trim());
 
                 } else {
                     etTopupEMI.removeTextChangedListener(this);
@@ -517,13 +539,11 @@ public class NewBtTopupActivity extends AppCompatActivity {
     }
     public void setFoirPercentage(String totalvalue, String btvalue,String topupvalue) {
         if (totalvalue.length() > 0 && btvalue.length() > 0 && topupvalue.length() > 0){
+
             double totalvalue2 = Integer.parseInt(btvalue.replaceAll(",",""))+Integer.parseInt(topupvalue.replaceAll(",",""));
-
             double total = Double.parseDouble(totalvalue.replaceAll(",",""));
+            Log.d("FOIR_VALUE",""+totalvalue2 + total);
             etFoir.setText(""+calculatePercentage(totalvalue2,total));
-
-
-
         }
 
     }
