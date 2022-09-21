@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.emi_calculator"
+        applicationId "com.gm.emi_calculator"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
